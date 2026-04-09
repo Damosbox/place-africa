@@ -13,8 +13,6 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
-} from "lucide-react";
-import {
   MessageCircle,
   CreditCard,
   Bell,

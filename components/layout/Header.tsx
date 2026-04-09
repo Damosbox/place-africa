@@ -3,9 +3,13 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils/cn";
-import { MobileMenu } from "./MobileMenu";
+
+const MobileMenu = dynamic(() =>
+  import("./MobileMenu").then((m) => m.MobileMenu), { ssr: false }
+);
 
 const navLinks = [
   { label: "Plateforme", href: "/plateforme" },
@@ -21,7 +25,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

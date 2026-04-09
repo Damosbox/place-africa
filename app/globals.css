@@ -40,4 +40,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* rendering-content-visibility: defer paint of below-fold sections */
+  .section-below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
 }

@@ -37,7 +37,7 @@ const colorVariants: Record<string, { bg: string; text: string; border: string }
 
 export function SolutionsTeaser() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding section-below-fold bg-white">
       <div className="container-site">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div>

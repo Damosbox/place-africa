@@ -29,7 +29,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function SectorsTeaser() {
   return (
-    <section className="section-padding bg-neutral-50">
+    <section className="section-padding section-below-fold bg-neutral-50">
       <div className="container-site">
         <div className="text-center mb-12">
           <motion.div

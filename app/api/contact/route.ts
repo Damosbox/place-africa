@@ -1,6 +1,15 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 const contactSchema = z.object({
   name: z.string().min(2),
   company: z.string().min(1),
@@ -39,14 +48,14 @@ export async function POST(request: Request) {
         html: `
           <h2>Nouvelle demande de démo</h2>
           <table>
-            <tr><td><strong>Nom</strong></td><td>${data.name}</td></tr>
-            <tr><td><strong>Entreprise</strong></td><td>${data.company}</td></tr>
-            <tr><td><strong>Email</strong></td><td>${data.email}</td></tr>
-            <tr><td><strong>Téléphone</strong></td><td>${data.phone ?? "—"}</td></tr>
-            <tr><td><strong>Secteur</strong></td><td>${data.sector}</td></tr>
+            <tr><td><strong>Nom</strong></td><td>${escapeHtml(data.name)}</td></tr>
+            <tr><td><strong>Entreprise</strong></td><td>${escapeHtml(data.company)}</td></tr>
+            <tr><td><strong>Email</strong></td><td>${escapeHtml(data.email)}</td></tr>
+            <tr><td><strong>Téléphone</strong></td><td>${data.phone ? escapeHtml(data.phone) : "—"}</td></tr>
+            <tr><td><strong>Secteur</strong></td><td>${escapeHtml(data.sector)}</td></tr>
           </table>
           <h3>Message</h3>
-          <p>${data.message.replace(/\n/g, "<br>")}</p>
+          <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
         `,
         text: `
 Nouvelle demande de démo
