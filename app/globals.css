@@ -37,7 +37,7 @@
 
   /* Orange accent gradient text — Klaviyo-inspired warm highlight */
   .gradient-text {
-    background: linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 60%, #FFB347 100%);
+    background: linear-gradient(135deg, #FE1B00 0%, #FE4D2B 60%, #FE7055 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
