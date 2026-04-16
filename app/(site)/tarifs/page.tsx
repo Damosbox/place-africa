@@ -1,23 +1,52 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { SectionTag } from "@/components/ui/SectionTag";
-import { Button } from "@/components/ui/Button";
+import { PricingCalculator } from "@/components/sections/tarifs/PricingCalculator";
 
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
-    "Tarification Docaya sur mesure selon votre secteur, volume de messages et modules activés. Contactez-nous pour un devis personnalisé.",
+    "Estimez votre budget Docaya en temps réel. Configurez vos modules, volume de messages et nombre d'utilisateurs avec notre calculateur interactif.",
 };
 
-const modules = [
-  "Agent d'Accueil & Orientation",
-  "Recouvrement Automatisé",
-  "Notifications Sortantes",
-  "Vente & Souscription",
-  "Déclaration & Suivi d'Incidents",
-  "Workflows Métiers Spécialisés",
-  "Enquête de Satisfaction (NPS)",
+const pricingBlocks = [
+  {
+    title: "Plateforme",
+    description: "Abonnement mensuel selon le nombre d'utilisateurs actifs.",
+    items: [
+      "< 5 000 utilisateurs — 38 000 FCFA / mois",
+      "< 10 000 utilisateurs — 60 000 FCFA / mois",
+      "< 20 000 utilisateurs — 95 000 FCFA / mois",
+      "< 50 000 utilisateurs — 170 000 FCFA / mois",
+      "< 100 000 utilisateurs — 335 000 FCFA / mois",
+    ],
+  },
+  {
+    title: "WhatsApp Business",
+    description: "Facturation par fenêtre de 24h, indépendamment du nombre de messages échangés.",
+    items: [
+      "Conversations entrantes — 15 FCFA / fenêtre 24h",
+      "Notifications sortantes — 30 FCFA / fenêtre 24h",
+    ],
+  },
+  {
+    title: "SMS",
+    description: "Tarif dégressif selon le volume mensuel et l'opérateur.",
+    items: [
+      "Orange — 12 → 9 FCFA / SMS (1k → 50k)",
+      "MTN — 17 → 12 FCFA / SMS (1k → 50k)",
+      "Moov — 17 → 12 FCFA / SMS (1k → 50k)",
+    ],
+  },
+  {
+    title: "Configuration (one-time)",
+    description: "Frais de mise en place des flows conversationnels sur mesure.",
+    items: [
+      "Flow basique — 500 000 FCFA",
+      "Flow medium — 1 000 000 FCFA",
+      "Flow complexe — 2 000 000 FCFA",
+    ],
+  },
 ];
 
 const included = [
@@ -32,7 +61,7 @@ const included = [
 const faqs = [
   {
     q: "Comment fonctionne la tarification ?",
-    a: "Docaya est tarifé selon les modules activés, le volume mensuel de messages envoyés et le nombre d'utilisateurs. Chaque configuration est unique.",
+    a: "L'abonnement plateforme est basé sur le nombre d'utilisateurs actifs. S'y ajoutent les coûts d'usage : conversations WhatsApp (15 FCFA entrant / 30 FCFA sortant par fenêtre 24h) et SMS selon le volume et l'opérateur.",
   },
   {
     q: "Y a-t-il un engagement minimum ?",
@@ -40,11 +69,11 @@ const faqs = [
   },
   {
     q: "Les frais Meta WhatsApp sont-ils inclus ?",
-    a: "Les frais de conversation WhatsApp Business (Meta) sont facturés séparément selon les tarifs Meta en vigueur.",
+    a: "Les 15 FCFA / 30 FCFA couvrent les frais Docaya. Les frais de conversation Meta WhatsApp Business sont facturés séparément selon les tarifs Meta en vigueur.",
   },
   {
-    q: "Puis-je activer un seul module ?",
-    a: "Oui, chaque brique est activable indépendamment. Vous pouvez démarrer avec un seul module et en ajouter d'autres ultérieurement.",
+    q: "Qu'est-ce qu'un flow de configuration ?",
+    a: "Un flow est un parcours conversationnel sur mesure (chatbot, agent IA, formulaire). Basique = flux simple, Medium = logique conditionnelle, Complexe = intégration API externe ou tarificateur avancé.",
   },
 ];
 
@@ -61,85 +90,56 @@ export default function TarifsPage() {
             Une tarification<br />adaptée à votre usage
           </h1>
           <p className="text-white/75 text-xl max-w-2xl mx-auto">
-            Pas de forfait rigide. Vous payez pour les modules que vous utilisez
-            et le volume réel de vos interactions.
+            Pas de forfait rigide. Configurez votre abonnement avec notre
+            estimateur interactif — modules, messages, utilisateurs.
           </p>
         </div>
       </section>
 
-      {/* Pricing model */}
+      {/* Interactive Pricing Calculator */}
+      <PricingCalculator />
+
+      {/* Grille tarifaire */}
       <section className="section-padding bg-white">
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Modules */}
-            <div>
-              <SectionTag className="mb-6">Modules</SectionTag>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-                Activez uniquement ce dont vous avez besoin
-              </h2>
-              <p className="text-neutral-600 mb-8">
-                Chaque module a un tarif indépendant. Combinez-les selon vos
-                processus métiers.
-              </p>
-              <ul className="space-y-3">
-                {modules.map((m) => (
-                  <li key={m} className="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 bg-neutral-50">
-                    <CheckCircle2 size={18} className="text-brand shrink-0" />
-                    <span className="text-neutral-800 font-medium text-sm">{m}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="text-center mb-12">
+            <SectionTag className="mb-4">Grille tarifaire</SectionTag>
+            <h2 className="text-3xl font-bold text-neutral-900">
+              Tous les tarifs en détail
+            </h2>
+          </div>
 
-            {/* Included */}
-            <div>
-              <SectionTag className="mb-6">Inclus dans tous les plans</SectionTag>
-              <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-                Toujours compris
-              </h2>
-              <p className="text-neutral-600 mb-8">
-                Quel que soit votre abonnement, ces éléments sont inclus sans
-                coût supplémentaire.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {included.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
-                    <span className="text-neutral-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA card */}
-              <div className="bg-hero-gradient rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-2">Obtenir un devis</h3>
-                <p className="text-white/75 text-sm mb-6">
-                  Partagez votre contexte — secteur, volume, modules souhaités —
-                  et nous vous envoyons une proposition sous 24h.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/contact">
-                    <Button
-                      variant="ghost"
-                      size="md"
-                      className="bg-white text-brand hover:bg-white/90 w-full sm:w-auto"
-                    >
-                      Demander un devis
-                      <ArrowRight size={16} />
-                    </Button>
-                  </Link>
-                  <a
-                    href="https://wa.me/2250701795666?text=Bonjour%2C%20je%20souhaite%20un%20devis%20Docaya."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="whatsapp" size="md" className="w-full sm:w-auto">
-                      <MessageCircle size={16} />
-                      WhatsApp
-                    </Button>
-                  </a>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {pricingBlocks.map((block) => (
+              <div
+                key={block.title}
+                className="rounded-2xl border border-neutral-200 p-6 bg-neutral-50"
+              >
+                <h3 className="font-bold text-neutral-900 mb-1">{block.title}</h3>
+                <p className="text-sm text-neutral-500 mb-4">{block.description}</p>
+                <ul className="space-y-2">
+                  {block.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2.5">
+                      <CheckCircle2 size={15} className="text-brand-accent shrink-0" />
+                      <span className="text-sm text-neutral-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+            ))}
+          </div>
+
+          {/* Included */}
+          <div className="bg-neutral-950 rounded-3xl p-8 md:p-12">
+            <SectionTag className="mb-4 bg-white/10 text-white">Inclus dans tous les plans</SectionTag>
+            <h2 className="text-2xl font-bold text-white mb-8">Toujours compris</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {included.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle2 size={16} className="text-brand-accent shrink-0" />
+                  <span className="text-white/80 text-sm">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -156,7 +156,10 @@ export default function TarifsPage() {
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-card">
+              <div
+                key={faq.q}
+                className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-card"
+              >
                 <h3 className="font-bold text-neutral-900 mb-3">{faq.q}</h3>
                 <p className="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
               </div>

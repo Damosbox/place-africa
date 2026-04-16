@@ -10,7 +10,7 @@ export default function SiteLayout({
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="overflow-x-clip">{children}</main>
       <Footer />
       <WhatsAppFab />
     </>

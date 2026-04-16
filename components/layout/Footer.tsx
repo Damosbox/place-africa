@@ -1,33 +1,25 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 const footerLinks = {
-  Plateforme: [
-    { label: "WhatsApp Business API", href: "/plateforme#whatsapp-api" },
-    { label: "Chatbots", href: "/plateforme#chatbots" },
-    { label: "Agents IA", href: "/plateforme#agents-ia" },
-    { label: "Notifications", href: "/plateforme#notifications" },
-    { label: "Paiement intégré", href: "/plateforme#paiement" },
+  Produits: [
+    { label: "Point — Gestion commerçants", href: "/contact" },
+    { label: "Docaya — Plateforme conversationnelle", href: "/plateforme" },
   ],
-  Solutions: [
-    { label: "Agent d'Accueil", href: "/solutions/agent-accueil" },
-    { label: "Recouvrement", href: "/solutions/recouvrement" },
-    { label: "Notifications Sortantes", href: "/solutions/notifications" },
-    { label: "Vente & Souscription", href: "/solutions/vente-souscription" },
-    { label: "Enquête NPS", href: "/solutions/satisfaction-nps" },
-  ],
-  Secteurs: [
-    { label: "Assurances", href: "/secteurs/assurances" },
-    { label: "Immobilier", href: "/secteurs/immobilier" },
-    { label: "Éducation", href: "/secteurs/education" },
-    { label: "Banques & Fintech", href: "/secteurs/banques" },
-    { label: "Hôtellerie", href: "/secteurs/hotellerie" },
-  ],
-  "Entreprise": [
-    { label: "À propos", href: "/a-propos" },
+  Docaya: [
+    { label: "Plateforme", href: "/plateforme" },
+    { label: "Solutions", href: "/solutions" },
+    { label: "Secteurs", href: "/secteurs" },
     { label: "Tarifs", href: "/tarifs" },
+    { label: "App Docaya", href: "https://app.docaya.com", external: true },
+  ],
+  Entreprise: [
+    { label: "À propos", href: "/a-propos" },
     { label: "Contact", href: "/contact" },
-    { label: "App Docaya", href: "https://app.docaya.com" },
+  ],
+  Légal: [
+    { label: "Conditions générales" },
+    { label: "Politique de confidentialité" },
   ],
 };
 
@@ -40,17 +32,14 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path
-                    d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9C1.5 10.38 1.89 11.67 2.55 12.78L1.5 16.5L5.22 15.45C6.33 16.11 7.62 16.5 9 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 9 1.5Z"
-                    fill="white"
-                  />
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z" fill="white" />
                 </svg>
               </div>
-              <span className="font-bold text-xl">docaya</span>
+              <span className="font-bold text-xl">Place Africa</span>
             </Link>
             <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-              Des conversations impactantes pour vos clients.
+              L'Afrique qui commerce, digitalisée.
             </p>
             <div className="flex flex-col gap-3 text-sm text-neutral-400">
               <a
@@ -69,7 +58,7 @@ export function Footer() {
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={14} />
-                Abidjan, Côte d'Ivoire
+                Abidjan, Côte d&apos;Ivoire
               </span>
             </div>
           </div>
@@ -80,13 +69,29 @@ export function Footer() {
               <h3 className="font-semibold text-sm text-white mb-4">{title}</h3>
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-neutral-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                  <li key={link.label}>
+                    {"external" in link && link.external ? (
+                      <a
+                        href={(link as { href: string }).href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                        <ExternalLink size={11} className="shrink-0" />
+                      </a>
+                    ) : "href" in link ? (
+                      <Link
+                        href={(link as { href: string }).href}
+                        className="text-sm text-neutral-400 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <span className="text-sm text-neutral-400">
+                        {link.label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -96,10 +101,14 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-neutral-500">
-            © {new Date().getFullYear()} Docaya. Tous droits réservés.
+            © {new Date().getFullYear()} Place Africa. Tous droits réservés.
           </p>
           <p className="text-sm text-neutral-500">
-            Plateforme conversationnelle B2B — Côte d'Ivoire & Afrique de l'Ouest
+            Propulsé par{" "}
+            <Link href="/plateforme" className="hover:text-neutral-300 transition-colors">
+              Docaya
+            </Link>{" "}
+            — Côte d&apos;Ivoire &amp; Afrique de l&apos;Ouest
           </p>
         </div>
       </div>

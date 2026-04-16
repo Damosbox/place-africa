@@ -15,19 +15,24 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const base =
-      "inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+      "inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none cursor-pointer";
 
     const variants = {
+      // Black primary — Klaviyo style
       primary:
-        "bg-brand text-white hover:bg-brand-light shadow-cta hover:shadow-hover active:scale-[0.98]",
+        "bg-neutral-900 text-white hover:bg-black shadow-cta active:scale-[0.98]",
+      // Light secondary
       secondary:
-        "bg-brand-subtle text-brand hover:bg-brand hover:text-white",
+        "bg-neutral-100 text-neutral-900 hover:bg-neutral-200",
+      // Black outline
       outline:
-        "border-2 border-brand text-brand bg-transparent hover:bg-brand hover:text-white",
+        "border-2 border-neutral-900 text-neutral-900 bg-transparent hover:bg-neutral-900 hover:text-white",
+      // Ghost / transparent
       ghost:
-        "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900",
+        "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900",
+      // WhatsApp green
       whatsapp:
-        "bg-whatsapp text-white hover:bg-[#20c55b] shadow-cta active:scale-[0.98]",
+        "bg-[#25D366] text-white hover:bg-[#20c55b] active:scale-[0.98]",
     };
 
     const sizes = {

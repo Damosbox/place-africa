@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils/cn";
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 interface NavLink {
   label: string;
   href: string;
+  disabled?: boolean;
 }
 
 interface MobileMenuProps {
@@ -49,15 +51,8 @@ export function MobileMenu({ links, isOpen, onClose }: MobileMenuProps) {
       >
         <div className="flex items-center justify-between p-6 border-b border-neutral-200">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-brand rounded-lg flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-                <path
-                  d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9C1.5 10.38 1.89 11.67 2.55 12.78L1.5 16.5L5.22 15.45C6.33 16.11 7.62 16.5 9 16.5C13.14 16.5 16.5 13.14 16.5 9C16.5 4.86 13.14 1.5 9 1.5Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <span className="font-bold text-lg text-neutral-900">docaya</span>
+            <Image src="/images/logo-dark.png" alt="Place Africa" width={28} height={28} className="object-contain" priority />
+            <span className="font-bold text-lg text-neutral-900">Place Africa</span>
           </div>
           <button
             onClick={onClose}
@@ -69,16 +64,25 @@ export function MobileMenu({ links, isOpen, onClose }: MobileMenuProps) {
         </div>
 
         <nav className="flex-1 p-6 flex flex-col gap-1">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="px-4 py-3 rounded-xl text-neutral-700 font-medium hover:bg-brand-subtle hover:text-brand transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.disabled ? (
+              <div
+                key={link.label}
+                className="px-4 py-2 text-xs font-semibold text-brand uppercase tracking-widest mt-3"
+              >
+                {link.label}
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className="px-4 py-3 rounded-xl text-neutral-700 font-medium hover:bg-brand-subtle hover:text-brand transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="p-6 border-t border-neutral-200 flex flex-col gap-3">

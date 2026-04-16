@@ -3,58 +3,47 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 
 export function CtaSection() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-black">
       <div className="container-site">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative rounded-3xl bg-hero-gradient overflow-hidden p-12 lg:p-20 text-center"
+          className="text-center"
         >
-          {/* Decoration */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/4" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4" />
-          </div>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-accent mb-6">
+            Démo disponible maintenant
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Prêt à digitaliser
+            <br />
+            votre commerce ?
+          </h2>
+          <p className="text-white/40 text-lg max-w-lg mx-auto mb-12">
+            Que vous soyez commerçant de proximité ou entreprise B2B, Place Africa
+            a un outil pour vous. Démo en 30 minutes.
+          </p>
 
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-white text-sm mb-6">
-              <span className="w-2 h-2 bg-whatsapp rounded-full animate-pulse" />
-              Démo disponible maintenant
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Prêt à transformer vos<br />interactions clients ?
-            </h2>
-            <p className="text-white/75 text-lg max-w-xl mx-auto mb-10">
-              Rejoignez les entreprises qui automatisent leurs conversations avec
-              Docaya. Démo personnalisée en 30 minutes.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact">
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="bg-white text-brand hover:bg-neutral-50 shadow-cta"
-                >
-                  Demander une démo
-                  <ArrowRight size={18} />
-                </Button>
-              </Link>
-              <a
-                href="https://wa.me/2250701795666?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo%20Docaya."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="whatsapp" size="lg">
-                  <MessageCircle size={18} />
-                  Discuter sur WhatsApp
-                </Button>
-              </a>
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/contact">
+              <button className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-white text-black font-bold text-base hover:bg-neutral-100 transition-all shadow-cta">
+                Demander une démo
+                <ArrowRight size={18} />
+              </button>
+            </Link>
+            <a
+              href="https://wa.me/2250701795666?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-[#25D366] text-white font-bold text-base hover:bg-[#20c55b] transition-all">
+                <MessageCircle size={18} />
+                WhatsApp
+              </button>
+            </a>
           </div>
         </motion.div>
       </div>
