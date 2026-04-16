@@ -1,29 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { SectionTag } from "@/components/ui/SectionTag";
-import { MapPin, Smartphone, TrendingUp } from "lucide-react";
+import { Smartphone, TrendingUp, MapPin } from "lucide-react";
 
 const features = [
   {
     icon: Smartphone,
     title: "Des outils simples",
     description:
-      "Des applications mobiles conçues pour être accessibles à tous les commerçants, sans formation technique.",
+      "Des applications mobiles accessibles à tous les commerçants, sans formation technique.",
   },
   {
     icon: TrendingUp,
     title: "Croissance mesurable",
     description:
-      "Commandes, stocks, caisse, employés, clients — tout dans une seule app pour prendre les meilleures décisions.",
+      "Commandes, stocks, caisse, employés, clients — tout dans une seule app pour mieux décider.",
   },
   {
     icon: MapPin,
     title: "Pensé pour l'Afrique",
     description:
-      "Des solutions adaptées aux réalités locales : marchés, boutiques, restaurants, salons — tous secteurs confondus.",
+      "Adapté aux réalités locales : marchés, boutiques, restaurants, salons — tous secteurs.",
   },
 ];
 
@@ -32,30 +30,29 @@ export function MissionSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding bg-white">
+    <section ref={ref} className="section-padding bg-white border-b border-neutral-100">
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left — Text */}
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <SectionTag className="mb-6">Notre mission</SectionTag>
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 leading-[1.2] mb-6">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-accent mb-5">
+              Notre mission
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 leading-tight mb-6">
               Digitaliser le commerce de proximité africain
             </h2>
-            <p className="text-neutral-600 text-lg leading-relaxed mb-6">
+            <p className="text-neutral-500 text-lg leading-relaxed mb-5">
               Place Africa est une startup éditrice d&apos;applications mobiles
-              utiles à la vie quotidienne de tous les Africains. Nos produits
-              sont spécifiquement adaptés aux très petites entreprises
-              commerciales.
+              pour la vie quotidienne de tous les Africains. Nos produits sont
+              adaptés aux très petites entreprises commerciales.
             </p>
-            <p className="text-neutral-600 leading-relaxed">
-              Nous aidons les commerçants africains à mieux gérer leurs
-              commandes, produits, caisse, stocks, dépenses, employés, clients —
-              et leur reporting. Par la même occasion, nous simplifions le
-              processus d&apos;achat du consommateur.
+            <p className="text-neutral-500 leading-relaxed">
+              Nous aidons les commerçants à mieux gérer leurs commandes, produits,
+              caisse, stocks, dépenses, employés, clients — et leur reporting.
             </p>
 
             {/* Stats */}
@@ -66,35 +63,29 @@ export function MissionSection() {
                 { value: "2", label: "produits" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-bold text-brand mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-neutral-500">{stat.label}</div>
+                  <div className="text-2xl font-bold text-neutral-900 mb-0.5">{stat.value}</div>
+                  <div className="text-sm text-neutral-400">{stat.label}</div>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right — Features */}
-          <div className="flex flex-col gap-5">
+          {/* Right — feature cards */}
+          <div className="flex flex-col gap-4">
             {features.map((feat, i) => (
               <motion.div
                 key={feat.title}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 24 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.15 * i }}
-                className="flex gap-4 p-5 rounded-2xl border border-neutral-100 bg-neutral-50 hover:border-brand-subtle hover:bg-brand-subtle/30 transition-colors"
+                transition={{ duration: 0.5, delay: 0.1 * i }}
+                className="flex gap-4 p-5 rounded-xl border border-neutral-100 bg-neutral-50 hover:border-neutral-200 hover:bg-white transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-brand-subtle flex items-center justify-center shrink-0">
-                  <feat.icon size={20} className="text-brand" />
+                <div className="w-10 h-10 rounded-lg bg-neutral-900 flex items-center justify-center shrink-0">
+                  <feat.icon size={18} className="text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-neutral-900 mb-1">
-                    {feat.title}
-                  </h3>
-                  <p className="text-sm text-neutral-500 leading-relaxed">
-                    {feat.description}
-                  </p>
+                  <h3 className="font-semibold text-neutral-900 mb-1">{feat.title}</h3>
+                  <p className="text-sm text-neutral-500 leading-relaxed">{feat.description}</p>
                 </div>
               </motion.div>
             ))}

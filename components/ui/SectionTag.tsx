@@ -9,7 +9,7 @@ export function SectionTag({ children, className }: SectionTagProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-subtle text-brand text-sm font-semibold",
+        "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-neutral-100 text-neutral-600 text-xs font-bold uppercase tracking-widest",
         className
       )}
     >

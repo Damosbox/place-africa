@@ -56,7 +56,7 @@ export function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -77,22 +77,31 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-card border-b border-neutral-200"
-            : "bg-transparent"
+            ? "bg-white/95 backdrop-blur-md border-b border-neutral-200"
+            : "bg-black/60 backdrop-blur-sm border-b border-white/5"
         )}
       >
         <div className="container-site">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo — Place Africa */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center shrink-0">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z" fill="white" />
+          <div className="flex items-center justify-between h-16 lg:h-18">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div
+                className={cn(
+                  "w-7 h-7 rounded-lg flex items-center justify-center transition-colors",
+                  scrolled ? "bg-neutral-900" : "bg-white"
+                )}
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z"
+                    className={scrolled ? "fill-white" : "fill-black"}
+                    fill="currentColor"
+                  />
                 </svg>
               </div>
               <span
                 className={cn(
-                  "font-bold text-xl tracking-tight transition-colors",
+                  "font-bold text-lg tracking-tight transition-colors",
                   scrolled ? "text-neutral-900" : "text-white"
                 )}
               >
@@ -102,7 +111,6 @@ export function Header() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
-              {/* Place Africa links */}
               {placeAfricaLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -110,21 +118,15 @@ export function Header() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                     scrolled
-                      ? "text-neutral-700 hover:text-brand hover:bg-brand-subtle"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
+                      : "text-white/70 hover:text-white hover:bg-white/8"
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
 
-              {/* Separator */}
-              <div
-                className={cn(
-                  "mx-2 h-5 w-px",
-                  scrolled ? "bg-neutral-200" : "bg-white/20"
-                )}
-              />
+              <div className={cn("mx-3 h-4 w-px", scrolled ? "bg-neutral-200" : "bg-white/15")} />
 
               {/* Docaya dropdown */}
               <div className="relative" ref={dropdownRef}>
@@ -133,35 +135,31 @@ export function Header() {
                   className={cn(
                     "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-colors",
                     scrolled
-                      ? "text-brand hover:bg-brand-subtle"
-                      : "text-white hover:bg-white/10"
+                      ? "text-neutral-900 hover:bg-neutral-100"
+                      : "text-white hover:bg-white/8"
                   )}
                 >
                   Docaya
                   <ChevronDown
-                    size={14}
-                    className={cn(
-                      "transition-transform duration-200",
-                      docayaOpen && "rotate-180"
-                    )}
+                    size={13}
+                    className={cn("transition-transform duration-200", docayaOpen && "rotate-180")}
                   />
                 </button>
 
-                {/* Dropdown panel */}
                 {docayaOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-hover border border-neutral-200 overflow-hidden z-50">
-                    <div className="p-2">
+                  <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-hover border border-neutral-200 overflow-hidden z-50">
+                    <div className="p-1.5">
                       {docayaLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
                           onClick={() => setDocayaOpen(false)}
-                          className="flex flex-col gap-0.5 px-3 py-2.5 rounded-xl hover:bg-brand-subtle transition-colors group"
+                          className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors group"
                         >
-                          <span className="text-sm font-medium text-neutral-900 group-hover:text-brand">
+                          <span className="text-sm font-semibold text-neutral-900 group-hover:text-brand-accent">
                             {link.label}
                           </span>
-                          <span className="text-xs text-neutral-500">
+                          <span className="text-xs text-neutral-400">
                             {link.description}
                           </span>
                         </Link>
@@ -180,20 +178,19 @@ export function Header() {
                 rel="noopener noreferrer"
                 className={cn(
                   "flex items-center gap-1.5 text-sm font-medium transition-colors",
-                  scrolled
-                    ? "text-neutral-600 hover:text-brand"
-                    : "text-white/80 hover:text-white"
+                  scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/50 hover:text-white"
                 )}
               >
                 App Docaya
-                <ExternalLink size={13} />
+                <ExternalLink size={12} />
               </a>
               <Link href="/contact">
                 <Button
-                  variant="outline"
+                  variant="primary"
                   size="sm"
                   className={cn(
-                    !scrolled && "border-white/50 text-white hover:bg-white hover:text-brand"
+                    "rounded-lg font-semibold",
+                    !scrolled && "bg-white text-black hover:bg-neutral-100"
                   )}
                 >
                   Demander une démo
@@ -206,9 +203,7 @@ export function Header() {
               onClick={() => setMobileOpen(true)}
               className={cn(
                 "lg:hidden p-2 rounded-lg transition-colors",
-                scrolled
-                  ? "text-neutral-700 hover:bg-neutral-100"
-                  : "text-white hover:bg-white/10"
+                scrolled ? "text-neutral-700 hover:bg-neutral-100" : "text-white hover:bg-white/10"
               )}
               aria-label="Ouvrir le menu"
             >

@@ -53,13 +53,13 @@ function Slider({ label, value, min, max, step, onChange, format }: SliderProps)
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium text-neutral-700">{label}</span>
-        <span className="text-sm font-bold text-brand tabular-nums">
+        <span className="text-sm font-bold text-brand-accent tabular-nums">
           {format(value)}
         </span>
       </div>
       <div className="relative h-2 bg-neutral-200 rounded-full">
         <div
-          className="absolute h-2 bg-brand rounded-full transition-all"
+          className="absolute h-2 bg-brand-accent rounded-full transition-all"
           style={{ width: `${pct}%` }}
         />
         <input
@@ -73,7 +73,7 @@ function Slider({ label, value, min, max, step, onChange, format }: SliderProps)
           aria-label={label}
         />
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-brand rounded-full shadow-md transition-all pointer-events-none"
+          className="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white border-2 border-brand-accent rounded-full shadow-md transition-all pointer-events-none"
           style={{ left: `calc(${pct}% - 10px)` }}
         />
       </div>
@@ -140,7 +140,7 @@ export function PricingCalculator() {
                 {modulesList.slice(0, activeModules).map((m) => (
                   <span
                     key={m}
-                    className="text-xs bg-brand-subtle text-brand px-2 py-0.5 rounded-full"
+                    className="text-xs bg-neutral-100 text-neutral-700 px-2 py-0.5 rounded-md"
                   >
                     {m}
                   </span>
@@ -161,7 +161,7 @@ export function PricingCalculator() {
 
           {/* Estimation card */}
           <div className="flex flex-col gap-4">
-            <div className="bg-hero-gradient rounded-3xl p-8 text-white flex-1">
+            <div className="bg-neutral-950 rounded-2xl p-8 text-white flex-1">
               <div className="text-white/70 text-sm font-medium mb-2">
                 Estimation mensuelle
               </div>
@@ -218,7 +218,7 @@ export function PricingCalculator() {
                   <Button
                     variant="ghost"
                     size="md"
-                    className="bg-white text-brand hover:bg-white/90 w-full"
+                    className="bg-white text-neutral-900 hover:bg-neutral-100 w-full"
                   >
                     Demander un devis précis
                     <ArrowRight size={16} />

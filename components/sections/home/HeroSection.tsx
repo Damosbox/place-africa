@@ -2,80 +2,88 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, ShoppingBag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+
+const logos = [
+  "Ivoire Académie",
+  "Box Africa",
+  "Wave",
+  "Orange Money",
+  "MTN Momo",
+];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-hero-gradient">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-brand/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-32 w-64 h-64 bg-brand-light/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-3xl" />
-        <svg
-          className="absolute inset-0 w-full h-full opacity-5"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+    <section className="relative flex flex-col overflow-hidden bg-black min-h-screen">
+      {/* Subtle grid texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
+            <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="1" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
 
-      <div className="container-site pt-32 pb-20 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Subtle orange glow top-right */}
+      <div className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none">
+        <div className="absolute top-[-100px] right-[-100px] w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px]" />
+      </div>
+
+      {/* Main content */}
+      <div className="flex-1 flex items-center container-site pt-32 pb-20 relative z-10">
+        <div className="max-w-5xl w-full">
           {/* Eyebrow */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white text-sm font-medium mb-8"
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2.5 border border-white/10 rounded-full px-4 py-2 text-white/60 text-sm font-medium mb-10"
           >
-            <span className="w-2 h-2 bg-brand-accent rounded-full animate-pulse" />
+            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse" />
             Startup africaine d&apos;applications mobiles
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline — Klaviyo style: massive, bold, white on black */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6"
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-8"
           >
-            L&apos;Afrique qui commerce,{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-brand-light via-purple-300 to-pink-300 bg-clip-text text-transparent">
-                digitalisée.
-              </span>
-              <span className="absolute -inset-1 bg-white/5 rounded-lg blur-sm" />
-            </span>
+            L&apos;Afrique qui{" "}
+            <br className="hidden sm:block" />
+            commerce,{" "}
+            <span className="gradient-text">digitalisée.</span>
           </motion.h1>
 
           {/* Subline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mx-auto mb-10"
+            transition={{ duration: 0.5, delay: 0.16 }}
+            className="text-lg sm:text-xl text-white/50 leading-relaxed max-w-2xl mb-12"
           >
-            Place Africa édite des outils simples et puissants pour aider les
-            petits commerçants africains à démarrer, gérer et développer leur
-            business.
+            Place Africa édite des outils simples pour aider les petits
+            commerçants africains à démarrer, gérer et développer leur business.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTAs — Klaviyo: black filled + orange accent */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            transition={{ duration: 0.5, delay: 0.24 }}
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
             <a href="#produits">
-              <Button variant="primary" size="lg" className="w-full sm:w-auto">
+              <Button
+                variant="primary"
+                size="lg"
+                className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold"
+              >
                 Nos produits
                 <ArrowRight size={18} />
               </Button>
@@ -84,54 +92,57 @@ export function HeroSection() {
               <Button
                 variant="ghost"
                 size="lg"
-                className="w-full sm:w-auto text-white hover:bg-white/10 hover:text-white"
+                className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg"
               >
                 À propos
               </Button>
             </Link>
           </motion.div>
 
-          {/* Key propositions */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-4"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex items-center gap-10 mt-16 pt-10 border-t border-white/8"
           >
             {[
-              { icon: ShoppingBag, label: "Pour les commerçants : Gérer mieux" },
-              { icon: TrendingUp, label: "Pour les consommateurs : Acheter facilement" },
-            ].map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2"
-              >
-                <Icon size={14} className="text-brand-accent shrink-0" />
-                <span className="text-white text-sm font-medium">{label}</span>
+              { value: "2", label: "pays" },
+              { value: "+1 000", label: "commerçants actifs" },
+              { value: "2", label: "produits" },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="text-3xl font-bold text-white">{s.value}</div>
+                <div className="text-white/40 text-sm mt-0.5">{s.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
-
-        {/* Stats floating */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-8 sm:gap-16 mt-20"
-        >
-          {[
-            { value: "2", label: "pays" },
-            { value: "+1 000", label: "commerçants" },
-            { value: "2", label: "produits actifs" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-4xl font-bold text-white mb-1">{s.value}</div>
-              <div className="text-white/50 text-sm">{s.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
+      {/* Orange brand bar — Klaviyo's customer logo strip */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        className="relative z-10 bg-brand-accent py-4 overflow-hidden"
+      >
+        <div className="container-site flex items-center gap-3">
+          <span className="text-white/80 text-xs font-semibold uppercase tracking-widest shrink-0 mr-4">
+            Nos partenaires
+          </span>
+          <div className="flex items-center gap-8 overflow-hidden">
+            {logos.map((logo) => (
+              <span
+                key={logo}
+                className="text-white font-bold text-sm whitespace-nowrap opacity-90"
+              >
+                {logo}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 }
