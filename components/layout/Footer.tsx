@@ -18,8 +18,8 @@ const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   Légal: [
-    { label: "Conditions générales", href: "https://docaya.com/cgu", external: true },
-    { label: "Politique de confidentialité", href: "https://docaya.com/privacy-policy", external: true },
+    { label: "Conditions générales" },
+    { label: "Politique de confidentialité" },
   ],
 };
 
@@ -69,10 +69,10 @@ export function Footer() {
               <h3 className="font-semibold text-sm text-white mb-4">{title}</h3>
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
-                  <li key={link.href + link.label}>
+                  <li key={link.label}>
                     {"external" in link && link.external ? (
                       <a
-                        href={link.href}
+                        href={(link as { href: string }).href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors"
@@ -80,13 +80,17 @@ export function Footer() {
                         {link.label}
                         <ExternalLink size={11} className="shrink-0" />
                       </a>
-                    ) : (
+                    ) : "href" in link ? (
                       <Link
-                        href={link.href}
+                        href={(link as { href: string }).href}
                         className="text-sm text-neutral-400 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
+                    ) : (
+                      <span className="text-sm text-neutral-400">
+                        {link.label}
+                      </span>
                     )}
                   </li>
                 ))}
