@@ -55,7 +55,7 @@ export function ProductsSection() {
 
             <div>
               <p className="text-xl font-semibold text-neutral-900 mb-3 leading-snug">
-                Votre entreprise automatisée sur WhatsApp.
+                Votre entreprise automatisée sur votre outil favori : WhatsApp.
               </p>
               <p className="text-neutral-500 leading-relaxed">
                 DOCAYA est une plateforme conversationnelle B2B à IA native
