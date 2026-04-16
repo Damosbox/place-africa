@@ -29,13 +29,13 @@ export function HeroSection() {
       </div>
 
       {/* Subtle orange glow top-right */}
-      <div className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none">
-        <div className="absolute top-[-100px] right-[-100px] w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Main content */}
-      <div className="flex-1 flex items-center container-site pt-32 pb-20 relative z-10">
-        <div className="max-w-5xl w-full">
+      <div className="flex-1 flex items-center justify-center container-site pt-32 pb-20 relative z-10">
+        <div className="w-full max-w-4xl mx-auto text-center">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -52,11 +52,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-8"
+            className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-bold text-white leading-[1.05] tracking-tight mb-8"
           >
-            L&apos;Afrique qui{" "}
-            <br className="hidden sm:block" />
-            commerce,{" "}
+            L&apos;Afrique qui commerce,{" "}
             <span className="gradient-text">digitalisée.</span>
           </motion.h1>
 
@@ -65,18 +63,18 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-lg sm:text-xl text-white/50 leading-relaxed max-w-2xl mb-12"
+            className="text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl mx-auto mb-12"
           >
             Place Africa édite des outils simples pour aider les petits
             commerçants africains à démarrer, gérer et développer leur business.
           </motion.p>
 
-          {/* CTAs — Klaviyo: black filled + orange accent */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.24 }}
-            className="flex flex-col sm:flex-row items-start gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a href="#produits">
               <Button
@@ -104,14 +102,14 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center gap-10 mt-16 pt-10 border-t border-white/8"
+            className="flex items-center justify-center gap-10 mt-16 pt-10 border-t border-white/8"
           >
             {[
               { value: "2", label: "pays" },
               { value: "+1 000", label: "commerçants actifs" },
               { value: "2", label: "produits" },
             ].map((s) => (
-              <div key={s.label}>
+              <div key={s.label} className="text-center">
                 <div className="text-3xl font-bold text-white">{s.value}</div>
                 <div className="text-white/40 text-sm mt-0.5">{s.label}</div>
               </div>

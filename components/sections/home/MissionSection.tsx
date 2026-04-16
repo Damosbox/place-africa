@@ -35,8 +35,8 @@ export function MissionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-accent mb-5">
@@ -75,8 +75,8 @@ export function MissionSection() {
             {features.map((feat, i) => (
               <motion.div
                 key={feat.title}
-                initial={{ opacity: 0, x: 24 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
                 className="flex gap-4 p-5 rounded-xl border border-neutral-100 bg-neutral-50 hover:border-neutral-200 hover:bg-white transition-all"
               >
