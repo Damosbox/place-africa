@@ -36,15 +36,32 @@ export function HeroSection() {
       {/* Main content */}
       <div className="flex-1 flex items-center justify-center container-site pt-32 pb-20 relative z-10">
         <div className="w-full max-w-4xl mx-auto text-center">
-          {/* Eyebrow */}
+          {/* Eyebrow — Acquisition announcement */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2.5 border border-white/10 rounded-full px-4 py-2 text-white/60 text-sm font-medium mb-10"
+            className="inline-flex items-center gap-2.5 border border-white/10 rounded-full px-4 py-2 text-white/60 text-sm font-medium mb-6"
           >
             <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse" />
-            Startup africaine d&apos;applications mobiles
+            Place Africa acquiert <span className="text-white font-semibold">Docaya</span>
+            <span className="text-white/30">·</span>
+            <a href="/a-propos#docaya" className="text-brand-accent hover:text-orange-400 transition-colors">
+              Lire l&apos;annonce →
+            </a>
+          </motion.div>
+
+          {/* AI badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            className="inline-flex items-center gap-1.5 bg-white/5 border border-white/8 rounded-full px-3 py-1.5 text-white/50 text-xs font-medium mb-10 ml-3"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-brand-accent">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+            </svg>
+            Propulsé par l&apos;IA
           </motion.div>
 
           {/* Headline — Klaviyo style: massive, bold, white on black */}
