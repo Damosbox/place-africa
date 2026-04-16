@@ -51,7 +51,7 @@ export function MobileMenu({ links, isOpen, onClose }: MobileMenuProps) {
       >
         <div className="flex items-center justify-between p-6 border-b border-neutral-200">
           <div className="flex items-center gap-2">
-            <Image src="/images/logo-dark.png" alt="Place Africa" width={28} height={28} className="object-contain" />
+            <Image src="/images/logo-dark.png" alt="Place Africa" width={28} height={28} className="object-contain" priority />
             <span className="font-bold text-lg text-neutral-900">Place Africa</span>
           </div>
           <button

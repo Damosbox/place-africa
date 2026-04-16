@@ -87,11 +87,14 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
               <Image
-                src={scrolled ? "/images/logo-dark.png" : "/images/logo-white.png"}
+                src="/images/logo-dark.png"
                 alt="Place Africa"
                 width={32}
                 height={32}
-                className="transition-all duration-300 object-contain"
+                className={cn(
+                  "object-contain transition-all duration-300",
+                  scrolled ? "" : "brightness-0 invert"
+                )}
                 priority
               />
               <span
