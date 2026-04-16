@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Plateforme",
   description:
-    "Découvrez les 5 briques techniques de Docaya : WhatsApp Business API, Chatbots, Agents IA, Notifications et Paiement intégré.",
+    "DOCAYA transforme WhatsApp en infrastructure métier — recouvrement, paiement, souscription, incidents, notifications. 7 modules. Tous secteurs. Aucun développement lourd.",
 };
 
 export default function PlatformePage() {

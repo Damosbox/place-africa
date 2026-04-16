@@ -2,8 +2,7 @@ import Link from "next/link";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 const footerLinks = {
-  Produits: [
-    { label: "Point — Gestion commerçants", href: "/contact" },
+  Produit: [
     { label: "Docaya — Plateforme conversationnelle", href: "/plateforme" },
   ],
   Docaya: [
@@ -39,7 +38,8 @@ export function Footer() {
               <span className="font-bold text-xl">Place Africa</span>
             </Link>
             <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-              L'Afrique qui commerce, digitalisée.
+              Structurer les échanges entre entreprises et consommateurs en
+              Afrique de l&apos;Ouest.
             </p>
             <div className="flex flex-col gap-3 text-sm text-neutral-400">
               <a

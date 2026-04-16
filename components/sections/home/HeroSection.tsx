@@ -74,21 +74,21 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
             >
-              L&apos;Afrique qui
+              Les{" "}
+              <span className="gradient-text">apps</span>
+              {" "}qui font tourner
               <br />
-              commerce,{" "}
-              <span className="gradient-text">digitalisée.</span>
+              l&apos;Afrique.
             </motion.h1>
 
-            {/* Subline */}
+            {/* Baseline */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-lg text-white/50 leading-relaxed max-w-md mb-10"
+              className="text-sm text-white/60 leading-relaxed max-w-lg mb-10 font-medium"
             >
-              Place Africa édite des outils simples pour aider les petits
-              commerçants africains à démarrer, gérer et développer leur business.
+              Utilisez nos outils commerciaux et financiers IA propulsés, conçus pour les Africains et adaptés aux marchés africains.
             </motion.p>
 
             {/* CTAs */}
@@ -108,13 +108,14 @@ export function HeroSection() {
                   <ArrowRight size={18} />
                 </Button>
               </a>
-              <Link href="/a-propos">
+              <Link href="/plateforme">
                 <Button
                   variant="ghost"
                   size="lg"
                   className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg"
                 >
-                  À propos
+                  Découvrir DOCAYA
+                  <ArrowRight size={18} />
                 </Button>
               </Link>
             </motion.div>
@@ -127,9 +128,9 @@ export function HeroSection() {
               className="flex items-center gap-8 pt-8 border-t border-white/8"
             >
               {[
-                { value: "2", label: "pays" },
-                { value: "+1 000", label: "commerçants actifs" },
-                { value: "2", label: "produits" },
+                { value: "7", label: "modules activables" },
+                { value: "10+", label: "secteurs déployés" },
+                { value: "IA", label: "native, intégrée" },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="text-2xl font-bold text-white tabular-nums">{s.value}</div>
@@ -153,7 +154,7 @@ export function HeroSection() {
             <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
               <Image
                 src="/images/hero-merchant.png"
-                alt="Commerçante africaine utilisant Place Africa sur son téléphone"
+                alt="Entreprise africaine utilisant Docaya sur son téléphone"
                 fill
                 className="object-cover object-center"
                 priority
@@ -170,8 +171,8 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-5 py-3 shadow-xl"
             >
-              <div className="text-2xl font-bold text-neutral-900">+1 000</div>
-              <div className="text-xs text-neutral-500 mt-0.5">commerçants actifs</div>
+              <div className="text-2xl font-bold text-neutral-900">7</div>
+              <div className="text-xs text-neutral-500 mt-0.5">modules activables</div>
             </motion.div>
           </motion.div>
 
