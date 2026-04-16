@@ -14,6 +14,8 @@ const config: Config = {
           light: "#6B5EFF",
           dark: "#3229CC",
           subtle: "#EEEDFF",
+          accent: "#FF6B2C",
+          "accent-subtle": "#FFF1EB",
         },
         whatsapp: "#25D366",
         neutral: {

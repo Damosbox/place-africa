@@ -11,32 +11,34 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Docaya — Des conversations impactantes pour vos clients",
-    template: "%s | Docaya",
+    default: "Place Africa — L'Afrique digitale pour tous",
+    template: "%s | Place Africa",
   },
   description:
-    "Docaya est une plateforme conversationnelle B2B qui permet aux entreprises d'automatiser leurs interactions clients via WhatsApp Business API. Chatbots, Agents IA, Paiement intégré.",
+    "Place Africa édite des applications mobiles pour digitaliser les petits commerçants africains. Découvrez Point, notre solution de gestion, et Docaya, notre plateforme conversationnelle B2B.",
   keywords: [
-    "WhatsApp Business API",
-    "plateforme conversationnelle",
-    "chatbot entreprise",
-    "automatisation client",
-    "Côte d'Ivoire",
-    "Afrique de l'Ouest",
-    "B2B",
+    "Place Africa",
     "Docaya",
+    "Point",
+    "digitalisation",
+    "commerce Afrique",
+    "application mobile",
+    "petits commerçants",
+    "Côte d'Ivoire",
+    "Sénégal",
+    "Afrique de l'Ouest",
   ],
   openGraph: {
-    title: "Docaya — Des conversations impactantes pour vos clients",
+    title: "Place Africa — L'Afrique digitale pour tous",
     description:
-      "Automatisez vos interactions clients et processus métiers via WhatsApp et d'autres canaux conversationnels.",
+      "Place Africa édite des outils simples et puissants pour aider les petits commerçants africains à démarrer, gérer et développer leur business.",
     type: "website",
     locale: "fr_FR",
-    siteName: "Docaya",
+    siteName: "Place Africa",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Docaya — Des conversations impactantes pour vos clients",
+    title: "Place Africa — L'Afrique digitale pour tous",
   },
 };
 

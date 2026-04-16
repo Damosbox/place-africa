@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 interface NavLink {
   label: string;
   href: string;
+  disabled?: boolean;
 }
 
 interface MobileMenuProps {
@@ -57,7 +58,7 @@ export function MobileMenu({ links, isOpen, onClose }: MobileMenuProps) {
                 />
               </svg>
             </div>
-            <span className="font-bold text-lg text-neutral-900">docaya</span>
+            <span className="font-bold text-lg text-neutral-900">Place Africa</span>
           </div>
           <button
             onClick={onClose}
@@ -69,16 +70,25 @@ export function MobileMenu({ links, isOpen, onClose }: MobileMenuProps) {
         </div>
 
         <nav className="flex-1 p-6 flex flex-col gap-1">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="px-4 py-3 rounded-xl text-neutral-700 font-medium hover:bg-brand-subtle hover:text-brand transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.disabled ? (
+              <div
+                key={link.label}
+                className="px-4 py-2 text-xs font-semibold text-brand uppercase tracking-widest mt-3"
+              >
+                {link.label}
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className="px-4 py-3 rounded-xl text-neutral-700 font-medium hover:bg-brand-subtle hover:text-brand transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="p-6 border-t border-neutral-200 flex flex-col gap-3">

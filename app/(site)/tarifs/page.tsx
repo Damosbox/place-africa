@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { SectionTag } from "@/components/ui/SectionTag";
-import { Button } from "@/components/ui/Button";
+import { PricingCalculator } from "@/components/sections/tarifs/PricingCalculator";
 
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
-    "Tarification Docaya sur mesure selon votre secteur, volume de messages et modules activés. Contactez-nous pour un devis personnalisé.",
+    "Estimez votre budget Docaya en temps réel. Configurez vos modules, volume de messages et nombre d'utilisateurs avec notre calculateur interactif.",
 };
 
 const modules = [
@@ -61,13 +60,16 @@ export default function TarifsPage() {
             Une tarification<br />adaptée à votre usage
           </h1>
           <p className="text-white/75 text-xl max-w-2xl mx-auto">
-            Pas de forfait rigide. Vous payez pour les modules que vous utilisez
-            et le volume réel de vos interactions.
+            Pas de forfait rigide. Configurez votre abonnement avec notre
+            estimateur interactif — modules, messages, utilisateurs.
           </p>
         </div>
       </section>
 
-      {/* Pricing model */}
+      {/* Interactive Pricing Calculator */}
+      <PricingCalculator />
+
+      {/* Modules grid */}
       <section className="section-padding bg-white">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -83,7 +85,10 @@ export default function TarifsPage() {
               </p>
               <ul className="space-y-3">
                 {modules.map((m) => (
-                  <li key={m} className="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 bg-neutral-50">
+                  <li
+                    key={m}
+                    className="flex items-center gap-3 p-4 rounded-xl border border-neutral-200 bg-neutral-50"
+                  >
                     <CheckCircle2 size={18} className="text-brand shrink-0" />
                     <span className="text-neutral-800 font-medium text-sm">{m}</span>
                   </li>
@@ -101,7 +106,7 @@ export default function TarifsPage() {
                 Quel que soit votre abonnement, ces éléments sont inclus sans
                 coût supplémentaire.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3">
                 {included.map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
@@ -109,37 +114,6 @@ export default function TarifsPage() {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA card */}
-              <div className="bg-hero-gradient rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-2">Obtenir un devis</h3>
-                <p className="text-white/75 text-sm mb-6">
-                  Partagez votre contexte — secteur, volume, modules souhaités —
-                  et nous vous envoyons une proposition sous 24h.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href="/contact">
-                    <Button
-                      variant="ghost"
-                      size="md"
-                      className="bg-white text-brand hover:bg-white/90 w-full sm:w-auto"
-                    >
-                      Demander un devis
-                      <ArrowRight size={16} />
-                    </Button>
-                  </Link>
-                  <a
-                    href="https://wa.me/2250701795666?text=Bonjour%2C%20je%20souhaite%20un%20devis%20Docaya."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="whatsapp" size="md" className="w-full sm:w-auto">
-                      <MessageCircle size={16} />
-                      WhatsApp
-                    </Button>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -156,7 +130,10 @@ export default function TarifsPage() {
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-card">
+              <div
+                key={faq.q}
+                className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-card"
+              >
                 <h3 className="font-bold text-neutral-900 mb-3">{faq.q}</h3>
                 <p className="text-neutral-600 text-sm leading-relaxed">{faq.a}</p>
               </div>

@@ -27,11 +27,11 @@ export function CtaSection() {
               Démo disponible maintenant
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Prêt à transformer vos<br />interactions clients ?
+              Prêt à digitaliser<br />votre commerce ?
             </h2>
             <p className="text-white/75 text-lg max-w-xl mx-auto mb-10">
-              Rejoignez les entreprises qui automatisent leurs conversations avec
-              Docaya. Démo personnalisée en 30 minutes.
+              Que vous soyez commerçant de proximité ou entreprise B2B, Place Africa
+              a un outil pour vous. Démo personnalisée en 30 minutes.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">

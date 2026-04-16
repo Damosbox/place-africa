@@ -18,6 +18,13 @@ Ce fichier consolide les 3 documents source (présentation 2025, technologies cl
 - Fiche projet : `vault/projects/place-africa.md`
 - Notes brutes : `vault/raw/place-africa/notes.md`
 
+
+## Context Loading (automatique)
+En début de session, Claude DOIT lire dans cet ordre :
+1. `C:\Users\damos\Projects\vault\projects\place-africa.md` — TL;DR
+2. `C:\Users\damos\Projects\vault\memory.md` — contexte récent (2 dernières entrées)
+3. `C:\Users\damos\Projects\vault\raw\place-africa\notes.md` — 30 dernières lignes
+
 ## Stack (à définir)
 
 - Framework : statique ou SSR (Next.js / Astro — non arrêté)
