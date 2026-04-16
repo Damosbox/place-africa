@@ -38,7 +38,7 @@ export const briques: Brique[] = [
     title: "Paiement Intégré",
     icon: "CreditCard",
     description:
-      "Wave, Orange Money, MTN Momo, Moov Money, carte bancaire. Lien de paiement envoyé directement sur WhatsApp.",
+      "Lien de paiement envoyé directement sur WhatsApp. Wave, Orange Money, MTN Momo, Moov Money, carte bancaire.",
     channels: ["WhatsApp"],
   },
 ];
