@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -28,114 +29,156 @@ export function HeroSection() {
         </svg>
       </div>
 
-      {/* Subtle orange glow top-right */}
+      {/* Orange glow — behind image */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-accent/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 right-[30%] w-[500px] h-[500px] bg-brand-accent/8 rounded-full blur-[140px]" />
       </div>
 
-      {/* Main content */}
-      <div className="flex-1 flex items-center justify-center container-site pt-32 pb-20 relative z-10">
-        <div className="w-full max-w-4xl mx-auto text-center">
-          {/* Eyebrow — Acquisition announcement */}
+      {/* Main content — split layout */}
+      <div className="flex-1 flex items-center container-site pt-28 pb-16 relative z-10">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* LEFT — text */}
+          <div>
+            {/* Badges row */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="flex flex-wrap items-center gap-2 mb-8"
+            >
+              <span className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-1.5 text-white/60 text-sm font-medium">
+                <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse" />
+                Place Africa acquiert{" "}
+                <span className="text-white font-semibold">Docaya</span>
+                <span className="text-white/30 mx-0.5">·</span>
+                <a
+                  href="/a-propos#docaya"
+                  className="text-brand-accent hover:text-orange-400 transition-colors"
+                >
+                  Lire l&apos;annonce →
+                </a>
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/8 rounded-full px-3 py-1.5 text-white/50 text-xs font-medium">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" className="text-brand-accent">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                </svg>
+                Propulsé par l&apos;IA
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+            >
+              L&apos;Afrique qui
+              <br />
+              commerce,{" "}
+              <span className="gradient-text">digitalisée.</span>
+            </motion.h1>
+
+            {/* Subline */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.16 }}
+              className="text-lg text-white/50 leading-relaxed max-w-md mb-10"
+            >
+              Place Africa édite des outils simples pour aider les petits
+              commerçants africains à démarrer, gérer et développer leur business.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.24 }}
+              className="flex flex-col sm:flex-row items-start gap-3 mb-14"
+            >
+              <a href="#produits">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold"
+                >
+                  Nos produits
+                  <ArrowRight size={18} />
+                </Button>
+              </a>
+              <Link href="/a-propos">
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg"
+                >
+                  À propos
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex items-center gap-8 pt-8 border-t border-white/8"
+            >
+              {[
+                { value: "2", label: "pays" },
+                { value: "+1 000", label: "commerçants actifs" },
+                { value: "2", label: "produits" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-bold text-white tabular-nums">{s.value}</div>
+                  <div className="text-white/40 text-xs mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT — merchant photo */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2.5 border border-white/10 rounded-full px-4 py-2 text-white/60 text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative hidden lg:block"
           >
-            <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse" />
-            Place Africa acquiert <span className="text-white font-semibold">Docaya</span>
-            <span className="text-white/30">·</span>
-            <a href="/a-propos#docaya" className="text-brand-accent hover:text-orange-400 transition-colors">
-              Lire l&apos;annonce →
-            </a>
+            {/* Glow behind the image */}
+            <div className="absolute inset-0 rounded-3xl bg-brand-accent/15 blur-2xl scale-90 translate-y-4" />
+
+            {/* Image container */}
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
+              <Image
+                src="/images/hero-merchant.png"
+                alt="Commerçante africaine utilisant Place Africa sur son téléphone"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="(max-width: 1024px) 0px, 45vw"
+              />
+              {/* Bottom gradient overlay for blending */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+            </div>
+
+            {/* Floating stat card */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-5 py-3 shadow-xl"
+            >
+              <div className="text-2xl font-bold text-neutral-900">+1 000</div>
+              <div className="text-xs text-neutral-500 mt-0.5">commerçants actifs</div>
+            </motion.div>
           </motion.div>
 
-          {/* AI badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-            className="inline-flex items-center gap-1.5 bg-white/5 border border-white/8 rounded-full px-3 py-1.5 text-white/50 text-xs font-medium mb-10 ml-3"
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-brand-accent">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
-            </svg>
-            Propulsé par l&apos;IA
-          </motion.div>
-
-          {/* Headline — Klaviyo style: massive, bold, white on black */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-bold text-white leading-[1.05] tracking-tight mb-8"
-          >
-            L&apos;Afrique qui commerce,{" "}
-            <span className="gradient-text">digitalisée.</span>
-          </motion.h1>
-
-          {/* Subline */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl mx-auto mb-12"
-          >
-            Place Africa édite des outils simples pour aider les petits
-            commerçants africains à démarrer, gérer et développer leur business.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.24 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <a href="#produits">
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold"
-              >
-                Nos produits
-                <ArrowRight size={18} />
-              </Button>
-            </a>
-            <Link href="/a-propos">
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg"
-              >
-                À propos
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center justify-center gap-10 mt-16 pt-10 border-t border-white/8"
-          >
-            {[
-              { value: "2", label: "pays" },
-              { value: "+1 000", label: "commerçants actifs" },
-              { value: "2", label: "produits" },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-3xl font-bold text-white">{s.value}</div>
-                <div className="text-white/40 text-sm mt-0.5">{s.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
-      {/* Orange brand bar — Klaviyo's customer logo strip */}
+      {/* Orange brand bar */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

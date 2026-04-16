@@ -82,31 +82,29 @@ export function Header() {
         )}
       >
         <div className="container-site">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div
-                className={cn(
-                  "w-7 h-7 rounded-lg flex items-center justify-center transition-colors",
-                  scrolled ? "bg-neutral-900" : "bg-white"
-                )}
-              >
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z"
-                    className={scrolled ? "fill-white" : "fill-black"}
-                    fill="currentColor"
-                  />
-                </svg>
+            <Link href="/" className="flex items-center group">
+              <div className="relative h-8 w-48">
+                {/* Logo blanc — fond sombre */}
+                <img
+                  src="/images/logo-white.svg"
+                  alt="Place Africa"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                    scrolled ? "opacity-0" : "opacity-100"
+                  )}
+                />
+                {/* Logo noir — fond clair */}
+                <img
+                  src="/images/logo-dark.svg"
+                  alt="Place Africa"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                    scrolled ? "opacity-100" : "opacity-0"
+                  )}
+                />
               </div>
-              <span
-                className={cn(
-                  "font-bold text-lg tracking-tight transition-colors",
-                  scrolled ? "text-neutral-900" : "text-white"
-                )}
-              >
-                Place Africa
-              </span>
             </Link>
 
             {/* Desktop Nav */}

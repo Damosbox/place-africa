@@ -15,8 +15,8 @@ const config: Config = {
           light: "#1F1F1F",     // hover dark
           dark: "#000000",      // pure black
           subtle: "#F0F0F0",    // light gray cards/tags
-          accent: "#FF6B2C",    // orange warm accent (CTAs, highlights)
-          "accent-subtle": "#FFF1EB", // light orange background
+          accent: "#FE1B00",    // red-orange accent (CTAs, highlights)
+          "accent-subtle": "#FFF0EE", // light red-orange background
         },
         whatsapp: "#25D366",
         neutral: {
@@ -40,7 +40,7 @@ const config: Config = {
         card: "0 1px 4px rgba(0,0,0,0.08)",
         hover: "0 8px 32px rgba(0,0,0,0.12)",
         cta: "0 4px 16px rgba(0,0,0,0.20)",
-        "cta-accent": "0 4px 20px rgba(255,107,44,0.35)",
+        "cta-accent": "0 4px 20px rgba(254,27,0,0.35)",
       },
       backgroundImage: {
         // Klaviyo-style: deep black hero
@@ -48,7 +48,7 @@ const config: Config = {
         // Brand gradient: black to very dark
         "brand-gradient": "linear-gradient(135deg, #0A0A0A 0%, #1F1F1F 100%)",
         // Accent section: orange warm
-        "accent-gradient": "linear-gradient(135deg, #FF6B2C 0%, #FF8C5A 100%)",
+        "accent-gradient": "linear-gradient(135deg, #FE1B00 0%, #FE4D2B 100%)",
         // Subtle light bg
         "subtle-gradient": "linear-gradient(180deg, #F0F0F0 0%, #FAFAFA 100%)",
       },
