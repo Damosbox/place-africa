@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, ChevronDown, ExternalLink } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -85,20 +86,14 @@ export function Header() {
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div
-                className={cn(
-                  "w-7 h-7 rounded-lg flex items-center justify-center transition-colors",
-                  scrolled ? "bg-neutral-900" : "bg-white"
-                )}
-              >
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z"
-                    className={scrolled ? "fill-white" : "fill-black"}
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
+              <Image
+                src={scrolled ? "/images/logo-dark.png" : "/images/logo-white.png"}
+                alt="Place Africa"
+                width={32}
+                height={32}
+                className="transition-all duration-300 object-contain"
+                priority
+              />
               <span
                 className={cn(
                   "font-bold text-lg tracking-tight transition-colors",
