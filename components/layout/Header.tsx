@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, ChevronDown, ExternalLink } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -83,28 +82,29 @@ export function Header() {
         )}
       >
         <div className="container-site">
-          <div className="flex items-center justify-between h-16 lg:h-18">
+          <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <Image
-                src={scrolled ? "/images/logo-dark.png" : "/images/logo-white.png"}
-                alt="Place Africa"
-                width={32}
-                height={32}
-                className={cn(
-                  "object-contain transition-all duration-300",
-                  scrolled ? "mix-blend-multiply" : "mix-blend-screen"
-                )}
-                priority
-              />
-              <span
-                className={cn(
-                  "font-bold text-lg tracking-tight transition-colors",
-                  scrolled ? "text-neutral-900" : "text-white"
-                )}
-              >
-                Place Africa
-              </span>
+            <Link href="/" className="flex items-center group">
+              <div className="relative h-8 w-48">
+                {/* Logo blanc — fond sombre */}
+                <img
+                  src="/images/logo-white.svg"
+                  alt="Place Africa"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                    scrolled ? "opacity-0" : "opacity-100"
+                  )}
+                />
+                {/* Logo noir — fond clair */}
+                <img
+                  src="/images/logo-dark.svg"
+                  alt="Place Africa"
+                  className={cn(
+                    "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
+                    scrolled ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </div>
             </Link>
 
             {/* Desktop Nav */}
