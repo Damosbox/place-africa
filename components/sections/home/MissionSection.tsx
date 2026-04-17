@@ -68,7 +68,7 @@ export function MissionSection() {
               </div>
               <div className="mt-auto pt-4 border-t border-neutral-200">
                 <p className="text-sm font-semibold text-brand-accent leading-snug">
-                  → {w.anchor}
+                  {w.anchor}
                 </p>
               </div>
             </motion.div>

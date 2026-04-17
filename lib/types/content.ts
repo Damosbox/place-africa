@@ -15,6 +15,7 @@ export interface Sector {
   icon: string;
   description: string;
   solutions: string[];
+  useCases?: string[];
 }
 
 export interface Brique {

@@ -146,10 +146,6 @@ export function PricingCalculator() {
   // Plateforme
   const [users, setUsers] = useState(3_000);
 
-  // WhatsApp
-  const [waIncoming, setWaIncoming] = useState(500);
-  const [waOutgoing, setWaOutgoing] = useState(200);
-
   // SMS (optionnel)
   const [smsEnabled, setSmsEnabled] = useState(false);
   const [smsOperator, setSmsOperator] = useState<SmsOperator>("orange");
@@ -167,12 +163,11 @@ export function PricingCalculator() {
 
   const breakdown = useMemo(() => {
     const platform = platformTier.price;
-    const wa = waIncoming * WA_INCOMING_PRICE + waOutgoing * WA_OUTGOING_PRICE;
     const sms = smsEnabled ? smsVolume * smsUnitPrice : 0;
     const config = CONFIG_OPTIONS.find((c) => c.id === configId)?.price ?? 0;
-    const monthly = platform + wa + sms;
-    return { platform, wa, sms, config, monthly };
-  }, [platformTier, waIncoming, waOutgoing, smsEnabled, smsVolume, smsUnitPrice, configId]);
+    const monthly = platform + sms;
+    return { platform, sms, config, monthly };
+  }, [platformTier, smsEnabled, smsVolume, smsUnitPrice, configId]);
 
   return (
     <section className="section-padding bg-neutral-50">
@@ -227,31 +222,25 @@ export function PricingCalculator() {
             </div>
 
             {/* WhatsApp */}
-            <div className="bg-white rounded-3xl border border-neutral-200 p-6 flex flex-col gap-6">
+            <div className="bg-white rounded-3xl border border-neutral-200 p-6 flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">WhatsApp Business</span>
                 <span className="text-xs text-neutral-400">· fenêtre 24h</span>
               </div>
-              <Slider
-                label="Conversations entrantes"
-                sublabel={`${WA_INCOMING_PRICE} FCFA / conversation`}
-                value={waIncoming}
-                min={0}
-                max={5_000}
-                step={50}
-                onChange={setWaIncoming}
-                format={(v) => formatNum(v) + " conv."}
-              />
-              <Slider
-                label="Notifications sortantes"
-                sublabel={`${WA_OUTGOING_PRICE} FCFA / notification`}
-                value={waOutgoing}
-                min={0}
-                max={5_000}
-                step={50}
-                onChange={setWaOutgoing}
-                format={(v) => formatNum(v) + " notifs"}
-              />
+              <div className="flex items-center justify-between py-3 border-b border-neutral-100">
+                <div>
+                  <span className="text-sm font-medium text-neutral-700">Conversations entrantes</span>
+                  <span className="block text-xs text-neutral-400">Tarif fixe à l&apos;usage</span>
+                </div>
+                <span className="text-sm font-bold text-neutral-900 tabular-nums">{WA_INCOMING_PRICE} FCFA <span className="font-normal text-neutral-400">/ conv.</span></span>
+              </div>
+              <div className="flex items-center justify-between py-1">
+                <div>
+                  <span className="text-sm font-medium text-neutral-700">Notifications sortantes</span>
+                  <span className="block text-xs text-neutral-400">Tarif fixe à l&apos;usage</span>
+                </div>
+                <span className="text-sm font-bold text-neutral-900 tabular-nums">{WA_OUTGOING_PRICE} FCFA <span className="font-normal text-neutral-400">/ notif.</span></span>
+              </div>
             </div>
 
             {/* SMS (optionnel) */}
@@ -341,7 +330,6 @@ export function PricingCalculator() {
 
               <div className="flex flex-col gap-3 mb-6">
                 <BreakdownRow label={`Plateforme (${formatNum(users)} utilisateurs)`} value={breakdown.platform} />
-                <BreakdownRow label={`WhatsApp (${formatNum(waIncoming + waOutgoing)} fenêtres)`} value={breakdown.wa} />
                 {smsEnabled && (
                   <BreakdownRow label={`SMS ${smsOperator} (${formatNum(smsVolume)} SMS)`} value={breakdown.sms} />
                 )}
