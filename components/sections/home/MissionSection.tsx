@@ -53,20 +53,20 @@ export function MissionSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="flex flex-col gap-5 rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
+              className="flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
             >
-              <div className="w-11 h-11 rounded-xl bg-neutral-900 flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-neutral-900 flex items-center justify-center mb-5">
                 <w.icon size={20} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-neutral-900 leading-snug">
+              <h3 className="text-xl font-bold text-neutral-900 leading-snug mb-4">
                 {w.title}
               </h3>
-              <div className="flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
+              <div className="flex-1 flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
                 {w.body.split("\n\n").map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
               </div>
-              <div className="mt-auto pt-4 border-t border-neutral-200">
+              <div className="pt-4 mt-6 border-t border-neutral-200">
                 <p className="text-sm font-semibold text-brand-accent leading-snug">
                   {w.anchor}
                 </p>
