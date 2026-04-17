@@ -6,14 +6,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-const logos = [
-  "Ivoire Académie",
-  "Box Africa",
-  "Wave",
-  "Orange Money",
-  "MTN Momo",
-];
-
 export function HeroSection() {
   return (
     <section className="relative flex flex-col overflow-hidden bg-black min-h-screen">
@@ -120,24 +112,6 @@ export function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-8 pt-8 border-t border-white/8"
-            >
-              {[
-                { value: "7", label: "modules activables" },
-                { value: "10+", label: "secteurs déployés" },
-                { value: "IA", label: "native, intégrée" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-bold text-white tabular-nums">{s.value}</div>
-                  <div className="text-white/40 text-xs mt-0.5">{s.label}</div>
-                </div>
-              ))}
-            </motion.div>
           </div>
 
           {/* RIGHT — merchant photo */}
@@ -164,44 +138,11 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
             </div>
 
-            {/* Floating stat card */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-5 py-3 shadow-xl"
-            >
-              <div className="text-2xl font-bold text-neutral-900">7</div>
-              <div className="text-xs text-neutral-500 mt-0.5">modules activables</div>
-            </motion.div>
           </motion.div>
 
         </div>
       </div>
 
-      {/* Orange brand bar */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="relative z-10 bg-brand-accent py-4 overflow-hidden"
-      >
-        <div className="container-site flex items-center gap-3">
-          <span className="text-white/80 text-xs font-semibold uppercase tracking-widest shrink-0 mr-4">
-            Nos partenaires
-          </span>
-          <div className="flex items-center gap-8 overflow-hidden">
-            {logos.map((logo) => (
-              <span
-                key={logo}
-                className="text-white font-bold text-sm whitespace-nowrap opacity-90"
-              >
-                {logo}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }
