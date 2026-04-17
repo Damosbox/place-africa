@@ -15,7 +15,7 @@ const windows = [
     icon: Network,
     title: "Structurer ce qui reste invisible",
     body: "En Afrique de l'Ouest, des millions de transactions se font chaque jour sans laisser de trace. Pas de donnée, pas de relation formalisée, pas de pont entre ce qu'une entreprise offre et ce qu'un consommateur cherche.\n\nCe vide n'est pas une fatalité — c'est une architecture à construire. Celle qui connecte les entreprises à leurs clients, les services à ceux qui en ont besoin, les opportunités à ceux qui peuvent les saisir.",
-    anchor: "Notre mission : être cette architecture.",
+    anchor: "Notre mission : être\ncette architecture.",
   },
   {
     icon: Sparkles,
@@ -67,7 +67,7 @@ export function MissionSection() {
                 ))}
               </div>
               <div className="pt-4 mt-6 border-t border-neutral-200">
-                <p className="text-sm font-semibold text-brand-accent leading-snug">
+                <p className="text-sm font-semibold text-brand-accent leading-snug whitespace-pre-line">
                   {w.anchor}
                 </p>
               </div>
