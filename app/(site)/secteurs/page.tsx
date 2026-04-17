@@ -18,7 +18,7 @@ import { solutions } from "@/lib/content/solutions";
 export const metadata: Metadata = {
   title: "Secteurs",
   description:
-    "Docaya s'adapte à 8 secteurs : Assurances, Immobilier, Éducation, Banques, Hôtellerie, Transport aérien, Utilities, Retail.",
+    "Docaya s'adapte à chaque industrie : Assurances, Immobilier, Éducation, Banques, Hôtellerie, Transport aérien, Utilities, Retail.",
 };
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -42,7 +42,7 @@ export default function SecteursPage() {
             Secteurs d'activité
           </SectionTag>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            8 secteurs couverts
+            Secteurs couverts
           </h1>
           <p className="text-white/75 text-xl max-w-2xl mx-auto">
             Une plateforme unique, configurée pour chaque industrie.

@@ -18,14 +18,9 @@ const placeAfricaLinks = [
 
 const docayaLinks = [
   {
-    label: "Plateforme",
+    label: "Plateforme & Solutions",
     href: "/plateforme",
-    description: "WhatsApp API, Chatbots, Agents IA",
-  },
-  {
-    label: "Solutions",
-    href: "/solutions",
-    description: "7 modules métiers activables",
+    description: "5 briques, 7 modules métiers activables",
   },
   {
     label: "Secteurs",
@@ -43,8 +38,7 @@ const allMobileLinks = [
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
   { label: "— Docaya —", href: "#", disabled: true },
-  { label: "Plateforme", href: "/plateforme" },
-  { label: "Solutions", href: "/solutions" },
+  { label: "Plateforme & Solutions", href: "/plateforme" },
   { label: "Secteurs", href: "/secteurs" },
   { label: "Tarifs", href: "/tarifs" },
 ];

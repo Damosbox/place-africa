@@ -6,6 +6,8 @@ export interface Solution {
   icon: string;
   description: string;
   features: string[];
+  mechanism: string;
+  examples: string;
   sectors: string[];
 }
 
