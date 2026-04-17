@@ -54,6 +54,13 @@ export const sectors: Sector[] = [
       "vente-souscription",
       "recouvrement",
     ],
+    useCases: [
+      "Ouverture de compte en ligne via WhatsApp",
+      "Souscription de produits bancaires (crédits, épargne)",
+      "Relance automatique de remboursements",
+      "Infos produits et FAQ clients",
+      "Notifications de transactions et alertes solde",
+    ],
   },
   {
     slug: "hotellerie",

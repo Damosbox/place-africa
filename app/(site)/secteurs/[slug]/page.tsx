@@ -161,6 +161,26 @@ export default function SectorPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* Cas d'usage spécifiques */}
+      {sector.useCases && sector.useCases.length > 0 && (
+        <section className="py-10 md:py-12 bg-neutral-50 border-t border-neutral-100">
+          <div className="container-site">
+            <SectionTag className="mb-4">Cas d&apos;usage</SectionTag>
+            <h2 className="text-2xl font-bold text-neutral-900 mb-6">
+              Applications concrètes
+            </h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
+              {sector.useCases.map((uc) => (
+                <li key={uc} className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-brand shrink-0 mt-0.5" />
+                  <span className="text-sm text-neutral-700">{uc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Other sectors */}
       <section className="section-padding bg-neutral-50">
         <div className="container-site">
