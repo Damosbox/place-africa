@@ -15,7 +15,7 @@ const windows = [
     icon: Network,
     title: "Structurer ce qui reste invisible",
     body: "En Afrique de l'Ouest, des millions de transactions se font chaque jour sans laisser de trace. Pas de donnée, pas de relation formalisée, pas de pont entre ce qu'une entreprise offre et ce qu'un consommateur cherche.\n\nCe vide n'est pas une fatalité — c'est une architecture à construire. Celle qui connecte les entreprises à leurs clients, les services à ceux qui en ont besoin, les opportunités à ceux qui peuvent les saisir.",
-    anchor: "Notre mission : être cette architecture.",
+    anchor: "Notre mission : construire cette architecture manquante.",
   },
   {
     icon: Sparkles,
@@ -53,7 +53,7 @@ export function MissionSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="flex flex-col rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
+              className="grid grid-rows-[auto_auto_1fr_auto] h-full rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
             >
               <div className="w-11 h-11 rounded-xl bg-neutral-900 flex items-center justify-center mb-5">
                 <w.icon size={20} className="text-white" />
@@ -61,7 +61,7 @@ export function MissionSection() {
               <h3 className="text-xl font-bold text-neutral-900 leading-snug mb-4">
                 {w.title}
               </h3>
-              <div className="flex-1 flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
+              <div className="flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
                 {w.body.split("\n\n").map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
