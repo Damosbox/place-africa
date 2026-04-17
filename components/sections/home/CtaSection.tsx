@@ -22,9 +22,10 @@ export function CtaSection() {
             <br />
             votre commerce ?
           </h2>
-          <p className="text-white/40 text-lg max-w-lg mx-auto mb-12">
-            Que vous soyez commerçant de proximité ou entreprise B2B, Place Africa
-            a un outil pour vous. Démo en 30 minutes.
+          <p className="text-white/40 text-lg max-w-xl mx-auto mb-12">
+            Que vous soyez une PME qui veut mieux gérer son activité, ou une
+            entreprise qui veut automatiser sa relation client — Place Africa a
+            un produit pour vous. Démo en 30 minutes.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -1,39 +1,64 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Target, Lightbulb, Users, ArrowRight, Zap, ShoppingBag, MessageCircle } from "lucide-react";
+import {
+  Compass,
+  Network,
+  Sparkles,
+  ArrowRight,
+  Zap,
+  MessageCircle,
+  Target,
+  ShieldCheck,
+  Radio,
+} from "lucide-react";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "Place Africa est une startup éditrice d'applications mobiles pour digitaliser les petits commerçants africains, présente en Côte d'Ivoire et au Sénégal.",
+    "Place Africa est une startup technologique qui développe des produits digitaux pour transformer les échanges commerciaux en Afrique de l'Ouest. Découvrez notre mission, nos valeurs et notre histoire.",
 };
+
+const windows = [
+  {
+    icon: Compass,
+    title: "Conçus pour un marché différent",
+    body: "La plupart des outils digitaux échouent en Afrique car ils sont mal adaptés à l'environnement africain. L'Afrique de l'Ouest n'est pas un marché instable — c'est un marché différent, avec ses propres logiques, ses propres forces, ses propres opportunités.\n\nConnexion intermittente, commerce de proximité, confiance construite par la conversation plutôt que par le contrat écrit. On ne contourne pas ces réalités. On construit pour elles.",
+    anchor: "Nos produits fonctionnent là où les solutions classiques s'arrêtent.",
+  },
+  {
+    icon: Network,
+    title: "Structurer ce qui reste invisible",
+    body: "Des millions de transactions en Afrique se font chaque jour sans laisser de trace. Pas de donnée, pas de fidélisation clients, pas de pont entre ce qu'une entreprise offre et ce qu'un consommateur cherche.\n\nCe vide n'est pas une fatalité — c'est une architecture à construire. Celle qui connecte les entreprises à leurs clients, les services à ceux qui en ont besoin, les opportunités à ceux qui peuvent les saisir.",
+    anchor: "Notre mission : être cette architecture.",
+  },
+  {
+    icon: Sparkles,
+    title: "L'IA comme moteur, pas comme option",
+    body: "La plupart des solutions digitales ont numérisé des processus existants — des formulaires en ligne, des agences virtuelles, des procédures copiées du monde physique. On a fait le choix inverse.\n\nNos outils intègrent l'intelligence artificielle nativement. Pas pour suivre une tendance — parce que c'est la seule façon de rendre des services complexes réellement accessibles : en langage naturel, sans formation, sur les canaux que les Africains utilisent déjà.",
+    anchor: "L'IA n'est pas notre futur. C'est ce que nos produits font aujourd'hui.",
+  },
+];
 
 const values = [
   {
     icon: <Target size={22} />,
-    title: "Orienté résultats",
+    title: "Le terrain d'abord.",
     description:
-      "Chaque fonctionnalité existe pour améliorer la gestion quotidienne du commerçant : ventes, stocks, caisse, relation client.",
+      "On n'a jamais lancé un produit sans avoir regardé comment un commerçant d'Adjamé travaille vraiment. Le terrain précède toujours la technologie.",
   },
   {
-    icon: <Lightbulb size={22} />,
-    title: "Simplicité d'usage",
+    icon: <ShieldCheck size={22} />,
+    title: "Ça marche ou ça ne compte pas.",
     description:
-      "Des outils conçus pour être utilisés sans formation : simples, rapides, accessibles depuis un smartphone.",
+      "Pas de démo convaincante sans usage réel. On mesure ce qui change dans le quotidien de nos clients, pas ce qui impressionne dans une présentation.",
   },
   {
-    icon: <Users size={22} />,
-    title: "Expertise locale",
+    icon: <Radio size={22} />,
+    title: "Conçu pour durer sans signal.",
     description:
-      "Conçu par une équipe qui comprend les réalités et opportunités des marchés africains de proximité.",
-  },
-  {
-    icon: <MapPin size={22} />,
-    title: "Ancré en Afrique",
-    description:
-      "Mobile money intégré, francophone, adapté aux marchés, boutiques, restaurants et tous commerces de proximité.",
+      "Nos produits fonctionnent là où le wifi s'arrête. Ce n'est pas une contrainte qu'on subit — c'est un cahier des charges qu'on a choisi.",
   },
 ];
 
@@ -41,27 +66,17 @@ const timeline = [
   {
     year: "2021",
     event: "Création de Place Africa à Abidjan",
-    desc: "Naissance du projet avec la mission de digitaliser les petits commerçants en Côte d'Ivoire.",
+    desc: "Naissance du projet avec la mission de structurer les échanges entre entreprises et consommateurs en Afrique de l'Ouest.",
   },
   {
-    year: "2022",
-    event: "Lancement de l'application Point",
-    desc: "Premier produit : solution de gestion POS pour TPE (restaurants, boutiques, salons...).",
-  },
-  {
-    year: "2023",
-    event: "Expansion au Sénégal",
-    desc: "Déploiement de Point dans les marchés sénégalais. Plus d'un millier de commerçants actifs.",
-  },
-  {
-    year: "2025",
-    event: "Acquisition de Docaya",
-    desc: "Place Africa rachète Docaya, plateforme conversationnelle B2B leader en Afrique de l'Ouest.",
+    year: "Mars 2026",
+    event: "Acquisition de DOCAYA",
+    desc: "Place Africa acquiert la plateforme conversationnelle B2B DOCAYA, marquant l'entrée dans les services financiers automatisés et l'expansion vers les entreprises de toute taille.",
   },
   {
     year: "2026",
     event: "Expansion Afrique de l'Ouest",
-    desc: "Déploiements au Mali, Burkina Faso, Guinée — avec les deux produits du portefeuille.",
+    desc: "Déploiements au Mali, Burkina Faso, Guinée — avec DOCAYA comme socle technologique.",
   },
 ];
 
@@ -75,76 +90,53 @@ export default function AProposPage() {
             <SectionTag className="mb-4 bg-white/10 text-white">
               À propos de Place Africa
             </SectionTag>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Né en Côte d&apos;Ivoire,<br />conçu pour l&apos;Afrique
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Nous construisons le digital pour ceux qui font tourner l&apos;Afrique.
             </h1>
             <p className="text-white/75 text-xl leading-relaxed">
-              Place Africa est une startup éditrice d&apos;applications mobiles
-              utiles à la vie quotidienne de tous les Africains. Notre mission :
-              digitaliser les petits commerçants africains avec des outils
-              simples, abordables et efficaces.
+              Nous structurons les échanges entre entreprises et consommateurs
+              en Afrique de l&apos;Ouest. Pas avec des outils importés — avec des
+              produits conçus ici, pour ici, où l&apos;intelligence artificielle
+              est le moteur et non l&apos;option.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
+      {/* Mission — 3 fenêtres */}
       <section className="section-padding bg-white">
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <SectionTag className="mb-4">Notre mission</SectionTag>
-              <h2 className="text-3xl font-bold text-neutral-900 mb-6">
-                Digitaliser tous les petits commerçants
-              </h2>
-              <p className="text-neutral-600 text-lg leading-relaxed mb-6">
-                Nos produits et services sont spécifiquement adaptés aux très
-                petites entreprises commerciales. Nous aidons les commerçants
-                africains à mieux gérer leurs commandes, produits, caisse,
-                stocks, dépenses, employés, clients — et leur reporting.
-              </p>
-              <p className="text-neutral-600 text-lg leading-relaxed mb-8">
-                Par la même occasion, nous simplifions le processus d&apos;achat
-                du consommateur.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-brand-subtle rounded-2xl p-4 text-center">
-                  <div className="text-2xl font-bold text-brand mb-1">2</div>
-                  <div className="text-sm text-neutral-600">pays</div>
-                </div>
-                <div className="bg-brand-subtle rounded-2xl p-4 text-center">
-                  <div className="text-2xl font-bold text-brand mb-1">+1 000</div>
-                  <div className="text-sm text-neutral-600">commerçants</div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-2xl mb-14">
+            <SectionTag className="mb-4">Ce que nous croyons</SectionTag>
+            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 leading-tight">
+              Trois convictions qui guident tout ce que nous construisons.
+            </h2>
+          </div>
 
-            <div className="flex items-center gap-3 flex-col">
-              <div className="bg-neutral-50 rounded-3xl border border-neutral-200 p-8 w-full">
-                <div className="text-lg font-bold text-neutral-900 mb-6">
-                  Pour les commerçants
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {windows.map((w) => (
+              <div
+                key={w.title}
+                className="flex flex-col gap-5 rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all h-full"
+              >
+                <div className="w-11 h-11 rounded-xl bg-neutral-900 flex items-center justify-center">
+                  <w.icon size={20} className="text-white" />
                 </div>
-                <ul className="space-y-3">
-                  {[
-                    "Gestion des commandes",
-                    "Suivi des stocks",
-                    "Caisse & encaissement",
-                    "Gestion des employés",
-                    "Fiche clients",
-                    "Reporting & analyses",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-neutral-700">
-                      <span className="w-2 h-2 rounded-full bg-brand-accent shrink-0" />
-                      {item}
-                    </li>
+                <h3 className="text-xl font-bold text-neutral-900 leading-snug">
+                  {w.title}
+                </h3>
+                <div className="flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
+                  {w.body.split("\n\n").map((p, idx) => (
+                    <p key={idx}>{p}</p>
                   ))}
-                </ul>
+                </div>
+                <div className="mt-auto pt-4 border-t border-neutral-200">
+                  <p className="text-sm font-semibold text-brand-accent leading-snug">
+                    → {w.anchor}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={16} className="text-neutral-400" />
-                <span className="text-sm text-neutral-500">Côte d&apos;Ivoire &amp; Sénégal</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -158,16 +150,16 @@ export default function AProposPage() {
               Ce qui nous guide
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((v) => (
               <div
                 key={v.title}
-                className="bg-white rounded-2xl p-6 border border-neutral-200 shadow-card"
+                className="bg-white rounded-2xl p-7 border border-neutral-200 shadow-card"
               >
                 <div className="w-11 h-11 bg-brand-subtle rounded-xl flex items-center justify-center text-brand mb-4">
                   {v.icon}
                 </div>
-                <h3 className="font-bold text-neutral-900 mb-3">{v.title}</h3>
+                <h3 className="font-bold text-neutral-900 mb-3 text-lg">{v.title}</h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">
                   {v.description}
                 </p>
@@ -187,56 +179,46 @@ export default function AProposPage() {
                   <Zap size={20} className="text-brand-accent" />
                 </div>
                 <span className="text-xs font-semibold bg-brand-accent/20 text-brand-accent px-2.5 py-1 rounded-full">
-                  Annonce 2025
+                  Annonce 2026
                 </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Place Africa a acquis Docaya
               </h2>
-              <p className="text-white/75 text-lg leading-relaxed mb-6">
-                En 2025, Place Africa a racheté Docaya, la plateforme
-                conversationnelle B2B leader en Afrique de l&apos;Ouest. Cette
-                acquisition marque une étape majeure dans notre stratégie :
-                offrir aux commerçants et entreprises africaines un écosystème
-                complet, de la gestion quotidienne à la relation client
-                automatisée.
+              <p className="text-white/75 text-lg leading-relaxed mb-4">
+                En 2026, Place Africa a acquis DOCAYA — la plateforme
+                conversationnelle B2B qui transforme WhatsApp en infrastructure
+                métier pour les entreprises africaines.
               </p>
-              <p className="text-white/70 leading-relaxed">
-                Docaya permet aux entreprises d&apos;automatiser leurs interactions
-                clients via WhatsApp Business API, avec des chatbots, des agents
-                IA, et un paiement mobile intégré (Wave, Orange Money, MTN Momo).
+              <p className="text-white/75 text-lg leading-relaxed mb-4">
+                DOCAYA ne s&apos;adresse pas à un seul secteur. Elle
+                s&apos;adresse à toute organisation qui a des clients à servir,
+                des paiements à encaisser, et des processus à automatiser —
+                assurances, banques, immobilier, éducation, logistique, retail,
+                mutuelles, et bien d&apos;autres.
+              </p>
+              <p className="text-white/75 text-lg leading-relaxed">
+                Ce qui ne change pas d&apos;un secteur à l&apos;autre : la
+                technologie. Ce qui change : uniquement la configuration.
               </p>
             </div>
 
-            {/* Products summary */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="border border-neutral-200 rounded-2xl p-6 flex gap-4">
-                <div className="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center shrink-0">
-                  <ShoppingBag size={20} className="text-brand-accent" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-neutral-900 mb-1">Point</h3>
-                  <p className="text-sm text-neutral-500">
-                    Gestion POS pour les TPE — commandes, stocks, caisse, employés.
-                  </p>
-                </div>
+            {/* Product summary */}
+            <div className="border border-brand/20 bg-brand-subtle rounded-2xl p-6 flex gap-4">
+              <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shrink-0">
+                <MessageCircle size={20} className="text-white" />
               </div>
-              <div className="border border-brand/20 bg-brand-subtle rounded-2xl p-6 flex gap-4">
-                <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center shrink-0">
-                  <MessageCircle size={20} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-neutral-900 mb-1">Docaya</h3>
-                  <p className="text-sm text-neutral-500">
-                    Plateforme conversationnelle B2B — WhatsApp, Chatbots, IA, Paiement.
-                  </p>
-                  <Link
-                    href="/plateforme"
-                    className="text-xs text-brand font-medium mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all"
-                  >
-                    Découvrir <ArrowRight size={12} />
-                  </Link>
-                </div>
+              <div>
+                <h3 className="font-bold text-neutral-900 mb-1">Docaya</h3>
+                <p className="text-sm text-neutral-500">
+                  Plateforme B2B — WhatsApp, IA native, 7 modules, paiement intégré. Tous secteurs.
+                </p>
+                <Link
+                  href="/plateforme"
+                  className="text-xs text-brand font-medium mt-2 inline-flex items-center gap-1 hover:gap-2 transition-all"
+                >
+                  Découvrir <ArrowRight size={12} />
+                </Link>
               </div>
             </div>
           </div>
@@ -256,9 +238,11 @@ export default function AProposPage() {
             <div className="absolute left-6 top-0 bottom-0 w-px bg-brand/20" />
             <div className="space-y-8">
               {timeline.map((item) => (
-                <div key={item.year} className="relative flex gap-6">
+                <div key={item.event} className="relative flex gap-6">
                   <div className="w-12 h-12 bg-brand-subtle rounded-full border-4 border-white flex items-center justify-center shrink-0 z-10">
-                    <span className="text-brand text-xs font-bold">{item.year.slice(2)}</span>
+                    <span className="text-brand text-xs font-bold">
+                      {item.year.slice(-2)}
+                    </span>
                   </div>
                   <div className="flex-1 pt-2">
                     <div className="text-brand text-xs font-bold mb-1">{item.year}</div>
