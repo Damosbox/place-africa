@@ -6,11 +6,11 @@ import { useRef } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 const features = [
-  "Guichet conversationnel unifié",
-  "Campagnes & notifications sortantes",
-  "Agents IA & automatisation",
-  "Paiements conversationnels",
-  "Analytique & pilotage",
+  "Répondez à tous vos clients depuis un seul endroit",
+  "Envoyez notifications, relances et campagnes automatiquement",
+  "Un assistant IA répond aux questions simples à toute heure",
+  "Vos clients paient directement dans la conversation",
+  "Suivez vos résultats en temps réel",
 ];
 
 export function ProductsSection() {
@@ -25,10 +25,10 @@ export function ProductsSection() {
             Notre produit
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-            Un guichet digital conversationnel et de marketing relationnel
+            Répondez à vos clients et communiquez avec eux — depuis un seul outil
           </h2>
           <p className="text-neutral-500 max-w-xl text-lg">
-            Une plateforme B2B qui unifie l&apos;inbound (guichet client) et l&apos;outbound (marketing relationnel) sur WhatsApp, SMS, e-mail et voix.
+            Docaya gère les demandes que vous recevez et les messages que vous envoyez — sur WhatsApp, SMS, e-mail et voix.
           </p>
         </div>
 
@@ -57,10 +57,10 @@ export function ProductsSection() {
                 Le guichet digital et le marketing relationnel réunis.
               </p>
               <p className="text-neutral-500 leading-relaxed">
-                DOCAYA unifie vos conversations entrantes (support, incidents,
-                souscriptions) et sortantes (notifications, campagnes,
-                recouvrement) sur une seule plateforme — WhatsApp, SMS,
-                e-mail, voix, paiement mobile.
+                Docaya réunit dans un seul outil tout ce que vos clients vous
+                envoient (questions, réclamations, souscriptions) et tout ce
+                que vous leur adressez (notifications, relances, campagnes) —
+                sur WhatsApp, SMS, e-mail, voix et paiement mobile.
               </p>
             </div>
 

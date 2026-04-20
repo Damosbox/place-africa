@@ -19,9 +19,9 @@ import { families, getFamilyBySlug } from "@/lib/content/families";
 import { getIcon, colorVariants } from "@/lib/utils/icons";
 
 const flowLabel: Record<string, { label: string; className: string }> = {
-  inbound: { label: "Flux entrant (inbound)", className: "bg-blue-50 text-blue-700 border-blue-100" },
-  outbound: { label: "Flux sortant (outbound)", className: "bg-orange-50 text-orange-700 border-orange-100" },
-  both: { label: "Inbound + Outbound", className: "bg-neutral-100 text-neutral-700 border-neutral-200" },
+  inbound: { label: "Côté client (inbound)", className: "bg-blue-50 text-blue-700 border-blue-100" },
+  outbound: { label: "Messages envoyés (outbound)", className: "bg-orange-50 text-orange-700 border-orange-100" },
+  both: { label: "Reçu & Envoyé", className: "bg-neutral-100 text-neutral-700 border-neutral-200" },
 };
 
 export async function generateStaticParams() {

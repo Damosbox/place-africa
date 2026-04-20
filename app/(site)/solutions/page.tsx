@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 const flowLabel: Record<string, { label: string; className: string }> = {
-  inbound: { label: "Inbound", className: "bg-blue-50 text-blue-700" },
-  outbound: { label: "Outbound", className: "bg-orange-50 text-orange-700" },
-  both: { label: "Inbound + Outbound", className: "bg-neutral-100 text-neutral-700" },
+  inbound: { label: "Reçu", className: "bg-blue-50 text-blue-700" },
+  outbound: { label: "Envoyé", className: "bg-orange-50 text-orange-700" },
+  both: { label: "Reçu & Envoyé", className: "bg-neutral-100 text-neutral-700" },
 };
 
 export default function SolutionsHubPage() {
@@ -24,10 +24,10 @@ export default function SolutionsHubPage() {
         <div className="container-site text-center">
           <SectionTag className="mb-4 bg-white/10 text-white">Solutions</SectionTag>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-            4 familles de solutions,<br />orientées résultats
+            4 façons d&apos;utiliser Docaya<br />selon votre priorité
           </h1>
           <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            Chaque famille regroupe des sous-solutions activables indépendamment, alignées sur un objectif métier mesurable.
+            Choisissez ce qui compte le plus pour votre activité : vendre plus, mieux servir vos clients, encaisser plus vite ou fidéliser sur le long terme.
           </p>
         </div>
       </section>

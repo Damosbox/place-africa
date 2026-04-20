@@ -9,12 +9,12 @@ export const families: SolutionFamily[] = [
     icon: "TrendingUp",
     flow: "both",
     description:
-      "Captez les leads depuis vos canaux digitaux (Meta, site, WhatsApp), qualifiez-les automatiquement et accompagnez-les jusqu'au paiement dans une seule conversation. Applicable à la vente initiale, au renouvellement et à l'upsell.",
+      "Captez vos prospects depuis WhatsApp, vos réseaux sociaux ou votre site. Docaya pose les bonnes questions, évalue leur intérêt et les accompagne jusqu'au paiement — dans une seule conversation, sans intervention manuelle pour les étapes simples.",
     outcomes: [
-      "Taux de conversion lead → client",
-      "CAC réduit grâce à l'automatisation",
-      "Délai devis → paiement raccourci",
-      "Upsell et cross-sell contextualisés",
+      "Plus de prospects convertis en clients",
+      "Coût d'acquisition réduit grâce à l'automatisation",
+      "Délai entre le premier contact et le paiement raccourci",
+      "Ventes additionnelles proposées au bon moment",
     ],
     subSolutions: ["vente-souscription"],
     sectors: [
@@ -29,17 +29,17 @@ export const families: SolutionFamily[] = [
   {
     slug: "service-decongestion",
     title: "Service & décongestion",
-    tagline: "Désaturer le service client sans perdre en qualité",
+    tagline: "Répondre à plus de clients sans agrandir vos équipes",
     color: "blue",
     icon: "Headphones",
     flow: "inbound",
     description:
-      "Absorbez les demandes entrantes massives sans agrandir vos équipes. Les agents IA traitent les cas simples, les workflows orientent les cas complexes, le guichet unifié donne aux agents le contexte complet.",
+      "Vos clients vous contactent en grand nombre. L'assistant IA répond aux questions simples à toute heure. Les demandes complexes vont directement au bon agent, avec le contexte complet. Résultat : plus de demandes traitées, des clients moins frustrés.",
     outcomes: [
-      "Taux de déflection IA 40-70%",
-      "First Contact Resolution amélioré",
-      "CSAT et NPS en hausse",
-      "Réduction du temps de traitement moyen",
+      "40 à 70% des demandes simples traitées automatiquement",
+      "Plus de 7 clients sur 10 obtiennent une réponse dès le premier contact",
+      "Satisfaction client en hausse",
+      "Temps de traitement moyen réduit",
     ],
     subSolutions: ["agent-accueil", "incidents"],
     sectors: [
@@ -55,17 +55,17 @@ export const families: SolutionFamily[] = [
   {
     slug: "encaissement-recouvrement",
     title: "Encaissement & recouvrement",
-    tagline: "Recouvrer plus vite, sans friction",
+    tagline: "Encaisser plus vite, sans courir après vos clients",
     color: "orange",
     icon: "Wallet",
     flow: "outbound",
     description:
-      "Automatisez les relances de paiement et proposez un paiement en un clic dans le message. Mobile money et carte bancaire pris en charge, rapprochement automatique, pénalités configurables.",
+      "Envoyez des rappels de paiement automatiques avec un lien pour payer directement sur WhatsApp. Vos clients règlent en quelques secondes avec leur moyen de paiement habituel. Le rapprochement se fait tout seul.",
     outcomes: [
-      "Taux de recouvrement amélioré",
-      "DSO réduit",
-      "Coût de relance quasi-nul",
-      "Transparence totale sur les encours",
+      "Taux de recouvrement en hausse",
+      "Délai moyen de paiement réduit",
+      "Coût des relances quasi nul",
+      "Visibilité complète sur les impayés en temps réel",
     ],
     subSolutions: ["recouvrement", "workflows-metiers"],
     sectors: [
@@ -79,17 +79,17 @@ export const families: SolutionFamily[] = [
   {
     slug: "engagement-fidelisation",
     title: "Engagement & fidélisation",
-    tagline: "Construire une relation durable",
+    tagline: "Garder le contact et faire revenir vos clients",
     color: "green",
     icon: "Heart",
     flow: "outbound",
     description:
-      "Gardez le contact au bon moment, sur le bon canal. Notifications transactionnelles qui renforcent la confiance, campagnes segmentées qui réactivent les clients, enquêtes NPS qui détectent les irritants avant qu'ils ne deviennent du churn.",
+      "Restez présent dans la vie de vos clients au bon moment. Envoyez des notifications utiles qui renforcent la confiance, des offres ciblées qui font revenir les clients inactifs, et mesurez régulièrement leur satisfaction pour corriger ce qui pose problème.",
     outcomes: [
-      "NPS mesuré en continu",
-      "Taux de rétention en hausse",
-      "Réactivation clients dormants",
-      "Engagement multicanal",
+      "Satisfaction client mesurée en continu",
+      "Taux de fidélisation en hausse",
+      "Clients inactifs réactivés",
+      "Lien maintenu entre les achats",
     ],
     subSolutions: ["notifications", "satisfaction-nps"],
     sectors: [

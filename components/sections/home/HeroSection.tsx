@@ -80,7 +80,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="text-sm text-white/60 leading-relaxed max-w-lg mb-10 font-medium"
             >
-              Docaya, le guichet digital conversationnel et de marketing relationnel qui unifie WhatsApp, SMS, e-mail et paiement mobile — conçu pour l&apos;Afrique.
+              Docaya, l&apos;outil qui permet à vos équipes de répondre à tous vos clients et de leur envoyer le bon message — sur WhatsApp, SMS, e-mail et paiement mobile.
             </motion.p>
 
             {/* CTAs */}

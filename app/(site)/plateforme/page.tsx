@@ -10,7 +10,7 @@ import { getIcon, colorVariants } from "@/lib/utils/icons";
 export const metadata: Metadata = {
   title: "Plateforme",
   description:
-    "DOCAYA, la plateforme de guichet digital conversationnel et de marketing relationnel. Une couche unique pour orchestrer messagerie, automatisations et paiements — inbound et outbound.",
+    "DOCAYA gère tout ce que vos clients vous envoient et tout ce que vous leur envoyez — sur WhatsApp, SMS, e-mail et voix. Un seul outil pour votre service client et votre communication sortante.",
 };
 
 const inbound = capacities.filter((c) => c.flow === "inbound" || c.flow === "both");
@@ -20,20 +20,20 @@ const plateformeHighlights = [
   {
     href: "/plateforme/capacites",
     icon: <Layers size={22} />,
-    title: "11 capacités natives",
-    description: "Messagerie multicanale, IA, workflows, ticketing, paiement, analytics…",
+    title: "11 fonctionnalités intégrées",
+    description: "Messagerie, assistant IA, scénarios automatisés, suivi des demandes, paiement, tableaux de bord…",
   },
   {
     href: "/plateforme/integrations",
     icon: <Plug size={22} />,
-    title: "18+ intégrations",
-    description: "CRM, ERP, mobile money, Meta, IA — plus une architecture API-first.",
+    title: "18+ connexions disponibles",
+    description: "Connectez Docaya à votre CRM, ERP, opérateurs mobile money et WhatsApp Business.",
   },
   {
     href: "/plateforme/analytique-pilotage",
     icon: <BarChart3 size={22} />,
-    title: "Analytique & pilotage",
-    description: "Dashboards temps réel, NPS, recouvrement, conversion — inbound et outbound.",
+    title: "Tableaux de bord & pilotage",
+    description: "Suivez vos résultats en temps réel : satisfaction client, recouvrement, campagnes.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function PlateformePage() {
             La plateforme de guichet digital conversationnel et de marketing relationnel
           </h1>
           <p className="text-white/75 text-xl max-w-3xl">
-            DOCAYA unifie votre guichet conversationnel entrant (inbound) et votre marketing relationnel sortant (outbound) sur une seule plateforme — WhatsApp, SMS, e-mail, voix, webchat.
+            Docaya gère les demandes que vos clients vous envoient et les messages que vous leur adressez — sur WhatsApp, SMS, e-mail et voix. Un seul outil pour les deux.
           </p>
         </div>
       </section>
@@ -57,12 +57,12 @@ export default function PlateformePage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container-site">
           <div className="text-center mb-10">
-            <SectionTag className="mb-4">Deux flux, une seule plateforme</SectionTag>
+            <SectionTag className="mb-4">Côté client & côté entreprise</SectionTag>
             <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Inbound & Outbound réunis
+              Ce que vous recevez et ce que vous envoyez — au même endroit
             </h2>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
-              Tout ce qui entre (demandes clients, incidents, souscriptions) et tout ce qui sort (notifications, campagnes, relances) — sur une même couche.
+              Les demandes de vos clients (questions, réclamations, souscriptions) et vos messages sortants (notifications, relances, campagnes) — gérés depuis une seule plateforme.
             </p>
           </div>
 
@@ -75,13 +75,13 @@ export default function PlateformePage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-blue-700 mb-0.5">
-                    Inbound
+                    Côté client (inbound)
                   </p>
-                  <h3 className="text-xl font-bold text-neutral-900">Guichet conversationnel</h3>
+                  <h3 className="text-xl font-bold text-neutral-900">Ce que vos clients vous envoient</h3>
                 </div>
               </div>
               <p className="text-neutral-600 leading-relaxed mb-5 text-sm">
-                Absorbez les demandes entrantes sur tous les canaux, qualifiez-les automatiquement, résolvez-les au premier contact.
+                Questions, réclamations, souscriptions, demandes de documents — vos agents reçoivent tout au même endroit avec le contexte complet pour répondre rapidement.
               </p>
               <ul className="space-y-2 mb-6">
                 {inbound.slice(0, 5).map((c) => (
@@ -95,7 +95,7 @@ export default function PlateformePage() {
                 href="/plateforme/capacites"
                 className="inline-flex items-center gap-2 text-blue-700 font-semibold text-sm hover:gap-3 transition-all"
               >
-                Voir toutes les capacités inbound <ArrowRight size={14} />
+                Voir toutes les fonctionnalités <ArrowRight size={14} />
               </Link>
             </div>
 
@@ -107,13 +107,13 @@ export default function PlateformePage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-orange-700 mb-0.5">
-                    Outbound
+                    Côté entreprise (outbound)
                   </p>
-                  <h3 className="text-xl font-bold text-neutral-900">Marketing relationnel</h3>
+                  <h3 className="text-xl font-bold text-neutral-900">Ce que vous envoyez à vos clients</h3>
                 </div>
               </div>
               <p className="text-neutral-600 leading-relaxed mb-5 text-sm">
-                Notifiez, relancez, engagez au bon moment sur le bon canal. Transactionnel et campagnes segmentées sur le même moteur.
+                Notifications après un paiement, rappels de rendez-vous, relances d'impayés, campagnes promotionnelles — tout part au bon moment, vers les bons clients.
               </p>
               <ul className="space-y-2 mb-6">
                 {outbound.slice(0, 5).map((c) => (
@@ -127,7 +127,7 @@ export default function PlateformePage() {
                 href="/plateforme/capacites"
                 className="inline-flex items-center gap-2 text-orange-700 font-semibold text-sm hover:gap-3 transition-all"
               >
-                Voir toutes les capacités outbound <ArrowRight size={14} />
+                Voir toutes les fonctionnalités <ArrowRight size={14} />
               </Link>
             </div>
           </div>

@@ -6,15 +6,15 @@ import { capacities } from "@/lib/content/capacities";
 import { getIcon } from "@/lib/utils/icons";
 
 export const metadata: Metadata = {
-  title: "Capacités natives",
+  title: "Fonctionnalités",
   description:
-    "11 capacités natives de DOCAYA pour industrialiser la relation client conversationnelle : messagerie multicanale, agents IA, workflows, paiements, ticketing et plus.",
+    "11 fonctionnalités intégrées dans Docaya : messagerie multicanale, assistant IA, scénarios automatisés, paiements, suivi des demandes et plus — pour gérer vos clients et votre communication depuis un seul outil.",
 };
 
 const flowLabel: Record<string, { label: string; className: string }> = {
-  inbound: { label: "Inbound", className: "bg-blue-50 text-blue-700" },
-  outbound: { label: "Outbound", className: "bg-orange-50 text-orange-700" },
-  both: { label: "Inbound + Outbound", className: "bg-neutral-100 text-neutral-700" },
+  inbound: { label: "Côté client (inbound)", className: "bg-blue-50 text-blue-700" },
+  outbound: { label: "Envoyé (outbound)", className: "bg-orange-50 text-orange-700" },
+  both: { label: "Les deux", className: "bg-neutral-100 text-neutral-700" },
 };
 
 export default function CapacitesPage() {
@@ -31,10 +31,10 @@ export default function CapacitesPage() {
           </Link>
           <SectionTag className="mb-4 bg-white/10 text-white">Plateforme</SectionTag>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 max-w-3xl">
-            11 capacités natives pour industrialiser la relation client conversationnelle
+            11 fonctionnalités pour gérer vos clients et votre communication
           </h1>
           <p className="text-white/75 text-lg max-w-2xl">
-            Des briques techniques éprouvées, organisées autour de deux flux : le guichet entrant (inbound) et le marketing relationnel sortant (outbound).
+            Tout ce dont vous avez besoin pour répondre à vos clients, leur envoyer des messages et automatiser vos processus — dans un seul outil.
           </p>
         </div>
       </section>
@@ -83,7 +83,7 @@ export default function CapacitesPage() {
             Comment ces capacités se combinent-elles ?
           </h2>
           <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
-            Découvrez les 4 familles de solutions qui orchestrent ces capacités autour d&apos;un objectif métier.
+            Découvrez comment ces fonctionnalités se combinent pour répondre à vos priorités métier.
           </p>
           <Link
             href="/solutions"
