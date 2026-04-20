@@ -6,11 +6,11 @@ import { useRef } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 const features = [
-  "Recouvrement automatisé",
-  "Vente & souscription",
-  "Gestion d'incidents",
-  "Notifications clients",
-  "Paiement intégré",
+  "Guichet conversationnel unifié",
+  "Campagnes & notifications sortantes",
+  "Agents IA & automatisation",
+  "Paiements conversationnels",
+  "Analytique & pilotage",
 ];
 
 export function ProductsSection() {
@@ -25,11 +25,10 @@ export function ProductsSection() {
             Notre produit
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-            Un outil pour automatiser la relation client
+            Un guichet digital conversationnel et de marketing relationnel
           </h2>
           <p className="text-neutral-500 max-w-xl text-lg">
-            Une plateforme conversationnelle B2B à IA native, qui transforme
-            WhatsApp en infrastructure métier.
+            Une plateforme B2B qui unifie l&apos;inbound (guichet client) et l&apos;outbound (marketing relationnel) sur WhatsApp, SMS, e-mail et voix.
           </p>
         </div>
 
@@ -55,13 +54,13 @@ export function ProductsSection() {
 
             <div>
               <p className="text-xl font-semibold text-neutral-900 mb-3 leading-snug">
-                Votre entreprise automatisée sur votre outil favori : WhatsApp.
+                Le guichet digital et le marketing relationnel réunis.
               </p>
               <p className="text-neutral-500 leading-relaxed">
-                DOCAYA est une plateforme conversationnelle B2B à IA native
-                qui transforme WhatsApp en infrastructure métier —
-                automatisation des processus clients, paiements intégrés,
-                recouvrement automatisé.
+                DOCAYA unifie vos conversations entrantes (support, incidents,
+                souscriptions) et sortantes (notifications, campagnes,
+                recouvrement) sur une seule plateforme — WhatsApp, SMS,
+                e-mail, voix, paiement mobile.
               </p>
             </div>
 

@@ -11,42 +11,50 @@ const MobileMenu = dynamic(() =>
   import("./MobileMenu").then((m) => m.MobileMenu), { ssr: false }
 );
 
-const placeAfricaLinks = [
-  { label: "À propos", href: "/a-propos" },
-  { label: "Contact", href: "/contact" },
-];
+type DropdownItem = {
+  label: string;
+  href: string;
+  description?: string;
+};
 
-const docayaLinks = [
-  {
-    label: "Plateforme & Solutions",
-    href: "/plateforme",
-    description: "5 briques, 7 modules métiers activables",
-  },
-  {
-    label: "Secteurs",
-    href: "/secteurs",
-    description: "Assurances, Banques, Éducation…",
-  },
-  {
-    label: "Tarifs",
-    href: "/tarifs",
-    description: "Estimez votre budget en direct",
-  },
-];
+type NavItem =
+  | { label: string; href: string; children?: undefined }
+  | { label: string; href?: undefined; children: DropdownItem[] };
 
-const allMobileLinks = [
-  { label: "À propos", href: "/a-propos" },
-  { label: "Contact", href: "/contact" },
-  { label: "— Docaya —", href: "#", disabled: true },
-  { label: "Plateforme & Solutions", href: "/plateforme" },
+const navItems: NavItem[] = [
+  {
+    label: "Plateforme",
+    children: [
+      { label: "Vision plateforme", href: "/plateforme", description: "Inbound + Outbound réunis" },
+      { label: "Capacités", href: "/plateforme/capacites", description: "11 capacités natives" },
+      { label: "Intégrations", href: "/plateforme/integrations", description: "CRM, ERP, mobile money, Meta" },
+      { label: "Analytique & pilotage", href: "/plateforme/analytique-pilotage", description: "Dashboards temps réel" },
+    ],
+  },
+  {
+    label: "Solutions",
+    children: [
+      { label: "Acquisition & conversion", href: "/solutions/acquisition-conversion", description: "Transformer les conversations en ventes" },
+      { label: "Service & décongestion", href: "/solutions/service-decongestion", description: "Désaturer le service client" },
+      { label: "Encaissement & recouvrement", href: "/solutions/encaissement-recouvrement", description: "Recouvrer sans friction" },
+      { label: "Engagement & fidélisation", href: "/solutions/engagement-fidelisation", description: "Construire une relation durable" },
+    ],
+  },
   { label: "Secteurs", href: "/secteurs" },
-  { label: "Tarifs", href: "/tarifs" },
+  {
+    label: "Ressources",
+    children: [
+      { label: "FAQ", href: "/ressources/faq", description: "Questions fréquentes" },
+      { label: "Glossaire", href: "/ressources/glossaire", description: "Termes clés" },
+      { label: "Toutes les ressources", href: "/ressources" },
+    ],
+  },
 ];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [docayaOpen, setDocayaOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,7 +66,7 @@ export function Header() {
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDocayaOpen(false);
+        setOpenDropdown(null);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -80,7 +88,6 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <div className="relative h-8 w-48">
-                {/* Logo blanc — fond sombre */}
                 <img
                   src="/images/logo-white.svg"
                   alt="Place Africa"
@@ -89,7 +96,6 @@ export function Header() {
                     scrolled ? "opacity-0" : "opacity-100"
                   )}
                 />
-                {/* Logo noir — fond clair */}
                 <img
                   src="/images/logo-dark.svg"
                   alt="Place Africa"
@@ -102,64 +108,66 @@ export function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {placeAfricaLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                    scrolled
-                      ? "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100"
-                      : "text-white/70 hover:text-white hover:bg-white/8"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              <div className={cn("mx-3 h-4 w-px", scrolled ? "bg-neutral-200" : "bg-white/15")} />
-
-              {/* Docaya dropdown */}
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setDocayaOpen((o) => !o)}
-                  className={cn(
-                    "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-colors",
-                    scrolled
-                      ? "text-neutral-900 hover:bg-neutral-100"
-                      : "text-white hover:bg-white/8"
-                  )}
-                >
-                  Docaya
-                  <ChevronDown
-                    size={13}
-                    className={cn("transition-transform duration-200", docayaOpen && "rotate-180")}
-                  />
-                </button>
-
-                {docayaOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-hover border border-neutral-200 overflow-hidden z-50">
-                    <div className="p-1.5">
-                      {docayaLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setDocayaOpen(false)}
-                          className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors group"
-                        >
-                          <span className="text-sm font-semibold text-neutral-900 group-hover:text-brand-accent">
-                            {link.label}
-                          </span>
-                          <span className="text-xs text-neutral-400">
-                            {link.description}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
+            <nav className="hidden lg:flex items-center gap-1" ref={dropdownRef}>
+              {navItems.map((item) => {
+                if (!item.children) {
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={cn(
+                        "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                        scrolled
+                          ? "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100"
+                          : "text-white/80 hover:text-white hover:bg-white/8"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                const isOpen = openDropdown === item.label;
+                return (
+                  <div key={item.label} className="relative">
+                    <button
+                      onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                      className={cn(
+                        "flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                        scrolled
+                          ? "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100"
+                          : "text-white/80 hover:text-white hover:bg-white/8"
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={13}
+                        className={cn("transition-transform duration-200", isOpen && "rotate-180")}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-hover border border-neutral-200 overflow-hidden z-50">
+                        <div className="p-1.5">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpenDropdown(null)}
+                              className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg hover:bg-neutral-50 transition-colors group"
+                            >
+                              <span className="text-sm font-semibold text-neutral-900 group-hover:text-brand-accent">
+                                {child.label}
+                              </span>
+                              {child.description && (
+                                <span className="text-xs text-neutral-400">{child.description}</span>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
+                );
+              })}
             </nav>
 
             {/* CTA */}
@@ -206,7 +214,6 @@ export function Header() {
       </header>
 
       <MobileMenu
-        links={allMobileLinks}
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
       />

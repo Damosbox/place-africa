@@ -80,7 +80,7 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="text-sm text-white/60 leading-relaxed max-w-lg mb-10 font-medium"
             >
-              Utilisez nos outils commerciaux et financiers IA propulsés, conçus pour les Africains et adaptés aux marchés africains.
+              Docaya, le guichet digital conversationnel et de marketing relationnel qui unifie WhatsApp, SMS, e-mail et paiement mobile — conçu pour l&apos;Afrique.
             </motion.p>
 
             {/* CTAs */}
