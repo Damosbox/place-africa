@@ -3,6 +3,7 @@ import type { Solution } from "@/lib/types/content";
 export const solutions: Solution[] = [
   {
     slug: "agent-accueil",
+    familySlug: "service-decongestion",
     title: "Agent d'Accueil & Orientation",
     tagline: "Répondez automatiquement à chaque sollicitation",
     color: "blue",
@@ -33,6 +34,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "recouvrement",
+    familySlug: "encaissement-recouvrement",
     title: "Recouvrement Automatisé",
     tagline: "Récupérez vos paiements sans intervention manuelle",
     color: "orange",
@@ -62,6 +64,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "notifications",
+    familySlug: "engagement-fidelisation",
     title: "Notifications Sortantes",
     tagline: "Communiquez au bon moment sur le bon canal",
     color: "green",
@@ -92,6 +95,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "vente-souscription",
+    familySlug: "acquisition-conversion",
     title: "Vente & Souscription",
     tagline: "Vendez et encaissez directement sur WhatsApp",
     color: "purple",
@@ -122,6 +126,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "incidents",
+    familySlug: "service-decongestion",
     title: "Déclaration & Suivi d'Incidents",
     tagline: "Simplifiez la déclaration de problèmes",
     color: "red",
@@ -150,6 +155,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "workflows-metiers",
+    familySlug: "encaissement-recouvrement",
     title: "Workflows Métiers Spécialisés",
     tagline: "Automatisez vos processus back-office",
     color: "indigo",
@@ -170,6 +176,7 @@ export const solutions: Solution[] = [
   },
   {
     slug: "satisfaction-nps",
+    familySlug: "engagement-fidelisation",
     title: "Enquête de Satisfaction (NPS)",
     tagline: "Mesurez et améliorez l'expérience client",
     color: "yellow",
@@ -202,4 +209,8 @@ export const solutions: Solution[] = [
 
 export function getSolutionBySlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug === slug);
+}
+
+export function getSolutionsByFamily(familySlug: string): Solution[] {
+  return solutions.filter((s) => s.familySlug === familySlug);
 }

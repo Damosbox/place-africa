@@ -114,6 +114,26 @@ export const sectors: Sector[] = [
       "satisfaction-nps",
     ],
   },
+  {
+    slug: "service-public",
+    title: "Service public & collectivités",
+    icon: "Landmark",
+    description:
+      "Dématérialisez les démarches, informez les citoyens et centralisez les demandes via WhatsApp et multicanal.",
+    solutions: [
+      "agent-accueil",
+      "notifications",
+      "incidents",
+      "workflows-metiers",
+    ],
+    useCases: [
+      "Demande d'acte d'état civil par WhatsApp",
+      "Notifications d'interruption de service",
+      "Signalement voirie / propreté avec géolocalisation",
+      "Prise de rendez-vous avec les services municipaux",
+      "Relais d'information citoyenne massif",
+    ],
+  },
 ];
 
 export function getSectorBySlug(slug: string): Sector | undefined {
