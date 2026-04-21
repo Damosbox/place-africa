@@ -17,8 +17,9 @@ const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   Légal: [
-    { label: "Conditions générales" },
-    { label: "Politique de confidentialité" },
+    { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+    { label: "Politique cookies", href: "/politique-cookies" },
   ],
 };
 
@@ -72,7 +73,7 @@ export function Footer() {
                   <li key={link.label}>
                     {"external" in link && link.external ? (
                       <a
-                        href={(link as { href: string }).href}
+                        href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors"
@@ -80,17 +81,13 @@ export function Footer() {
                         {link.label}
                         <ExternalLink size={11} className="shrink-0" />
                       </a>
-                    ) : "href" in link ? (
+                    ) : (
                       <Link
-                        href={(link as { href: string }).href}
+                        href={link.href}
                         className="text-sm text-neutral-400 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
-                    ) : (
-                      <span className="text-sm text-neutral-400">
-                        {link.label}
-                      </span>
                     )}
                   </li>
                 ))}
