@@ -2,13 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const TYPEWRITER_WORDS = ["apps", "chatbots", "paiements", "campagnes"];
+const SLIDE_DURATION = 6000; // ms per slide
 
+const BUBBLES = [
+  { side: "left",  bg: "#FE4D2B", text: "text-white",  content: "Bonjour, combien coûte l'assurance auto ?", delay: 0.1 },
+  { side: "right", bg: "white",   text: "text-neutral-900", content: "78 203 FCFA / 6 mois • Tiers amélioré", delay: 0.7 },
+  { side: "left",  bg: "#FE4D2B", text: "text-white",  content: "Je prends 👍", delay: 1.3 },
+];
+
+// ── Typewriter ─────────────────────────────────────────────────────────────
 function Typewriter() {
   const [idx, setIdx] = useState(0);
   const [shown, setShown] = useState("");
@@ -20,18 +28,16 @@ function Typewriter() {
       if (shown.length < word.length) {
         const t = setTimeout(() => setShown(word.slice(0, shown.length + 1)), 60);
         return () => clearTimeout(t);
-      } else {
-        const t = setTimeout(() => setPhase("deleting"), 1600);
-        return () => clearTimeout(t);
       }
+      const t = setTimeout(() => setPhase("deleting"), 1600);
+      return () => clearTimeout(t);
     } else {
       if (shown.length > 0) {
         const t = setTimeout(() => setShown(shown.slice(0, -1)), 30);
         return () => clearTimeout(t);
-      } else {
-        setIdx((i) => (i + 1) % TYPEWRITER_WORDS.length);
-        setPhase("typing");
       }
+      setIdx((i) => (i + 1) % TYPEWRITER_WORDS.length);
+      setPhase("typing");
     }
   }, [shown, phase, idx]);
 
@@ -46,10 +52,117 @@ function Typewriter() {
   );
 }
 
+// ── Slide 1 — Product mockup ────────────────────────────────────────────────
+function SlideProduct() {
+  return (
+    <div className="relative w-full h-full flex items-center justify-center">
+      {/* floating mockup */}
+      <div className="relative z-10 w-full" style={{ animation: "floatY 6s ease-in-out infinite" }}>
+        <Image
+          src="/images/Picture1.png"
+          alt="Dashboard Docaya — back-office unifié"
+          width={620}
+          height={460}
+          className="w-full drop-shadow-2xl"
+          priority
+        />
+      </div>
+
+      {/* KPI card */}
+      <motion.div
+        initial={{ opacity: 0, x: -16 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.45, delay: 0.3 }}
+        className="absolute -left-6 top-8 z-20 bg-white rounded-2xl px-4 py-3 shadow-2xl border border-white/20"
+      >
+        <div className="text-[10px] uppercase tracking-wider font-bold text-neutral-400">Tickets</div>
+        <div className="text-2xl font-bold text-neutral-900">318</div>
+        <div className="text-[11px] font-semibold text-brand-accent">↑ 24% cette semaine</div>
+      </motion.div>
+    </div>
+  );
+}
+
+// ── Slide 2 — Merchant photo + chat bubbles ─────────────────────────────────
+function SlideMerchant() {
+  return (
+    <div className="relative w-full h-full">
+      {/* glow */}
+      <div className="absolute inset-0 rounded-3xl blur-2xl scale-90 translate-y-4"
+        style={{ background: "#FE1B0026" }} />
+
+      {/* photo */}
+      <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
+        <Image
+          src="/images/hero-merchant.png"
+          alt="Entreprise africaine utilisant Docaya"
+          fill
+          className="object-cover object-center"
+          sizes="45vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
+      </div>
+
+      {/* chat bubbles */}
+      {BUBBLES.map((b, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 10, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0,  scale: 1 }}
+          transition={{ duration: 0.4, delay: b.delay }}
+          className={`
+            absolute z-20 text-sm font-medium rounded-2xl px-3 py-2 shadow-lg max-w-[220px]
+            ${b.text}
+            ${b.side === "left" ? "left-[-14%]" : "right-[-10%]"}
+          `}
+          style={{
+            background: b.bg,
+            top: i === 0 ? "10%" : i === 1 ? "30%" : "50%",
+            animation: `bubbleFloat ${5 + i}s ease-in-out ${b.delay + 0.4}s infinite`,
+          }}
+        >
+          {b.content}
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+// ── Progress dots ────────────────────────────────────────────────────────────
+function Dots({ active, total, onClick }: { active: number; total: number; onClick: (i: number) => void }) {
+  return (
+    <div className="flex gap-2 justify-center mt-4">
+      {Array.from({ length: total }).map((_, i) => (
+        <button
+          key={i}
+          onClick={() => onClick(i)}
+          className="rounded-full transition-all duration-300"
+          style={{
+            width:  i === active ? 20 : 6,
+            height: 6,
+            background: i === active ? "#FE1B00" : "rgba(255,255,255,0.25)",
+          }}
+          aria-label={`Slide ${i + 1}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ── Hero ────────────────────────────────────────────────────────────────────
 export function HeroSection() {
+  const [slide, setSlide] = useState(0);
+  const TOTAL = 2;
+
+  useEffect(() => {
+    const t = setInterval(() => setSlide((s) => (s + 1) % TOTAL), SLIDE_DURATION);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <section className="relative flex flex-col overflow-hidden bg-black min-h-screen">
-      {/* Grid texture */}
+
+      {/* Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04]">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -61,7 +174,7 @@ export function HeroSection() {
         </svg>
       </div>
 
-      {/* Radial glow */}
+      {/* Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute top-1/2 left-[55%] w-[520px] h-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px] opacity-50"
@@ -73,9 +186,8 @@ export function HeroSection() {
       <div className="flex-1 flex items-center container-site pt-28 pb-16 relative z-10">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* LEFT — text */}
+          {/* LEFT */}
           <div>
-            {/* Badges */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -87,10 +199,7 @@ export function HeroSection() {
                 Place Africa acquiert{" "}
                 <span className="text-white font-semibold">Docaya</span>
                 <span className="text-white/30 mx-0.5">·</span>
-                <a
-                  href="/a-propos#docaya"
-                  className="text-brand-accent hover:text-orange-400 transition-colors"
-                >
+                <a href="/a-propos#docaya" className="text-brand-accent hover:text-orange-400 transition-colors">
                   Lire l&apos;annonce →
                 </a>
               </span>
@@ -102,7 +211,6 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -110,11 +218,9 @@ export function HeroSection() {
               className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
             >
               Les <Typewriter /> qui font tourner
-              <br />
-              l&apos;Afrique.
+              <br />l&apos;Afrique.
             </motion.h1>
 
-            {/* Baseline */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -125,91 +231,76 @@ export function HeroSection() {
               et de leur envoyer le bon message — sur WhatsApp, SMS, e-mail et paiement mobile.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.24 }}
-              className="flex flex-col sm:flex-row items-start gap-3 mb-14"
+              className="flex flex-col sm:flex-row items-start gap-3"
             >
               <a href="#produits">
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold"
-                >
-                  Nos produits
-                  <ArrowRight size={18} />
+                <Button variant="primary" size="lg" className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold">
+                  Nos produits <ArrowRight size={18} />
                 </Button>
               </a>
               <Link href="/plateforme">
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg"
-                >
-                  Découvrir DOCAYA
-                  <ArrowRight size={18} />
+                <Button variant="ghost" size="lg" className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg">
+                  Découvrir DOCAYA <ArrowRight size={18} />
                 </Button>
               </Link>
             </motion.div>
           </div>
 
-          {/* RIGHT — product mockup + KPI card */}
+          {/* RIGHT — auto-slider */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:flex flex-col"
           >
-            {/* Glow behind */}
-            <div
-              className="absolute -inset-10 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle at 60% 50%, #FE1B0040 0%, transparent 65%)",
-                filter: "blur(60px)",
-              }}
-            />
-
-            {/* Mockup image — floating */}
-            <div
-              className="relative z-10"
-              style={{ animation: "floatY 6s ease-in-out infinite" }}
-            >
-              <Image
-                src="/images/Picture1.png"
-                alt="Dashboard Docaya — back-office unifié"
-                width={620}
-                height={460}
-                className="w-full drop-shadow-2xl"
-                priority
-              />
+            {/* slide frame */}
+            <div className="relative" style={{ minHeight: 480 }}>
+              <AnimatePresence mode="wait">
+                {slide === 0 ? (
+                  <motion.div
+                    key="product"
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.55 }}
+                    className="absolute inset-0"
+                  >
+                    <SlideProduct />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="merchant"
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.55 }}
+                    className="absolute inset-0"
+                  >
+                    <SlideMerchant />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Floating KPI card */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="absolute -left-6 top-8 z-20 bg-white rounded-2xl px-4 py-3 shadow-2xl border border-white/20"
-            >
-              <div className="text-[10px] uppercase tracking-wider font-bold text-neutral-400">
-                Tickets
-              </div>
-              <div className="text-2xl font-bold text-neutral-900">318</div>
-              <div className="text-[11px] font-semibold text-brand-accent">
-                ↑ 24% cette semaine
-              </div>
-            </motion.div>
+            {/* dots */}
+            <Dots active={slide} total={TOTAL} onClick={setSlide} />
           </motion.div>
+
         </div>
       </div>
 
       <style jsx global>{`
         @keyframes floatY {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
+          50%       { transform: translateY(-8px); }
+        }
+        @keyframes bubbleFloat {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-5px); }
         }
       `}</style>
     </section>
