@@ -21,9 +21,10 @@ export default function MentionsLegalesPage() {
             <h2 className="text-xl font-bold text-neutral-900 mb-3">1. Éditeur du site</h2>
             <p>
               Le site internet accessible à l&apos;adresse <strong>place.africa</strong> est édité par{" "}
-              <strong>Place Côte d&apos;Ivoire</strong>, société [forme sociale à compléter], au capital de
-              [à compléter], immatriculée au RCCM sous le numéro [à compléter], dont le siège social est
-              situé [adresse complète à compléter].
+              <strong>Place Côte d&apos;Ivoire</strong>, Société à Responsabilité Limitée Unipersonnelle (SARLU),
+              immatriculée au Registre du Commerce et du Crédit Mobilier (RCCM) d&apos;Abidjan
+              sous le numéro <strong>CI-ABJ-03-2023-B13-07557</strong>, dont le siège social est situé à{" "}
+              <strong>Cocody Riviera 3, Quartier COPRIM 2, Abidjan, Côte d&apos;Ivoire</strong>.
             </p>
             <p className="mt-2">
               Adresse électronique de contact :{" "}
@@ -53,7 +54,14 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="text-xl font-bold text-neutral-900 mb-3">3. Hébergement et exploitation technique</h2>
             <p>
-              Le site est hébergé par [hébergeur à compléter], dont le siège est situé [adresse à compléter].
+              Le nom de domaine <strong>place.africa</strong> est enregistré auprès de{" "}
+              <strong>Gandi SAS</strong>, dont le siège social est situé 63-65, boulevard Masséna, 75013 Paris, France
+              — <a href="https://www.gandi.net" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">www.gandi.net</a>.
+            </p>
+            <p className="mt-2">
+              Le site vitrine est hébergé par <strong>Vercel Inc.</strong>, 340 Pine Street, Suite 701,
+              San Francisco, CA 94104, États-Unis —{" "}
+              <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">vercel.com</a>.
             </p>
             <p className="mt-2">
               L&apos;accès applicatif au produit Docaya est disponible à l&apos;adresse{" "}

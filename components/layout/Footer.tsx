@@ -59,7 +59,7 @@ export function Footer() {
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={14} />
-                Abidjan, Côte d&apos;Ivoire
+                Cocody Riviera 3, COPRIM 2 — Abidjan
               </span>
             </div>
           </div>
