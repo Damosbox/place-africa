@@ -27,7 +27,7 @@ export function WhatsAppFab() {
 
       {/* FAB button */}
       <a
-        href="https://wa.me/225585750017?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20Docaya."
+        href="https://wa.me/2250585750017?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20Docaya."
         target="_blank"
         rel="noopener noreferrer"
         className={cn(

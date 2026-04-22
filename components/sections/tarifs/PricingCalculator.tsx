@@ -357,7 +357,7 @@ export function PricingCalculator() {
                   </Button>
                 </Link>
                 <a
-                  href="https://wa.me/225585750017?text=Bonjour%2C%20je%20souhaite%20un%20devis%20Docaya."
+                  href="https://wa.me/2250585750017?text=Bonjour%2C%20je%20souhaite%20un%20devis%20Docaya."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

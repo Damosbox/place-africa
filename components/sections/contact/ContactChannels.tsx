@@ -4,8 +4,8 @@ const channels = [
   {
     icon: <Phone size={20} />,
     label: "Téléphone / WhatsApp",
-    value: "+225 58 57 50 017",
-    href: "tel:+225585750017",
+    value: "+225 05 85 75 00 17",
+    href: "tel:+2250585750017",
     color: "text-whatsapp",
     bg: "bg-[#25D366]/10",
   },

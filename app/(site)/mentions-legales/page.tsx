@@ -30,7 +30,7 @@ export default function MentionsLegalesPage() {
               <a href="mailto:info@place.africa" className="text-brand-accent hover:underline">
                 info@place.africa
               </a>.<br />
-              Téléphone : +225 58 57 50 017.
+              Téléphone : +225 05 85 75 00 17.
             </p>
             <p className="mt-2">
               Place Côte d&apos;Ivoire exploite notamment, pour ses activités, les dénominations et marques{" "}
