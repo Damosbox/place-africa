@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
       await transporter.sendMail({
         from: `"Docaya Site" <${process.env.SMTP_USER}>`,
-        to: process.env.CONTACT_EMAIL ?? "contact@docaya.com",
+        to: process.env.CONTACT_EMAIL ?? "info@place.africa",
         replyTo: data.email,
         subject: `[Docaya] Nouvelle demande de démo — ${data.company}`,
         html: `

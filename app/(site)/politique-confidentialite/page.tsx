@@ -193,8 +193,8 @@ export default function PolitiqueConfidentialitePage() {
             </p>
             <p className="mt-2">
               Les demandes peuvent être adressées à{" "}
-              <a href="mailto:contact@docaya.com" className="text-brand-accent hover:underline">
-                contact@docaya.com
+              <a href="mailto:privacy@place.africa" className="text-brand-accent hover:underline">
+                privacy@place.africa
               </a>. Une réponse motivée est apportée dans un délai raisonnable.
             </p>
             <p className="mt-2 text-sm text-neutral-500">

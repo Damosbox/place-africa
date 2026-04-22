@@ -166,7 +166,11 @@ export function ContactForm() {
       )}
       <p className="text-xs text-neutral-400 leading-relaxed">
         Les données demandées nous permettent d&apos;organiser une démonstration de Docaya et de vous recontacter
-        dans le cadre de votre demande. Elles sont destinées aux équipes habilitées de Place Côte d&apos;Ivoire.{" "}
+        dans le cadre de votre demande. Elles sont destinées aux équipes habilitées de Place Côte d&apos;Ivoire.
+        Pour exercer vos droits :{" "}
+        <a href="mailto:privacy@place.africa" className="underline hover:text-neutral-600 transition-colors">
+          privacy@place.africa
+        </a>.{" "}
         <a href="/politique-confidentialite" className="underline hover:text-neutral-600 transition-colors">
           Politique de confidentialité
         </a>.

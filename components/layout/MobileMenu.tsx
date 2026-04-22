@@ -120,13 +120,18 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               Demander une démo
             </Button>
           </Link>
+          <Link href="/contact" onClick={onClose} className="w-full">
+            <Button variant="ghost" size="md" className="w-full">
+              Contact
+            </Button>
+          </Link>
           <a
             href="https://app.docaya.com"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full"
           >
-            <Button variant="ghost" size="md" className="w-full">
+            <Button variant="ghost" size="md" className="w-full text-neutral-400">
               App Docaya
             </Button>
           </a>

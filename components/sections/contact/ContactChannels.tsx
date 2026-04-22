@@ -12,8 +12,8 @@ const channels = [
   {
     icon: <Mail size={20} />,
     label: "Email",
-    value: "contact@docaya.com",
-    href: "mailto:contact@docaya.com",
+    value: "info@place.africa",
+    href: "mailto:info@place.africa",
     color: "text-brand",
     bg: "bg-brand-subtle",
   },

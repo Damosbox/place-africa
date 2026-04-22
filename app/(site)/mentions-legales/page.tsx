@@ -26,8 +26,11 @@ export default function MentionsLegalesPage() {
               situé [adresse complète à compléter].
             </p>
             <p className="mt-2">
-              Adresse électronique de contact : [email général à compléter].<br />
-              Téléphone : [à compléter].
+              Adresse électronique de contact :{" "}
+              <a href="mailto:info@place.africa" className="text-brand-accent hover:underline">
+                info@place.africa
+              </a>.<br />
+              Téléphone : +225 07 01 79 56 66.
             </p>
             <p className="mt-2">
               Place Côte d&apos;Ivoire exploite notamment, pour ses activités, les dénominations et marques{" "}
@@ -39,8 +42,11 @@ export default function MentionsLegalesPage() {
           <section>
             <h2 className="text-xl font-bold text-neutral-900 mb-3">2. Publication et responsabilité éditoriale</h2>
             <p>
-              Le directeur de la publication du site est [nom, qualité et coordonnées professionnelles à compléter].
-              Le responsable éditorial ou responsable du contenu, s&apos;il est distinct, est [à compléter].
+              Le directeur de la publication du site est <strong>Saint-Clair BOTI</strong>.
+              Toute question relative au contenu éditorial peut être adressée à{" "}
+              <a href="mailto:info@place.africa" className="text-brand-accent hover:underline">
+                info@place.africa
+              </a>.
             </p>
           </section>
 
@@ -146,7 +152,10 @@ export default function MentionsLegalesPage() {
               impératives éventuellement applicables dans d&apos;autres ressorts lorsque la loi l&apos;exige.
             </p>
             <p className="mt-2">
-              Toute question ou réclamation relative au site peut être adressée à [contact à compléter]. En
+              Toute question ou réclamation relative au site peut être adressée à{" "}
+              <a href="mailto:info@place.africa" className="text-brand-accent hover:underline">
+                info@place.africa
+              </a>. En
               matière de données personnelles, l&apos;utilisateur peut également saisir l&apos;Autorité de Régulation
               des Télécommunications/TIC de Côte d&apos;Ivoire (ARTCI).
             </p>

@@ -44,11 +44,11 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-3 text-sm text-neutral-400">
               <a
-                href="mailto:contact@docaya.com"
+                href="mailto:info@place.africa"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Mail size={14} />
-                contact@docaya.com
+                info@place.africa
               </a>
               <a
                 href="tel:+2250701795666"

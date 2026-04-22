@@ -184,6 +184,17 @@ export function Header() {
                 App Docaya
                 <ExternalLink size={12} />
               </a>
+              <Link
+                href="/contact"
+                className={cn(
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  scrolled
+                    ? "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100"
+                    : "text-white/80 hover:text-white hover:bg-white/8"
+                )}
+              >
+                Contact
+              </Link>
               <Link href="/contact">
                 <Button
                   variant="primary"
