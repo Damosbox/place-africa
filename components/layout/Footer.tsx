@@ -51,11 +51,11 @@ export function Footer() {
                 info@place.africa
               </a>
               <a
-                href="tel:+2250701795666"
+                href="tel:+225585750017"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Phone size={14} />
-                +225 07 01 79 56 66
+                +225 58 57 50 017
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={14} />

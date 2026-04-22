@@ -36,7 +36,7 @@ export function CtaSection() {
               </button>
             </Link>
             <a
-              href="https://wa.me/2250701795666?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo."
+              href="https://wa.me/225585750017?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9mo."
               target="_blank"
               rel="noopener noreferrer"
             >
