@@ -257,15 +257,14 @@ export function HeroSection() {
               className="flex flex-wrap gap-x-5 gap-y-2 pt-2"
             >
               {[
-                { value: ">90%",   label: "taux d'ouverture WhatsApp" },
-                { value: "4-8 sem", label: "délai de déploiement" },
-                { value: "5",      label: "moyens de paiement" },
-                { value: ">40%",   label: "taux de réponse NPS" },
+                { value: ">90%",  label: "taux d'ouverture WhatsApp" },
+                { value: "5",     label: "moyens de paiement" },
+                { value: ">40%",  label: "taux de réponse NPS" },
               ].map((kpi, i) => (
                 <div key={i} className="flex items-baseline gap-1.5">
                   <span className="text-sm font-bold text-white">{kpi.value}</span>
                   <span className="text-xs text-white/40">{kpi.label}</span>
-                  {i < 3 && <span className="text-white/20 text-xs ml-1.5">·</span>}
+                  {i < 2 && <span className="text-white/20 text-xs ml-1.5">·</span>}
                 </div>
               ))}
             </motion.div>
