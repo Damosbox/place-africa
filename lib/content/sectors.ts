@@ -14,6 +14,11 @@ export const sectors: Sector[] = [
       "incidents",
       "notifications",
     ],
+    useCases: [
+      "Souscription auto sur WhatsApp : carte grise → devis → paiement en moins de 5 minutes",
+      "Recouvrement des primes à l'échéance avec lien de paiement intégré dans chaque relance",
+      "Génération automatique des conditions particulières dès validation du paiement",
+    ],
   },
   {
     slug: "immobilier",
@@ -28,6 +33,11 @@ export const sectors: Sector[] = [
       "incidents",
       "workflows-metiers",
     ],
+    useCases: [
+      "Relances automatiques des loyers impayés avec lien de paiement Wave / Orange Money",
+      "Génération automatique des quittances de loyer et reversements aux propriétaires",
+      "Gestion des signalements de maintenance : collecte photo, suivi de résolution",
+    ],
   },
   {
     slug: "education",
@@ -40,6 +50,11 @@ export const sectors: Sector[] = [
       "vente-souscription",
       "notifications",
       "workflows-metiers",
+    ],
+    useCases: [
+      "Inscription et paiement des frais sur WhatsApp — sans déplacement ni file d'attente",
+      "Relances des frais impayés avec gestion d'échéanciers personnalisés",
+      "Génération automatique des attestations d'inscription dès paiement confirmé",
     ],
   },
   {
@@ -55,11 +70,9 @@ export const sectors: Sector[] = [
       "recouvrement",
     ],
     useCases: [
-      "Ouverture de compte en ligne via WhatsApp",
-      "Souscription de produits bancaires (crédits, épargne)",
-      "Relance automatique de remboursements",
-      "Infos produits et FAQ clients",
-      "Notifications de transactions et alertes solde",
+      "Pré-enrôlement et collecte documentaire pour l'ouverture de compte via WhatsApp",
+      "Relances de remboursement de crédits avec lien de paiement et suivi des versements partiels",
+      "FAQ produits et orientation 24h/24 sans mobiliser vos conseillers",
     ],
   },
   {
@@ -74,6 +87,11 @@ export const sectors: Sector[] = [
       "notifications",
       "satisfaction-nps",
     ],
+    useCases: [
+      "Pré-arrivée automatisée : check-in, services disponibles, ventes additionnelles (surclassement, repas)",
+      "NPS automatique post-check-out avec alerte immédiate sur scores ≤ 6",
+      "Relances d'acomptes et gestion des no-shows avec lien de paiement intégré",
+    ],
   },
   {
     slug: "transport-aerien",
@@ -86,6 +104,11 @@ export const sectors: Sector[] = [
       "agent-accueil",
       "incidents",
       "satisfaction-nps",
+    ],
+    useCases: [
+      "Rappel de vol J-1 : informations bagages, porte d'embarquement, instructions check-in",
+      "Vente additionnelle (bagage, siège premium) directement sur WhatsApp",
+      "Déclaration guidée de bagages perdus avec collecte de preuves photo",
     ],
   },
   {
@@ -100,6 +123,11 @@ export const sectors: Sector[] = [
       "recouvrement",
       "agent-accueil",
     ],
+    useCases: [
+      "Alertes automatiques de coupure programmée personnalisées par zone géographique",
+      "Relances des factures impayées avec lien de paiement mobile money intégré",
+      "Signalement de pannes guidé par chatbot avec collecte de localisation GPS",
+    ],
   },
   {
     slug: "retail",
@@ -112,6 +140,11 @@ export const sectors: Sector[] = [
       "notifications",
       "workflows-metiers",
       "satisfaction-nps",
+    ],
+    useCases: [
+      "Prise de commande revendeurs sur WhatsApp : catalogue, stocks en temps réel, paiement intégré",
+      "Campagnes promotionnelles ciblées par segment — taux d'ouverture >90%",
+      "NPS post-livraison avec traitement proactif des détracteurs pour maximiser le réachat",
     ],
   },
   {
