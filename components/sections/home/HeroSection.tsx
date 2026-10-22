@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-const TYPEWRITER_WORDS = ["apps", "chatbots", "paiements", "campagnes"];
 const SLIDE_DURATION = 6000; // ms per slide
 
 const BUBBLES = [
@@ -15,42 +14,6 @@ const BUBBLES = [
   { side: "right", bg: "white",   text: "text-neutral-900", content: "78 203 FCFA / 6 mois • Tiers amélioré", delay: 0.7 },
   { side: "left",  bg: "#FE4D2B", text: "text-white",  content: "Je prends 👍", delay: 1.3 },
 ];
-
-// ── Typewriter ─────────────────────────────────────────────────────────────
-function Typewriter() {
-  const [idx, setIdx] = useState(0);
-  const [shown, setShown] = useState("");
-  const [phase, setPhase] = useState<"typing" | "deleting">("typing");
-
-  useEffect(() => {
-    const word = TYPEWRITER_WORDS[idx];
-    if (phase === "typing") {
-      if (shown.length < word.length) {
-        const t = setTimeout(() => setShown(word.slice(0, shown.length + 1)), 60);
-        return () => clearTimeout(t);
-      }
-      const t = setTimeout(() => setPhase("deleting"), 1600);
-      return () => clearTimeout(t);
-    } else {
-      if (shown.length > 0) {
-        const t = setTimeout(() => setShown(shown.slice(0, -1)), 30);
-        return () => clearTimeout(t);
-      }
-      setIdx((i) => (i + 1) % TYPEWRITER_WORDS.length);
-      setPhase("typing");
-    }
-  }, [shown, phase, idx]);
-
-  return (
-    <span className="gradient-text inline-block min-w-[4ch]">
-      {shown}
-      <span
-        className="inline-block w-[3px] align-middle ml-[2px] animate-pulse"
-        style={{ height: "0.85em", background: "currentColor" }}
-      />
-    </span>
-  );
-}
 
 // ── Slide 1 — Product mockup ────────────────────────────────────────────────
 function SlideProduct() {
@@ -60,7 +23,7 @@ function SlideProduct() {
       <div className="relative z-10 w-full" style={{ animation: "floatY 6s ease-in-out infinite" }}>
         <Image
           src="/images/Picture1.png"
-          alt="Dashboard Docaya — back-office unifié"
+          alt="Dashboard Place Fuse — back-office unifié"
           width={620}
           height={460}
           className="w-full drop-shadow-2xl"
@@ -95,7 +58,7 @@ function SlideMerchant() {
       <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5]">
         <Image
           src="/images/hero-merchant.png"
-          alt="Entreprise africaine utilisant Docaya"
+          alt="Entreprise africaine utilisant Place Fuse"
           fill
           className="object-cover object-center"
           sizes="45vw"
@@ -194,41 +157,38 @@ export function HeroSection() {
               transition={{ duration: 0.4 }}
               className="flex flex-wrap items-center gap-2 mb-8"
             >
-              <span className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-1.5 text-white/60 text-sm font-medium">
+              <Link
+                href="/contact?sujet=demo"
+                className="group inline-flex items-center gap-2 border border-white/10 hover:border-white/25 rounded-full px-4 py-1.5 text-white/60 hover:text-white/80 text-sm font-medium transition-colors"
+              >
                 <span className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-pulse" />
-                Place Africa acquiert{" "}
-                <span className="text-white font-semibold">Docaya</span>
+                Voir un parcours complet, de la question au paiement
                 <span className="text-white/30 mx-0.5">·</span>
-                <a href="/a-propos#docaya" className="text-brand-accent hover:text-orange-400 transition-colors">
-                  Lire l&apos;annonce →
-                </a>
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/5 border border-white/8 rounded-full px-3 py-1.5 text-white/50 text-xs font-medium">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="#FE1B00">
-                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                </svg>
-                Propulsé par l&apos;IA
-              </span>
+                <span className="text-brand-accent group-hover:gap-2 transition-all">3 min →</span>
+              </Link>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.08] tracking-tight mb-6"
             >
-              Les <Typewriter /> qui font tourner
-              <br />l&apos;Afrique.
+              Vos processus tournent seuls.
+              <br />
+              <span className="text-white/45">Vos équipes traitent ce qui compte.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-sm text-white/60 leading-relaxed max-w-lg mb-10 font-medium"
+              className="text-base text-white/60 leading-relaxed max-w-xl mb-10"
             >
-              Docaya, l&apos;outil qui permet à vos équipes de répondre à tous vos clients
-              et de leur envoyer le bon message — sur WhatsApp, SMS, e-mail et paiement mobile.
+              Place Fuse répond à vos clients, vérifie leur identité, encaisse leurs paiements
+              et exécute vos procédures — dans une simple conversation WhatsApp. Ce qui
+              demande un jugement humain arrive à la bonne personne, avec le dossier déjà
+              complet.
             </motion.p>
 
             <motion.div
@@ -237,36 +197,16 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.24 }}
               className="flex flex-col sm:flex-row items-start gap-3"
             >
-              <a href="#produits">
+              <Link href="/contact?sujet=demo">
                 <Button variant="primary" size="lg" className="bg-white text-black hover:bg-neutral-100 shadow-cta rounded-lg font-bold">
-                  Nos produits <ArrowRight size={18} />
-                </Button>
-              </a>
-              <Link href="/plateforme">
-                <Button variant="ghost" size="lg" className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg">
-                  Découvrir DOCAYA <ArrowRight size={18} />
+                  Voir Place Fuse en action <ArrowRight size={18} />
                 </Button>
               </Link>
-            </motion.div>
-
-            {/* KPI strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.36 }}
-              className="flex flex-wrap gap-x-5 gap-y-2 pt-2"
-            >
-              {[
-                { value: ">90%",  label: "taux d'ouverture WhatsApp" },
-                { value: "5",     label: "moyens de paiement" },
-                { value: ">40%",  label: "taux de réponse NPS" },
-              ].map((kpi, i) => (
-                <div key={i} className="flex items-baseline gap-1.5">
-                  <span className="text-sm font-bold text-white">{kpi.value}</span>
-                  <span className="text-xs text-white/40">{kpi.label}</span>
-                  {i < 2 && <span className="text-white/20 text-xs ml-1.5">·</span>}
-                </div>
-              ))}
+              <Link href="/contact">
+                <Button variant="ghost" size="lg" className="text-white/70 hover:text-white hover:bg-white/8 rounded-lg">
+                  Parler à un expert <ArrowRight size={18} />
+                </Button>
+              </Link>
             </motion.div>
           </div>
 

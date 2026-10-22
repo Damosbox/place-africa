@@ -61,7 +61,7 @@ export function ChannelsBar() {
     <section className="py-12 bg-white border-b border-neutral-200">
       <div className="container-site">
         <p className="text-center text-neutral-500 text-sm font-medium mb-8">
-          Vos clients sont partout — Docaya les atteint sur tous les canaux
+          Vos clients sont partout — Place Fuse les atteint sur tous les canaux
         </p>
         <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
           {channels.map((ch, i) => (

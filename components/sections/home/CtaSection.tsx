@@ -2,32 +2,36 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Play, Search, Zap, ArrowRight } from "lucide-react";
+import { Play, HelpCircle, MessagesSquare, ArrowRight } from "lucide-react";
+import { EMAIL, PHONE_DISPLAY } from "@/lib/content/contact";
 
+/**
+ * Contact. Chaque option préremplit le sujet du formulaire (`?sujet=`).
+ * L'« audit gratuit » et le « proof-of-concept » de la V3 ont été retirés : les
+ * supports d'octobre proposent un pilote de 90 jours, présenté juste au-dessus
+ * (`PilotSection`).
+ */
 const START_OPTIONS = [
   {
     icon: Play,
-    title: "Démo de 30 min",
-    desc: "Démonstration live sur votre cas d'usage prioritaire. Aucun prérequis technique de votre côté.",
-    cta: "Demander une démo",
-    href: "/contact",
-    external: false,
+    title: "Démonstration accompagnée",
+    desc: "Un membre de l'équipe vous présente en direct les parcours de votre secteur.",
+    cta: "Demander une démonstration",
+    href: "/contact?sujet=demo",
   },
   {
-    icon: Search,
-    title: "Audit gratuit",
-    desc: "Analyse de vos processus actuels. On identifie ensemble les 3 automatisations à plus fort impact.",
-    cta: "Demander l'audit",
-    href: "/contact?sujet=audit",
-    external: false,
+    icon: HelpCircle,
+    title: "Une question précise",
+    desc: "Sécurité, conformité, intégration à vos systèmes : posez-nous votre question, nous répondons par écrit.",
+    cta: "Poser votre question",
+    href: "/contact?sujet=autre",
   },
   {
-    icon: Zap,
-    title: "Proof-of-Concept",
-    desc: "Un flow réel déployé sur votre cas prioritaire pour valider les résultats avant tout engagement.",
-    cta: "En savoir plus",
-    href: "/contact?sujet=poc",
-    external: false,
+    icon: MessagesSquare,
+    title: "Tarification sur mesure",
+    desc: "Le prix dépend des parcours retenus et de vos volumes : nous l'établissons avec vous.",
+    cta: "Demander une proposition",
+    href: "/contact?sujet=tarifs",
   },
 ];
 
@@ -42,23 +46,20 @@ export function CtaSection() {
           className="text-center mb-12"
         >
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand-accent mb-6">
-            Par où commencer ?
+            Nous contacter
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-            3 façons de démarrer
-            <br />
-            <span className="text-white/30">selon votre horizon</span>
+            Par où commencer ?
           </h2>
-          <p className="text-white/40 text-base max-w-lg mx-auto">
-            Choisissez ce qui vous convient — sans engagement, sans frais cachés.
+          <p className="text-white/40 text-base max-w-xl mx-auto">
+            Dites-nous où vous en êtes : nous revenons vers vous avec la bonne personne.
           </p>
         </motion.div>
 
-        {/* 3 options */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {START_OPTIONS.map((opt, i) => (
             <motion.div
-              key={i}
+              key={opt.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,15 +83,14 @@ export function CtaSection() {
           ))}
         </div>
 
-        {/* Bottom note */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-center text-xs text-white/20 mt-10"
+          className="text-center text-xs text-white/30 mt-10"
         >
-          contact@docaya.com · +225 05 85 75 00 17 · www.docaya.com
+          {EMAIL} · {PHONE_DISPLAY} · www.place.africa
         </motion.p>
       </div>
     </section>

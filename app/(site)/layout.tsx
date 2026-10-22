@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFab } from "@/components/common/WhatsAppFab";
+import { ChatWidget } from "@/components/common/ChatWidget";
 
 export default function SiteLayout({
   children,
@@ -12,7 +12,7 @@ export default function SiteLayout({
       <Header />
       <main className="overflow-x-clip">{children}</main>
       <Footer />
-      <WhatsAppFab />
+      <ChatWidget />
     </>
   );
 }

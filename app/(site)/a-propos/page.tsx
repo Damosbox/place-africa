@@ -62,6 +62,7 @@ const values = [
   },
 ];
 
+/** §7.3 — frise chronologique. */
 const timeline = [
   {
     year: "2021",
@@ -69,14 +70,14 @@ const timeline = [
     desc: "Naissance du projet avec la mission de structurer les échanges entre entreprises et consommateurs en Afrique de l'Ouest.",
   },
   {
-    year: "Mars 2026",
-    event: "Acquisition de DOCAYA",
-    desc: "Place Africa acquiert la plateforme conversationnelle B2B DOCAYA, marquant l'entrée dans les services financiers automatisés et l'expansion vers les entreprises de toute taille.",
+    year: "2026",
+    event: "Lancement de DOCAYA, aujourd'hui Place Fuse",
+    desc: "Mise en production de la plateforme conversationnelle : service client, vérification d'identité, encaissement et processus métier dans une seule conversation.",
   },
   {
     year: "2026",
-    event: "Expansion Afrique de l'Ouest",
-    desc: "Déploiements au Mali, Burkina Faso, Guinée — avec DOCAYA comme socle technologique.",
+    event: "Déploiements au Mali, Burkina Faso, Guinée",
+    desc: "Extension régionale, avec Place Fuse comme socle technologique.",
   },
 ];
 
@@ -91,13 +92,12 @@ export default function AProposPage() {
               À propos de Place Africa
             </SectionTag>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Nous construisons le digital pour ceux qui font tourner l&apos;Afrique.
+              On construit le numérique pour ceux qui font tourner l&apos;Afrique
             </h1>
             <p className="text-white/75 text-xl leading-relaxed">
-              Nous structurons les échanges entre entreprises et consommateurs
-              en Afrique de l&apos;Ouest. Pas avec des outils importés — avec des
-              produits conçus ici, pour ici, où l&apos;intelligence artificielle
-              est le moteur et non l&apos;option.
+              Place Africa conçoit des outils qui permettent aux entreprises et aux
+              administrations africaines d&apos;automatiser ce qui les ralentit — sans
+              importer des solutions pensées pour d&apos;autres marchés.
             </p>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Acquisition Docaya */}
+      {/* §7.2 — bloc produit */}
       <section id="docaya" className="section-padding bg-white">
         <div className="container-site">
           <div className="max-w-3xl mx-auto">
@@ -179,27 +179,20 @@ export default function AProposPage() {
                   <Zap size={20} className="text-brand-accent" />
                 </div>
                 <span className="text-xs font-semibold bg-brand-accent/20 text-brand-accent px-2.5 py-1 rounded-full">
-                  Annonce 2026
+                  Notre produit
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                Place Africa a acquis Docaya
-              </h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">Place Fuse</h2>
               <p className="text-white/75 text-lg leading-relaxed mb-4">
-                En 2026, Place Africa a acquis DOCAYA — la plateforme
-                conversationnelle B2B qui transforme WhatsApp en infrastructure
-                métier pour les entreprises africaines.
-              </p>
-              <p className="text-white/75 text-lg leading-relaxed mb-4">
-                DOCAYA ne s&apos;adresse pas à un seul secteur. Elle
-                s&apos;adresse à toute organisation qui a des clients à servir,
-                des paiements à encaisser, et des processus à automatiser —
-                assurances, banques, immobilier, éducation, logistique, retail,
-                mutuelles, et bien d&apos;autres.
+                Place Fuse prend en charge le service client et les processus métier :
+                réponse aux demandes, vérification d&apos;identité, encaissement,
+                notifications, génération de documents, suivi de dossier. Ce qui
+                demande un jugement humain est identifié et transmis, jamais traité à
+                l&apos;aveugle.
               </p>
               <p className="text-white/75 text-lg leading-relaxed">
-                Ce qui ne change pas d&apos;un secteur à l&apos;autre : la
-                technologie. Ce qui change : uniquement la configuration.
+                Ce qui change d&apos;un secteur à l&apos;autre : la configuration. Ce
+                qui ne change pas : la technologie.
               </p>
             </div>
 
@@ -209,9 +202,10 @@ export default function AProposPage() {
                 <MessageCircle size={20} className="text-white" />
               </div>
               <div>
-                <h3 className="font-bold text-neutral-900 mb-1">Docaya</h3>
+                <h3 className="font-bold text-neutral-900 mb-1">Place Fuse</h3>
                 <p className="text-sm text-neutral-500">
-                  Plateforme B2B — WhatsApp, IA native, 7 modules, paiement intégré. Tous secteurs.
+                  Sept modules activables, paiement intégré, vérification
+                  d&apos;identité dans le parcours. Tous secteurs.
                 </p>
                 <Link
                   href="/plateforme"

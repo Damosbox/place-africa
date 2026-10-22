@@ -104,7 +104,7 @@ export function BriquesOverview() {
               <h3 className="font-bold text-xl mb-2">Tout en un seul endroit</h3>
               <p className="text-white/80 text-sm leading-relaxed">
                 Dashboard unifié, ticketing, paiements, analytics — tout est
-                centralisé dans Docaya.
+                centralisé dans Place Fuse.
               </p>
             </div>
             <Link

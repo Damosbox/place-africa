@@ -8,7 +8,7 @@ import { getIcon } from "@/lib/utils/icons";
 export const metadata: Metadata = {
   title: "Fonctionnalités",
   description:
-    "11 fonctionnalités intégrées dans Docaya : messagerie multicanale, assistant IA, scénarios automatisés, paiements, suivi des demandes et plus — pour gérer vos clients et votre communication depuis un seul outil.",
+    "11 fonctionnalités intégrées dans Place Fuse : messagerie multicanale, assistant IA, scénarios automatisés, paiements, suivi des demandes et plus — pour gérer vos clients et votre communication depuis un seul outil.",
 };
 
 const flowLabel: Record<string, { label: string; className: string }> = {

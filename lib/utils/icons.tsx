@@ -28,6 +28,11 @@ import {
   ShoppingCart,
   Shield,
   Bot,
+  HeartHandshake,
+  Bus,
+  Package,
+  PiggyBank,
+  Car,
   type LucideIcon,
 } from "lucide-react";
 
@@ -61,6 +66,11 @@ const registry: Record<string, LucideIcon> = {
   ShoppingCart,
   Shield,
   Bot,
+  HeartHandshake,
+  Bus,
+  Package,
+  PiggyBank,
+  Car,
 };
 
 export function getIcon(name: string, size: number = 20): React.ReactNode {

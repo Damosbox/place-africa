@@ -9,7 +9,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "WhatsApp, SMS, e-mail, webchat — un seul endroit pour toutes vos conversations.",
     description:
-      "Vos clients vous écrivent sur WhatsApp, par SMS, par e-mail ou via votre site. Docaya regroupe tous ces messages au même endroit. Vos agents voient tout, répondent depuis un seul écran et ne perdent aucune conversation.",
+      "Vos clients vous écrivent sur WhatsApp, par SMS, par e-mail ou via votre site. Place Fuse regroupe tous ces messages au même endroit. Vos agents voient tout, répondent depuis un seul écran et ne perdent aucune conversation.",
     benefits: [
       "9 messages sur 10 sont ouverts sur WhatsApp",
       "L'historique complet du client, quel que soit le canal",
@@ -55,7 +55,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Créez des parcours clients automatiques sans programmer une seule ligne de code.",
     description:
-      "Concevez vos propres processus : collecte d'informations, validation, branchements selon les réponses, mise à jour de votre système de gestion. Ces scénarios fonctionnent pour la vente, la souscription, le recouvrement ou le support — sans intervention humaine pour les étapes simples.",
+      "Vous décrivez ce qui doit se passer — « si la facture n'est pas réglée trois jours avant l'échéance, envoyer un rappel avec le lien de paiement » — et ça s'exécute, indéfiniment.",
     benefits: [
       "Vos processus courants tournent seuls, 24h/24",
       "Connexion à vos outils existants pour les cas avancés",
@@ -80,7 +80,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Un assistant virtuel répond à vos clients à toute heure, dans leur langue.",
     description:
-      "L'assistant IA de Docaya comprend les questions de vos clients en langage naturel. Il répond aux questions fréquentes à partir de votre documentation, identifie le besoin et transfère à un agent humain quand la situation le demande — avec tout le contexte déjà disponible.",
+      "Un assistant répond aux questions courantes jour et nuit, dans la langue du client. Il collecte les informations dont vous avez besoin, sait reconnaître ce qu'il ne doit pas traiter seul, et passe la main avec tout le contexte.",
     benefits: [
       "40 à 70% des demandes simples traitées automatiquement",
       "Disponible 24h/24, 7j/7, en français et en langues locales",
@@ -101,7 +101,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Envoyez le bon message, au bon client, au bon moment — automatiquement.",
     description:
-      "Docaya gère deux types de messages sortants depuis le même outil : les notifications automatiques liées à une action (paiement reçu, rendez-vous confirmé, livraison en route) et les campagnes marketing vers des groupes de clients ciblés (promotion, relance, réactivation).",
+      "Place Fuse gère deux types de messages sortants depuis le même outil : les notifications automatiques liées à une action (paiement reçu, rendez-vous confirmé, livraison en route) et les campagnes marketing vers des groupes de clients ciblés (promotion, relance, réactivation).",
     benefits: [
       "Un seul outil pour vos notifications et vos campagnes",
       "Vous envoyez uniquement aux clients concernés, pas à toute la base",
@@ -126,7 +126,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Transformez chaque conversation entrante en opportunité commerciale qualifiée.",
     description:
-      "Quand un prospect vous contacte — depuis une pub Meta, votre site ou directement sur WhatsApp — Docaya pose les bonnes questions, évalue son niveau d'intérêt et transmet le dossier au bon commercial avec toutes les informations déjà renseignées.",
+      "Quand un prospect vous contacte — depuis une pub Meta, votre site ou directement sur WhatsApp — Place Fuse pose les bonnes questions, évalue son niveau d'intérêt et transmet le dossier au bon commercial avec toutes les informations déjà renseignées.",
     benefits: [
       "Plus de prospects renseignent leur demande jusqu'au bout (vs un formulaire web classique)",
       "Le commercial reçoit un dossier complet, pas juste un nom et un numéro",
@@ -147,7 +147,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Chaque demande client est tracée, suivie et clôturée dans les délais.",
     description:
-      "Chaque demande reçue crée automatiquement un dossier avec son statut, sa catégorie, son niveau d'urgence et les pièces jointes. Le client est informé à chaque étape sans que votre agent n'ait à le rappeler.",
+      "Chaque demande devient un dossier avec un numéro, un statut et un responsable. Le client suit son avancement. Rien ne se perd, rien ne dort.",
     benefits: [
       "Aucune demande ne tombe à l'eau",
       "Vous respectez vos délais de traitement et pouvez le prouver",
@@ -168,7 +168,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Wave, Orange Money, MTN Momo, Moov Money, carte — le client paie dans la conversation.",
     description:
-      "Votre client reçoit un lien de paiement directement dans WhatsApp ou par SMS. Il paie en moins d'une minute avec son moyen de paiement préféré. Vous recevez la confirmation en temps réel et le rapprochement se fait automatiquement.",
+      "Wave, Orange Money, MTN Momo, Moov Money, carte, virement. Le client paie sans quitter la conversation. Le paiement remonte immédiatement dans votre système, sans pointage manuel.",
     benefits: [
       "Paiement en moins d'une minute, sans sortir de la conversation",
       "Rapprochement automatique avec votre comptabilité",
@@ -192,7 +192,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Collecte de pièces, génération et envoi de documents — directement dans la conversation.",
     description:
-      "Vos clients envoient leurs documents (pièce d'identité, justificatif de domicile, photo) directement dans WhatsApp. Docaya génère automatiquement les documents correspondants (quittance, attestation, contrat) et les stocke en sécurité.",
+      "Le client envoie ses pièces en photo, elles sont lues et rangées automatiquement. Les documents que vous devez lui remettre se génèrent et s'envoient seuls.",
     benefits: [
       "Pas d'application à télécharger, pas de déplacement en agence",
       "Tous les documents sont enregistrés, datés et accessibles",
@@ -215,16 +215,16 @@ export const capacities: Capacity[] = [
     icon: "Plug",
     flow: "both",
     shortDescription:
-      "Docaya se connecte à vos outils existants sans tout recommencer de zéro.",
+      "Place Fuse se connecte à vos outils existants sans tout recommencer de zéro.",
     description:
-      "Docaya est conçu pour s'intégrer à votre système actuel. Il se connecte à votre CRM, votre ERP, vos opérateurs de paiement et WhatsApp Business. Les données circulent entre vos outils et Docaya dans les deux sens, sans ressaisie manuelle.",
+      "Place Fuse est conçu pour s'intégrer à votre système actuel. Il se connecte à votre CRM, votre ERP, vos opérateurs de paiement et WhatsApp Business. Les données circulent entre vos outils et Place Fuse dans les deux sens, sans ressaisie manuelle.",
     benefits: [
       "Votre équipe continue d'utiliser les outils qu'elle connaît",
       "Les informations se mettent à jour automatiquement dans les deux systèmes",
       "Possibilité d'adapter la connexion à votre système sur mesure",
     ],
     useCases: [
-      "Création automatique d'une opportunité dans votre CRM depuis une conversation Docaya",
+      "Création automatique d'une opportunité dans votre CRM depuis une conversation Place Fuse",
       "Notification client déclenchée par un changement de statut dans votre ERP",
       "Synchronisation automatique de votre catalogue produit",
     ],
@@ -243,7 +243,7 @@ export const capacities: Capacity[] = [
     shortDescription:
       "Suivez en temps réel ce qui se passe dans vos conversations et vos résultats.",
     description:
-      "Docaya vous donne une vue en temps réel sur l'activité : combien de demandes reçues, combien traitées, en combien de temps, avec quel résultat. Vous mesurez la satisfaction de vos clients, le taux de recouvrement et la performance de chaque campagne.",
+      "Place Fuse vous donne une vue en temps réel sur l'activité : combien de demandes reçues, combien traitées, en combien de temps, avec quel résultat. Vous mesurez la satisfaction de vos clients, le taux de recouvrement et la performance de chaque campagne.",
     benefits: [
       "Toutes vos métriques au même endroit : demandes reçues et messages envoyés",
       "Alertes automatiques si un délai de traitement est dépassé",

@@ -72,10 +72,13 @@ export default function AnalytiquePage() {
           </Link>
           <SectionTag className="mb-4 bg-white/10 text-white">Analytique & pilotage</SectionTag>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 max-w-3xl">
-            Pilotez la performance en temps réel
+            Vous savez toujours où vous en êtes
           </h1>
           <p className="text-white/75 text-lg max-w-2xl">
-            Dashboards unifiés pour l&apos;inbound (service client, ticketing) et l&apos;outbound (campagnes, recouvrement, NPS). Une seule source de vérité pour toute votre relation client conversationnelle.
+            Combien de demandes reçues aujourd&apos;hui, et combien traitées sans
+            intervention humaine ? Combien encaissé cette semaine, combien reste dû ?
+            Combien de dossiers bloqués, et à quelle étape ? Vos réponses sont sur un
+            seul écran, en temps réel.
           </p>
         </div>
       </section>

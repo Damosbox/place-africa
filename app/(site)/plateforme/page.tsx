@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Inbox, Send, Layers, Plug, BarChart3 } from "lucide-react";
+import {
+  ArrowRight,
+  Inbox,
+  Send,
+  Layers,
+  Plug,
+  BarChart3,
+  Workflow,
+  ScanFace,
+  ShieldCheck,
+} from "lucide-react";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { Button } from "@/components/ui/Button";
 import { capacities } from "@/lib/content/capacities";
@@ -10,30 +20,48 @@ import { getIcon, colorVariants } from "@/lib/utils/icons";
 export const metadata: Metadata = {
   title: "Plateforme",
   description:
-    "DOCAYA gère tout ce que vos clients vous envoient et tout ce que vous leur envoyez — sur WhatsApp, SMS, e-mail et voix. Un seul outil pour votre service client et votre communication sortante.",
+    "Place Fuse prend en charge ce que vos clients vous envoient, ce que vous leur envoyez — et les procédures qui se déclenchent entre les deux.",
 };
 
 const inbound = capacities.filter((c) => c.flow === "inbound" || c.flow === "both");
 const outbound = capacities.filter((c) => c.flow === "outbound" || c.flow === "both");
 
+/** §2.3 — sous-pages nommées par ce qu'elles apportent, pas par leur volume. */
 const plateformeHighlights = [
   {
     href: "/plateforme/capacites",
     icon: <Layers size={22} />,
-    title: "11 fonctionnalités intégrées",
-    description: "Messagerie, assistant IA, scénarios automatisés, suivi des demandes, paiement, tableaux de bord…",
+    title: "Tout ce dont vous avez besoin, dans un seul outil",
+    description:
+      "Messagerie, assistant IA, scénarios automatisés, suivi des demandes, paiement, tableaux de bord.",
   },
   {
     href: "/plateforme/integrations",
     icon: <Plug size={22} />,
-    title: "18+ connexions disponibles",
-    description: "Connectez Docaya à votre CRM, ERP, opérateurs mobile money et WhatsApp Business.",
+    title: "Ça se branche sur ce que vous utilisez déjà",
+    description:
+      "Votre CRM, votre ERP, votre comptabilité, les opérateurs mobile money et WhatsApp Business.",
   },
   {
     href: "/plateforme/analytique-pilotage",
     icon: <BarChart3 size={22} />,
-    title: "Tableaux de bord & pilotage",
-    description: "Suivez vos résultats en temps réel : satisfaction client, recouvrement, campagnes.",
+    title: "Vous voyez ce qui marche, en temps réel",
+    description:
+      "Demandes traitées, montants encaissés, dossiers bloqués — sur un seul écran.",
+  },
+  {
+    href: "/plateforme/conformite",
+    icon: <ScanFace size={22} />,
+    title: "Vérification d'identité et conformité",
+    description:
+      "Le contrôle se fait dans la conversation, et la preuve reste attachée au dossier.",
+  },
+  {
+    href: "/plateforme/securite",
+    icon: <ShieldCheck size={22} />,
+    title: "Sécurité et protection des données",
+    description:
+      "Hébergement, traçabilité, continuité réseau, consentement : vos données restent les vôtres.",
   },
 ];
 
@@ -45,28 +73,26 @@ export default function PlateformePage() {
         <div className="container-site">
           <SectionTag className="mb-4 bg-white/10 text-white">Plateforme</SectionTag>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
-            La plateforme de guichet digital conversationnel et de marketing relationnel
+            Une plateforme, pas un outil de plus
           </h1>
           <p className="text-white/75 text-xl max-w-3xl">
-            Docaya gère les demandes que vos clients vous envoient et les messages que vous leur adressez — sur WhatsApp, SMS, e-mail et voix. Un seul outil pour les deux.
+            Place Fuse prend en charge ce que vos clients vous envoient, ce que vous leur
+            envoyez — et les procédures qui se déclenchent entre les deux.
           </p>
         </div>
       </section>
 
-      {/* Inbound / Outbound split */}
+      {/* §2.2 — les trois niveaux */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container-site">
           <div className="text-center mb-10">
-            <SectionTag className="mb-4">Côté client & côté entreprise</SectionTag>
+            <SectionTag className="mb-4">Les trois niveaux</SectionTag>
             <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-              Ce que vous recevez et ce que vous envoyez — au même endroit
+              Ce qui entre, ce qui sort, et ce qui se passe entre les deux
             </h2>
-            <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
-              Les demandes de vos clients (questions, réclamations, souscriptions) et vos messages sortants (notifications, relances, campagnes) — gérés depuis une seule plateforme.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* Inbound */}
             <div className="rounded-2xl bg-blue-50/40 border border-blue-100 p-7">
               <div className="flex items-center gap-3 mb-5">
@@ -75,13 +101,15 @@ export default function PlateformePage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-blue-700 mb-0.5">
-                    Côté client (inbound)
+                    Niveau 1
                   </p>
-                  <h3 className="text-xl font-bold text-neutral-900">Ce que vos clients vous envoient</h3>
+                  <h3 className="text-xl font-bold text-neutral-900">Ce que vos clients vous demandent</h3>
                 </div>
               </div>
               <p className="text-neutral-600 leading-relaxed mb-5 text-sm">
-                Questions, réclamations, souscriptions, demandes de documents — vos agents reçoivent tout au même endroit avec le contexte complet pour répondre rapidement.
+                Questions, réclamations, souscriptions, documents à fournir. L&apos;assistant
+                traite ce qui peut l&apos;être et transmet le reste au bon agent, dossier
+                complet en main.
               </p>
               <ul className="space-y-2 mb-6">
                 {inbound.slice(0, 5).map((c) => (
@@ -107,13 +135,15 @@ export default function PlateformePage() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-orange-700 mb-0.5">
-                    Côté entreprise (outbound)
+                    Niveau 2
                   </p>
                   <h3 className="text-xl font-bold text-neutral-900">Ce que vous envoyez à vos clients</h3>
                 </div>
               </div>
               <p className="text-neutral-600 leading-relaxed mb-5 text-sm">
-                Notifications après un paiement, rappels de rendez-vous, relances d'impayés, campagnes promotionnelles — tout part au bon moment, vers les bons clients.
+                Confirmations, rappels d&apos;échéance, relances, alertes, campagnes. Chaque
+                message part au bon moment, avec l&apos;action possible dedans : payer,
+                confirmer, joindre un document.
               </p>
               <ul className="space-y-2 mb-6">
                 {outbound.slice(0, 5).map((c) => (
@@ -130,6 +160,38 @@ export default function PlateformePage() {
                 Voir toutes les fonctionnalités <ArrowRight size={14} />
               </Link>
             </div>
+          </div>
+
+          {/* Niveau 3 — c'est là que se joue l'essentiel */}
+          <div className="rounded-2xl bg-neutral-900 p-8 sm:p-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-brand-accent/15 text-brand-accent flex items-center justify-center">
+                <Workflow size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-0.5">
+                  Niveau 3
+                </p>
+                <h3 className="text-xl font-bold text-white">
+                  Ce qui se passe entre les deux — vos processus métier
+                </h3>
+              </div>
+            </div>
+            <p className="text-white/70 leading-relaxed max-w-3xl mb-6">
+              <span className="text-white font-semibold">
+                C&apos;est là que se joue l&apos;essentiel.
+              </span>{" "}
+              Un paiement reçu déclenche la génération d&apos;un document. Un dossier
+              complet part en validation. Une pièce manquante déclenche une relance. Un
+              cas urgent remonte à un superviseur. Ces enchaînements se configurent une
+              fois et tournent seuls.
+            </p>
+            <Link
+              href="/solutions/encaissement-recouvrement"
+              className="inline-flex items-center gap-2 text-brand-accent font-semibold text-sm hover:gap-3 transition-all"
+            >
+              Voir un enchaînement complet <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
@@ -205,7 +267,7 @@ export default function PlateformePage() {
       <section className="py-14 bg-neutral-50 border-t border-neutral-100">
         <div className="container-site text-center">
           <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-            Prêt à déployer DOCAYA ?
+            Prêt à déployer Place Fuse ?
           </h2>
           <p className="text-neutral-600 mb-8 text-lg">
             Demandez une démo personnalisée adaptée à votre secteur.

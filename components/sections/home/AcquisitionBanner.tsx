@@ -96,7 +96,7 @@ export function AcquisitionBanner() {
               Premier produit · Place Africa
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6 max-w-3xl">
-              DOCAYA transforme WhatsApp en infrastructure métier.
+              Place Fuse transforme WhatsApp en infrastructure métier.
             </h2>
             <div className="flex flex-col gap-4 text-white/70 text-lg leading-relaxed max-w-3xl mb-14">
               <p>
@@ -105,7 +105,7 @@ export function AcquisitionBanner() {
                 ne le sont pas encore.
               </p>
               <p>
-                DOCAYA change ça. Une plateforme conversationnelle B2B qui
+                Place Fuse change ça. Une plateforme conversationnelle B2B qui
                 intègre l&apos;intelligence artificielle, les paiements mobiles
                 et l&apos;automatisation de vos workflows directement dans
                 WhatsApp. Sans développement lourd. Sans formation complexe.
@@ -164,7 +164,7 @@ export function AcquisitionBanner() {
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <Link href="/plateforme">
                 <button className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-white text-black font-bold text-base hover:bg-neutral-100 transition-all shadow-cta">
-                  Découvrir DOCAYA
+                  Découvrir Place Fuse
                   <ArrowRight size={18} />
                 </button>
               </Link>

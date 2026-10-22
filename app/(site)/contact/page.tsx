@@ -2,12 +2,22 @@ import type { Metadata } from "next";
 import { SectionTag } from "@/components/ui/SectionTag";
 import { ContactForm } from "@/components/sections/contact/ContactForm";
 import { ContactChannels } from "@/components/sections/contact/ContactChannels";
+import { getFuseSectors, getLegacySectors } from "@/lib/content/sectors";
+import { journeys } from "@/lib/content/journeys";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez Docaya pour une démo personnalisée. Formulaire, WhatsApp ou email — réponse sous 24h.",
+    "Contactez Place Fuse : démonstration accompagnée, pilote de 90 jours ou proposition tarifaire. Formulaire, WhatsApp ou email.",
+  alternates: { canonical: "/contact" },
 };
+
+// Options légères transmises au formulaire (client) : pas d'étapes, pas de textes longs.
+const sectorOptions = [...getFuseSectors(), ...getLegacySectors()].map(({ slug, title }) => ({
+  slug,
+  title,
+}));
+const journeyOptions = journeys.map(({ id, sector, title }) => ({ id, sector, title }));
 
 export default function ContactPage() {
   return (
@@ -19,11 +29,11 @@ export default function ContactPage() {
             Contactez-nous
           </SectionTag>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Parlons de votre projet
+            Dites-nous quel processus vous coûte le plus cher
           </h1>
           <p className="text-white/75 text-xl max-w-2xl mx-auto">
-            Notre équipe vous contacte sous 24h pour organiser une démonstration
-            personnalisée adaptée à votre secteur.
+            Notre équipe vous répond sous 24h et prépare une démonstration sur votre
+            cas précis.
           </p>
         </div>
       </section>
@@ -37,13 +47,14 @@ export default function ContactPage() {
               <div className="bg-white rounded-2xl border border-neutral-200 shadow-card p-8">
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold text-neutral-900 mb-2">
-                    Demander une démo
+                    Votre demande
                   </h2>
                   <p className="text-neutral-600">
-                    Remplissez le formulaire et nous vous rappelons rapidement.
+                    Remplir ce formulaire ne vous engage à rien. Vous décidez après
+                    la démonstration.
                   </p>
                 </div>
-                <ContactForm />
+                <ContactForm sectorOptions={sectorOptions} journeyOptions={journeyOptions} />
               </div>
             </div>
 

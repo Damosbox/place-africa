@@ -6,13 +6,13 @@ import { SectionTag } from "@/components/ui/SectionTag";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Les questions les plus fréquentes sur DOCAYA : canaux supportés, tarification, intégrations, paiement mobile, mise en place.",
+    "Les questions les plus fréquentes sur Place Fuse : canaux supportés, tarification, intégrations, paiement mobile, mise en place.",
 };
 
 const faqs = [
   {
-    q: "Qu'est-ce que DOCAYA ?",
-    a: "DOCAYA est une plateforme de guichet digital conversationnel et de marketing relationnel. Elle unifie sur une même couche l'inbound (service client entrant via WhatsApp, SMS, e-mail, webchat, Messenger, Instagram DM, voix, in-app) et l'outbound (notifications transactionnelles, campagnes segmentées, recouvrement automatisé).",
+    q: "Qu'est-ce que Place Fuse ?",
+    a: "Place Fuse (anciennement Docaya) est une plateforme de guichet digital conversationnel et de marketing relationnel. Elle unifie sur une même couche l'inbound (service client entrant via WhatsApp, SMS, e-mail, webchat, Messenger, Instagram DM, voix, in-app) et l'outbound (notifications transactionnelles, campagnes segmentées, recouvrement automatisé).",
   },
   {
     q: "Quels canaux sont supportés ?",
@@ -35,20 +35,20 @@ const faqs = [
     a: "L'inbound (guichet conversationnel) couvre tout ce qui entre : questions clients, demandes, incidents, souscriptions initiées par le client. L'outbound (marketing relationnel) couvre tout ce qui sort : notifications transactionnelles, relances de paiement, campagnes segmentées, enquêtes NPS.",
   },
   {
-    q: "DOCAYA est-il un simple chatbot ?",
-    a: "Non. DOCAYA inclut des chatbots et agents IA, mais c'est avant tout une plateforme d'orchestration qui combine messagerie multicanale, workflows conversationnels, ticketing, paiements, campagnes sortantes, analytics et API. Le chatbot n'est qu'une capacité parmi 11.",
+    q: "Place Fuse est-il un simple chatbot ?",
+    a: "Non. Place Fuse inclut des chatbots et agents IA, mais c'est avant tout une plateforme d'orchestration qui combine messagerie multicanale, workflows conversationnels, ticketing, paiements, campagnes sortantes, analytics et API. Le chatbot n'est qu'une capacité parmi 11.",
   },
   {
     q: "Comment est calculé le prix ?",
-    a: "Le prix dépend du volume de conversations, des canaux activés et des intégrations nécessaires. Rendez-vous sur notre page tarifs pour une estimation, ou contactez-nous pour un devis personnalisé.",
+    a: "Le prix dépend du volume de conversations, des modules activés et des intégrations nécessaires. Contactez-nous en décrivant votre cas : nous établissons un devis sur mesure.",
   },
   {
-    q: "Quels secteurs utilisent DOCAYA ?",
-    a: "Banques & fintech, assurances, télécom, utilities, retail & distribution, logistique & transport, éducation, immobilier, service public. Le principe DOCAYA : la technologie est commune — seule la configuration change selon le secteur.",
+    q: "Pour quels secteurs Place Fuse est-il conçu ?",
+    a: "Les parcours sont détaillés pour 11 secteurs : banques, microfinance, assurance, protection sociale, eau et électricité, collectivités, transport urbain, services postaux, documents de transport, écoles et universités, agences immobilières. Le principe : la technologie est commune — seule la configuration change selon le secteur.",
   },
   {
     q: "Les données clients sont-elles sécurisées ?",
-    a: "Oui. DOCAYA applique les standards de sécurité du secteur (chiffrement en transit et au repos, contrôle d'accès granulaire, journalisation). Les données peuvent être hébergées en Afrique selon votre besoin de souveraineté.",
+    a: "Oui. Place Fuse applique les standards de sécurité du secteur (chiffrement en transit et au repos, contrôle d'accès granulaire, journalisation). Les données peuvent être hébergées en Afrique selon votre besoin de souveraineté.",
   },
 ];
 
@@ -81,7 +81,7 @@ export default function FaqPage() {
           </Link>
           <SectionTag className="mb-4 bg-white/10 text-white">FAQ</SectionTag>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 max-w-3xl">
-            Questions fréquentes sur DOCAYA
+            Questions fréquentes sur Place Fuse
           </h1>
           <p className="text-white/75 text-lg max-w-2xl">
             Tout ce qu&apos;il faut savoir avant de se lancer.

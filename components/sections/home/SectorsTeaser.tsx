@@ -11,6 +11,9 @@ import {
   Plane,
   Zap,
   ShoppingCart,
+  HeartHandshake,
+  Bus,
+  Package,
   ArrowRight,
 } from "lucide-react";
 import { SectionTag } from "@/components/ui/SectionTag";
@@ -25,6 +28,9 @@ const iconMap: Record<string, React.ReactNode> = {
   Plane: <Plane size={28} />,
   Zap: <Zap size={28} />,
   ShoppingCart: <ShoppingCart size={28} />,
+  HeartHandshake: <HeartHandshake size={28} />,
+  Bus: <Bus size={28} />,
+  Package: <Package size={28} />,
 };
 
 export function SectorsTeaser() {

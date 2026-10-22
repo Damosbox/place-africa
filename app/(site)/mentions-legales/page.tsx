@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Mentions légales",
   description:
-    "Mentions légales du site place.africa, édité par Place Côte d'Ivoire, éditeur du produit Docaya.",
+    "Mentions légales du site place.africa, édité par Place Côte d'Ivoire, éditeur du produit Place Fuse (anciennement Docaya).",
 };
 
 export default function MentionsLegalesPage() {
@@ -64,7 +64,7 @@ export default function MentionsLegalesPage() {
               <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">vercel.com</a>.
             </p>
             <p className="mt-2">
-              L&apos;accès applicatif au produit Docaya est disponible à l&apos;adresse{" "}
+              L&apos;accès applicatif au produit Place Fuse (anciennement Docaya) est disponible à l&apos;adresse{" "}
               <a href="https://app.docaya.com" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">
                 app.docaya.com
               </a>. L&apos;hébergement de l&apos;application, de la base de données et des composants techniques
@@ -83,7 +83,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-xl font-bold text-neutral-900 mb-3">4. Objet du site</h2>
             <p>
               Le site place.africa a pour objet de présenter les activités, produits, services et offres de
-              Place Côte d&apos;Ivoire, notamment le produit Docaya, et de permettre la prise de contact, la
+              Place Côte d&apos;Ivoire, notamment le produit Place Fuse, et de permettre la prise de contact, la
               demande de démonstration ou, le cas échéant, l&apos;accès à certains espaces applicatifs.
             </p>
           </section>
@@ -143,7 +143,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-xl font-bold text-neutral-900 mb-3">9. Données personnelles et traceurs</h2>
             <p>
               Les traitements de données à caractère personnel mis en œuvre via le site et, le cas échéant,
-              via les formulaires ou l&apos;accès applicatif lié à Docaya, sont décrits dans la{" "}
+              via les formulaires ou l&apos;accès applicatif lié à Place Fuse, sont décrits dans la{" "}
               <Link href="/politique-confidentialite" className="text-brand-accent hover:underline">
                 Politique de confidentialité
               </Link>. Les règles applicables aux cookies et autres traceurs sont décrites dans la{" "}

@@ -19,7 +19,7 @@ const PAIN_POINTS = [
   {
     icon: Clock,
     title: "Des heures perdues sur des tâches répétitives",
-    desc: "Vos équipes passent un temps précieux à répondre aux mêmes questions et à saisir des informations que Docaya traite en quelques secondes.",
+    desc: "Vos équipes passent un temps précieux à répondre aux mêmes questions et à saisir des informations que Place Fuse traite en quelques secondes.",
   },
 ];
 
@@ -72,7 +72,7 @@ export function PainPointsSection() {
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-2xl border border-white/10 bg-white/5 px-6 py-5"
         >
           <p className="text-white/70 text-sm leading-relaxed max-w-xl">
-            <span className="text-white font-semibold">Docaya</span> connecte votre métier à WhatsApp
+            <span className="text-white font-semibold">Place Fuse</span> connecte votre métier à WhatsApp
             et automatise le reste — acquisition, vente, recouvrement, service client.{" "}
             <span className="text-white/40">Sans développement. En 4 à 8 semaines.</span>
           </p>

@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Intégrations",
   description:
-    "Connectez DOCAYA à votre stack existante : CRM, ERP, paiement mobile, WhatsApp Business API, Meta, IA. Catalogue complet des intégrations natives.",
+    "Connectez Place Fuse à votre stack existante : CRM, ERP, paiement mobile, WhatsApp Business API, Meta, IA. Catalogue complet des intégrations natives.",
 };
 
 export default function IntegrationsPage() {
@@ -29,10 +29,13 @@ export default function IntegrationsPage() {
           </Link>
           <SectionTag className="mb-4 bg-white/10 text-white">Intégrations</SectionTag>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 max-w-3xl">
-            Connectez DOCAYA à votre stack existante
+            Ça se branche sur ce que vous utilisez déjà
           </h1>
           <p className="text-white/75 text-lg max-w-2xl">
-            CRM, ERP, paiement mobile, WhatsApp Business API, Meta, IA : {integrations.length} intégrations natives, plus une architecture API-first pour tout le reste.
+            Vous n&apos;avez pas besoin de changer de logiciel de gestion, de
+            comptabilité ou de banque pour utiliser Place Fuse. Il se branche sur ce que
+            vous avez déjà — {integrations.length} connexions natives, et une
+            architecture ouverte pour tout le reste.
           </p>
         </div>
       </section>
@@ -71,7 +74,7 @@ export default function IntegrationsPage() {
             Un outil métier non listé ?
           </h2>
           <p className="text-neutral-600 mb-6">
-            L&apos;architecture API-first de DOCAYA permet de connecter n&apos;importe quel système via REST ou webhook. Échangez avec notre équipe pour étudier votre besoin.
+            L&apos;architecture API-first de Place Fuse permet de connecter n&apos;importe quel système via REST ou webhook. Échangez avec notre équipe pour étudier votre besoin.
           </p>
           <Link href="/contact">
             <Button variant="primary" size="lg">

@@ -19,7 +19,7 @@ export const solutions: Solution[] = [
       "Escalade vers un opérateur humain si nécessaire (avec transfert du contexte)",
     ],
     mechanism:
-      "Chatbot à arbre de décision configurable + couche Agent IA optionnelle (Q&A). Chaque conversation crée automatiquement un ticket dans le dashboard Docaya avec statut, tags et historique.",
+      "Chatbot à arbre de décision configurable + couche Agent IA optionnelle (Q&A). Chaque conversation crée automatiquement un ticket dans le dashboard Place Fuse avec statut, tags et historique.",
     examples:
       "Assurances (FAQ produits, prise de RDV), Immobilier (infos locataires), Hôtellerie (disponibilités, réservation), Éducation (orientation étudiants/parents), Transport aérien (infos bagages, horaires), Utilities (signalement, RDV), Banques (infos produits).",
     sectors: [
@@ -50,7 +50,7 @@ export const solutions: Solution[] = [
       "Application automatique de pénalités de retard (configurable)",
     ],
     mechanism:
-      "Le moteur de notifications de Docaya déclenche les relances selon des règles configurées (date d'échéance, montant dû, statut de paiement). Le lien de paiement est généré automatiquement et intégré au message. Le statut de paiement se met à jour en temps réel sur le dashboard.",
+      "Le moteur de notifications de Place Fuse déclenche les relances selon des règles configurées (date d'échéance, montant dû, statut de paiement). Le lien de paiement est généré automatiquement et intégré au message. Le statut de paiement se met à jour en temps réel sur le dashboard.",
     examples:
       "Immobilier (loyers), Assurances (primes/cotisations), Éducation (frais de scolarité), Banques (crédits), Mutuelles (cotisations), Utilities (factures), Hôtellerie (acomptes/no-show).",
     sectors: [
@@ -104,7 +104,7 @@ export const solutions: Solution[] = [
       "Un tunnel de vente complet sur WhatsApp : le client découvre le produit, le sélectionne, reçoit un devis ou un prix, et paie — le tout dans une seule conversation. Applicable à la vente initiale, au renouvellement ou à l'upsell.",
     features: [
       "Présentation des produits/services disponibles dans la conversation",
-      "Tarificateur automatisé (configuré dans Docaya ou via API externe)",
+      "Tarificateur automatisé (configuré dans Place Fuse ou via API externe)",
       "Génération de devis automatisés",
       "Gestion des promotions",
       "Paiement intégré via lien WhatsApp (Wave, OM, MTN, Moov, CB)",
@@ -169,7 +169,7 @@ export const solutions: Solution[] = [
       "Calculs et reversements (commissions, soldes nets) avec génération de rapports",
     ],
     mechanism:
-      "Les workflows sont configurés comme des chaînes d'actions déclenchées par des événements (paiement reçu, document collecté, statut changé). Ils s'appuient sur l'architecture API-first de Docaya et peuvent interagir avec des systèmes externes (CRM, comptabilité, logiciels métiers).",
+      "Les workflows sont configurés comme des chaînes d'actions déclenchées par des événements (paiement reçu, document collecté, statut changé). Ils s'appuient sur l'architecture API-first de Place Fuse et peuvent interagir avec des systèmes externes (CRM, comptabilité, logiciels métiers).",
     examples:
       "Assurances (conditions particulières post-paiement), Immobilier (quittances + reversements propriétaires), Logistique (confirmation expédition), Éducation (attestation d'inscription post-paiement).",
     sectors: ["assurances", "immobilier", "education", "retail"],

@@ -20,7 +20,7 @@ export default function PolitiqueConfidentialitePage() {
           <p>
             La présente Politique de confidentialité décrit la manière dont Place Côte d&apos;Ivoire collecte
             et traite les données à caractère personnel dans le cadre du site place.africa, des formulaires
-            qui y sont proposés et, lorsque cela est pertinent, de l&apos;accès à l&apos;application Docaya à
+            qui y sont proposés et, lorsque cela est pertinent, de l&apos;accès à l&apos;application Place Fuse (anciennement Docaya) à
             l&apos;adresse app.docaya.com.
           </p>
 

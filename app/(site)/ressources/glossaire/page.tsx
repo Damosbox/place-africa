@@ -78,7 +78,7 @@ const terms: { term: string; definition: string }[] = [
   {
     term: "SLA (Service Level Agreement)",
     definition:
-      "Engagement contractuel sur un niveau de service : temps de première réponse, temps de résolution. Mesurable et reportable via les dashboards DOCAYA.",
+      "Engagement contractuel sur un niveau de service : temps de première réponse, temps de résolution. Mesurable et reportable via les tableaux de bord Place Fuse.",
   },
   {
     term: "Agent IA Q&A",

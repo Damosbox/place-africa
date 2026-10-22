@@ -25,10 +25,12 @@ const navItems: NavItem[] = [
   {
     label: "Plateforme",
     children: [
-      { label: "Vision plateforme", href: "/plateforme", description: "Inbound + Outbound réunis" },
-      { label: "Capacités", href: "/plateforme/capacites", description: "11 capacités natives" },
-      { label: "Intégrations", href: "/plateforme/integrations", description: "CRM, ERP, mobile money, Meta" },
-      { label: "Analytique & pilotage", href: "/plateforme/analytique-pilotage", description: "Dashboards temps réel" },
+      { label: "Vision plateforme", href: "/plateforme", description: "Ce qui entre, ce qui sort, et vos processus" },
+      { label: "Capacités", href: "/plateforme/capacites", description: "Tout dans un seul outil" },
+      { label: "Intégrations", href: "/plateforme/integrations", description: "Ça se branche sur ce que vous avez déjà" },
+      { label: "Analytique & pilotage", href: "/plateforme/analytique-pilotage", description: "Vous voyez ce qui marche, en temps réel" },
+      { label: "Vérification d'identité & conformité", href: "/plateforme/conformite", description: "Le contrôle dans la conversation" },
+      { label: "Sécurité & protection des données", href: "/plateforme/securite", description: "Vos données restent les vôtres" },
     ],
   },
   {
@@ -90,7 +92,7 @@ export function Header() {
               <div className="relative h-8 w-48">
                 <img
                   src="/images/logo-white.svg"
-                  alt="Place Africa"
+                  alt="Place Fuse — accueil"
                   className={cn(
                     "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
                     scrolled ? "opacity-0" : "opacity-100"
@@ -98,7 +100,7 @@ export function Header() {
                 />
                 <img
                   src="/images/logo-dark.svg"
-                  alt="Place Africa"
+                  alt="Place Fuse — accueil"
                   className={cn(
                     "absolute inset-0 h-full w-full object-contain object-left transition-opacity duration-300",
                     scrolled ? "opacity-100" : "opacity-0"
@@ -181,7 +183,7 @@ export function Header() {
                   scrolled ? "text-neutral-500 hover:text-neutral-900" : "text-white/50 hover:text-white"
                 )}
               >
-                App Docaya
+                Espace client
                 <ExternalLink size={12} />
               </a>
               <Link
@@ -195,7 +197,7 @@ export function Header() {
               >
                 Contact
               </Link>
-              <Link href="/contact">
+              <Link href="/contact?sujet=demo">
                 <Button
                   variant="primary"
                   size="sm"

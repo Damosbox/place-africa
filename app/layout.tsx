@@ -11,13 +11,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Place Africa — L'Afrique digitale pour tous",
-    template: "%s | Place Africa",
+    default: "Place Fuse — chaque conversation devient un service",
+    template: "%s | Place Fuse",
   },
   description:
-    "Place Africa structure les échanges entre entreprises et consommateurs en Afrique de l'Ouest — avec des outils digitaux à IA native, conçus pour fonctionner là où les solutions classiques s'arrêtent.",
+    "Place Fuse traite automatiquement tout ce qui peut l'être — et fait arriver le reste à la bonne personne, avec le dossier complet. Service client, vérification d'identité, encaissement et processus métier dans une conversation WhatsApp.",
   keywords: [
     "Place Africa",
+    "Place Fuse",
     "Docaya",
     "WhatsApp Business",
     "plateforme conversationnelle",
@@ -27,16 +28,16 @@ export const metadata: Metadata = {
     "Afrique de l'Ouest",
   ],
   openGraph: {
-    title: "Place Africa — L'Afrique digitale pour tous",
+    title: "Place Fuse — chaque conversation devient un service",
     description:
-      "Place Africa structure les échanges entre entreprises et consommateurs en Afrique de l'Ouest — avec des outils digitaux à IA native, conçus pour fonctionner là où les solutions classiques s'arrêtent.",
+      "Place Fuse traite automatiquement tout ce qui peut l'être — et fait arriver le reste à la bonne personne, avec le dossier complet. Service client, vérification d'identité, encaissement et processus métier dans une conversation WhatsApp.",
     type: "website",
     locale: "fr_FR",
-    siteName: "Place Africa",
+    siteName: "Place Fuse",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Place Africa — L'Afrique digitale pour tous",
+    title: "Place Fuse — chaque conversation devient un service",
   },
 };
 

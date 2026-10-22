@@ -19,6 +19,8 @@ const groups: { label: string; links: { label: string; href: string }[] }[] = [
       { label: "Capacités", href: "/plateforme/capacites" },
       { label: "Intégrations", href: "/plateforme/integrations" },
       { label: "Analytique & pilotage", href: "/plateforme/analytique-pilotage" },
+      { label: "Vérification d'identité & conformité", href: "/plateforme/conformite" },
+      { label: "Sécurité & protection des données", href: "/plateforme/securite" },
     ],
   },
   {
@@ -33,7 +35,7 @@ const groups: { label: string; links: { label: string; href: string }[] }[] = [
   },
   {
     label: "Secteurs",
-    links: [{ label: "Voir les 9 secteurs", href: "/secteurs" }],
+    links: [{ label: "Voir tous les secteurs", href: "/secteurs" }],
   },
   {
     label: "Ressources",
@@ -44,11 +46,11 @@ const groups: { label: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
-    label: "Place Africa",
+    // /tarifs retiré : grille en cours de validation (§6 du document de refonte).
+    label: "Entreprise",
     links: [
       { label: "À propos", href: "/a-propos" },
       { label: "Contact", href: "/contact" },
-      { label: "Tarifs", href: "/tarifs" },
     ],
   },
 ];
@@ -115,7 +117,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </nav>
 
         <div className="p-6 border-t border-neutral-200 flex flex-col gap-3">
-          <Link href="/contact" onClick={onClose} className="w-full">
+          <Link href="/contact?sujet=demo" onClick={onClose} className="w-full">
             <Button variant="primary" size="md" className="w-full">
               Demander une démo
             </Button>
@@ -132,7 +134,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="w-full"
           >
             <Button variant="ghost" size="md" className="w-full text-neutral-400">
-              App Docaya
+              Espace client
             </Button>
           </a>
         </div>

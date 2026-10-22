@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { contactTopics, type ContactTopic } from "@/lib/content/contact-topics";
 
 function escapeHtml(str: string): string {
   return str
@@ -11,18 +12,24 @@ function escapeHtml(str: string): string {
 }
 
 const contactSchema = z.object({
-  name: z.string().min(2),
-  company: z.string().min(1),
-  email: z.string().email(),
-  phone: z.string().optional(),
-  sector: z.string().min(1),
-  message: z.string().min(10),
+  topic: z
+    .enum(Object.keys(contactTopics) as [ContactTopic, ...ContactTopic[]])
+    .default("demo"),
+  name: z.string().min(2).max(120),
+  company: z.string().min(1).max(160),
+  email: z.string().email().max(200),
+  phone: z.string().max(40).optional(),
+  sector: z.string().min(1).max(80),
+  journey: z.string().max(160).optional(),
+  message: z.string().min(10).max(5000),
 });
 
 export async function POST(request: Request) {
   try {
     const body: unknown = await request.json();
     const data = contactSchema.parse(body);
+    const topic = contactTopics[data.topic];
+    const journey = data.journey || "—";
 
     // Log to console (fallback when no SMTP is configured)
     console.log("[Contact Form]", JSON.stringify(data, null, 2));
@@ -41,30 +48,32 @@ export async function POST(request: Request) {
       });
 
       await transporter.sendMail({
-        from: `"Docaya Site" <${process.env.SMTP_USER}>`,
+        from: `"Place Fuse — site" <${process.env.SMTP_USER}>`,
         to: process.env.CONTACT_EMAIL ?? "info@place.africa",
         replyTo: data.email,
-        subject: `[Docaya] Nouvelle demande de démo — ${data.company}`,
+        subject: `[Place Fuse] ${topic} — ${data.company}`,
         html: `
-          <h2>Nouvelle demande de démo</h2>
+          <h2>${escapeHtml(topic)}</h2>
           <table>
             <tr><td><strong>Nom</strong></td><td>${escapeHtml(data.name)}</td></tr>
             <tr><td><strong>Entreprise</strong></td><td>${escapeHtml(data.company)}</td></tr>
             <tr><td><strong>Email</strong></td><td>${escapeHtml(data.email)}</td></tr>
             <tr><td><strong>Téléphone</strong></td><td>${data.phone ? escapeHtml(data.phone) : "—"}</td></tr>
             <tr><td><strong>Secteur</strong></td><td>${escapeHtml(data.sector)}</td></tr>
+            <tr><td><strong>Parcours</strong></td><td>${escapeHtml(journey)}</td></tr>
           </table>
           <h3>Message</h3>
           <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
         `,
         text: `
-Nouvelle demande de démo
+${topic}
 
 Nom: ${data.name}
 Entreprise: ${data.company}
 Email: ${data.email}
 Téléphone: ${data.phone ?? "—"}
 Secteur: ${data.sector}
+Parcours: ${journey}
 
 Message:
 ${data.message}

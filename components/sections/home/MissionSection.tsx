@@ -4,24 +4,22 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Compass, Network, Sparkles } from "lucide-react";
 
+/** §1.8 — positionnement, conservé mais raccourci. */
 const windows = [
   {
     icon: Compass,
-    title: "Conçus pour un marché différent",
-    body: "La plupart des outils digitaux échouent en Afrique parce qu'ils ont été conçus pour des marchés stables. L'Afrique de l'Ouest n'est pas un marché instable — c'est un marché différent. Avec ses propres logiques, ses propres forces, ses propres opportunités.\n\nConnexion intermittente, commerce de proximité, confiance construite par la conversation plutôt que par le contrat écrit. On ne contourne pas ces réalités. On construit pour elles.",
-    anchor: "Nos produits fonctionnent là où les solutions classiques s'arrêtent.",
+    title: "On construit pour l'Afrique, pas pour l'adapter",
+    body: "La plupart des outils numériques viennent d'ailleurs et s'adaptent mal ici : connexion qui coupe, confiance qui se construit en parlant plutôt qu'en signant, commerce de proximité. Place Fuse est pensé pour ces réalités dès le départ.",
   },
   {
     icon: Network,
-    title: "Structurer ce qui reste invisible",
-    body: "En Afrique de l'Ouest, des millions de transactions se font chaque jour sans laisser de trace. Pas de donnée, pas de relation formalisée, pas de pont entre ce qu'une entreprise offre et ce qu'un consommateur cherche.\n\nCe vide n'est pas une fatalité — c'est une architecture à construire. Celle qui connecte les entreprises à leurs clients, les services à ceux qui en ont besoin, les opportunités à ceux qui peuvent les saisir.",
-    anchor: "Notre mission : construire cette architecture manquante.",
+    title: "On structure ce qui n'était nulle part",
+    body: "Des millions d'échanges se font chaque jour sans laisser de trace : pas de dossier, pas de suivi, pas de donnée. Chaque conversation Place Fuse devient un dossier tracé et exploitable.",
   },
   {
     icon: Sparkles,
-    title: "L'IA comme moteur, pas comme option",
-    body: "La plupart des solutions digitales ont numérisé des processus existants — des formulaires en ligne, des agences virtuelles, des procédures copiées du monde physique. On a fait le choix inverse.\n\nNos outils intègrent l'intelligence artificielle nativement. Pas pour suivre une tendance — parce que c'est la seule façon de rendre des services complexes réellement accessibles : en langage naturel, sans formation, sur les canaux que les Africains utilisent déjà.",
-    anchor: "L'IA n'est pas notre futur. C'est ce que nos produits font aujourd'hui.",
+    title: "L'IA fait tourner le produit, elle ne le décore pas",
+    body: "Nos outils n'ont pas numérisé des formulaires existants. L'intelligence artificielle est ce qui permet à quelqu'un de faire une démarche complexe en parlant normalement, sans formation.",
   },
 ];
 
@@ -53,7 +51,7 @@ export function MissionSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="grid grid-rows-[auto_auto_1fr_auto] h-full rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
+              className="grid grid-rows-[auto_auto_1fr] h-full rounded-2xl border border-neutral-200 bg-neutral-50 p-7 hover:border-neutral-300 hover:bg-white transition-all"
             >
               <div className="w-11 h-11 rounded-xl bg-neutral-900 flex items-center justify-center mb-5">
                 <w.icon size={20} className="text-white" />
@@ -61,16 +59,7 @@ export function MissionSection() {
               <h3 className="text-xl font-bold text-neutral-900 leading-snug mb-4">
                 {w.title}
               </h3>
-              <div className="flex flex-col gap-4 text-neutral-600 text-sm leading-relaxed">
-                {w.body.split("\n\n").map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
-              <div className="pt-4 mt-6 border-t border-neutral-200">
-                <p className="text-sm font-semibold text-brand-accent leading-snug">
-                  {w.anchor}
-                </p>
-              </div>
+              <p className="text-neutral-600 text-sm leading-relaxed">{w.body}</p>
             </motion.div>
           ))}
         </div>

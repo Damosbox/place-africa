@@ -8,7 +8,7 @@ import { getIcon, colorVariants } from "@/lib/utils/icons";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "4 familles de solutions DOCAYA orientées résultats : acquisition & conversion, service & décongestion, encaissement & recouvrement, engagement & fidélisation.",
+    "4 familles de solutions Place Fuse orientées résultats : acquisition & conversion, service & décongestion, encaissement & recouvrement, engagement & fidélisation.",
 };
 
 const flowLabel: Record<string, { label: string; className: string }> = {
@@ -24,10 +24,11 @@ export default function SolutionsHubPage() {
         <div className="container-site text-center">
           <SectionTag className="mb-4 bg-white/10 text-white">Solutions</SectionTag>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
-            4 façons d&apos;utiliser Docaya<br />selon votre priorité
+            Par quoi voulez-vous commencer&nbsp;?
           </h1>
           <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            Choisissez ce qui compte le plus pour votre activité : vendre plus, mieux servir vos clients, encaisser plus vite ou fidéliser sur le long terme.
+            Vous n&apos;avez pas besoin de tout automatiser d&apos;un coup. Choisissez le
+            processus qui vous coûte le plus cher aujourd&apos;hui — le reste suivra.
           </p>
         </div>
       </section>
@@ -89,7 +90,7 @@ export default function SolutionsHubPage() {
             Vous cherchez par secteur ?
           </h2>
           <p className="text-neutral-600 mb-6 max-w-xl mx-auto">
-            9 secteurs sont déjà outillés par DOCAYA : banques, assurances, éducation, hôtellerie, retail, utilities, transport aérien, immobilier et service public.
+            35 parcours sont détaillés pour 11 secteurs : banques, microfinance, assurance, protection sociale, eau et électricité, collectivités, transport urbain, services postaux, documents de transport, écoles et universités, agences immobilières.
           </p>
           <Link
             href="/secteurs"

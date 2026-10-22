@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { EMAIL, PHONE_NUMBER, PHONE_DISPLAY, APP_URL } from "@/lib/content/contact";
 
 const footerLinks = {
-  Produit: [
-    { label: "Docaya — Plateforme conversationnelle", href: "/plateforme" },
-  ],
-  Docaya: [
+  // /tarifs est volontairement absent : la grille est en cours de validation.
+  // À remettre ici une fois les montants arrêtés (§6 du document de refonte).
+  "Place Fuse": [
     { label: "Plateforme", href: "/plateforme" },
     { label: "Solutions", href: "/solutions" },
     { label: "Secteurs", href: "/secteurs" },
-    { label: "Tarifs", href: "/tarifs" },
-    { label: "App Docaya", href: "https://app.docaya.com", external: true },
+    { label: "Conformité", href: "/plateforme/conformite" },
+    { label: "Sécurité & données", href: "/plateforme/securite" },
+    { label: "Espace client", href: APP_URL, external: true },
   ],
   Entreprise: [
     { label: "À propos", href: "/a-propos" },
@@ -27,7 +28,7 @@ export function Footer() {
   return (
     <footer className="bg-neutral-900 text-white">
       <div className="container-site py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
@@ -36,26 +37,26 @@ export function Footer() {
                   <path d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z" fill="white" />
                 </svg>
               </div>
-              <span className="font-bold text-xl">Place Africa</span>
+              <span className="font-bold text-xl">Place Fuse</span>
             </Link>
             <p className="text-neutral-400 text-sm leading-relaxed mb-6">
-              Structurer les échanges entre entreprises et consommateurs en
-              Afrique de l&apos;Ouest.
+              La plateforme qui transforme chaque conversation en service.
+              Une solution PLACE Côte d&apos;Ivoire.
             </p>
             <div className="flex flex-col gap-3 text-sm text-neutral-400">
               <a
-                href="mailto:info@place.africa"
+                href={`mailto:${EMAIL}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Mail size={14} />
-                info@place.africa
+                {EMAIL}
               </a>
               <a
-                href="tel:+2250585750017"
+                href={`tel:${PHONE_NUMBER}`}
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Phone size={14} />
-                +225 05 85 75 00 17
+                {PHONE_DISPLAY}
               </a>
               <span className="flex items-center gap-2">
                 <MapPin size={14} />
@@ -98,14 +99,10 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-neutral-500">
-            © {new Date().getFullYear()} Place Africa. Tous droits réservés.
+            © {new Date().getFullYear()} Place Côte d&apos;Ivoire. Tous droits réservés.
           </p>
           <p className="text-sm text-neutral-500">
-            Propulsé par{" "}
-            <Link href="/plateforme" className="hover:text-neutral-300 transition-colors">
-              Docaya
-            </Link>{" "}
-            — Côte d&apos;Ivoire &amp; Afrique de l&apos;Ouest
+            Place Fuse · une solution PLACE Côte d&apos;Ivoire
           </p>
         </div>
       </div>

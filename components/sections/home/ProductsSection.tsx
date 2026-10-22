@@ -116,7 +116,7 @@ export function ProductsSection() {
               href="/plateforme"
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-accent hover:gap-3 transition-all mt-4 px-4"
             >
-              Découvrir Docaya
+              Découvrir Place Fuse
               <ArrowRight size={14} />
             </Link>
           </div>

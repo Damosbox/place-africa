@@ -1,27 +1,45 @@
-import { Mail, Phone, Globe } from "lucide-react";
+import { Mail, Phone, Globe, MessageCircle } from "lucide-react";
+import {
+  APP_URL,
+  EMAIL,
+  PHONE_DISPLAY,
+  PHONE_NUMBER,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_FALLBACK_MESSAGE,
+  waLink,
+} from "@/lib/content/contact";
 
 const channels = [
   {
-    icon: <Phone size={20} />,
-    label: "Téléphone / WhatsApp",
-    value: "+225 05 85 75 00 17",
-    href: "tel:+2250585750017",
+    icon: <MessageCircle size={20} />,
+    // Ligne reliée au chatbot — distincte du téléphone de la société.
+    label: "WhatsApp — réponse immédiate",
+    value: WHATSAPP_DISPLAY,
+    href: waLink(WHATSAPP_FALLBACK_MESSAGE),
     color: "text-whatsapp",
     bg: "bg-[#25D366]/10",
   },
   {
+    icon: <Phone size={20} />,
+    label: "Téléphone",
+    value: PHONE_DISPLAY,
+    href: `tel:${PHONE_NUMBER}`,
+    color: "text-neutral-700",
+    bg: "bg-neutral-100",
+  },
+  {
     icon: <Mail size={20} />,
     label: "Email",
-    value: "info@place.africa",
-    href: "mailto:info@place.africa",
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
     color: "text-brand",
     bg: "bg-brand-subtle",
   },
   {
     icon: <Globe size={20} />,
-    label: "App Docaya",
-    value: "app.docaya.com",
-    href: "https://app.docaya.com",
+    label: "Espace client",
+    value: APP_URL.replace("https://", ""),
+    href: APP_URL,
     color: "text-neutral-700",
     bg: "bg-neutral-100",
   },
